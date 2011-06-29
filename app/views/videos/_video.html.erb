@@ -1,0 +1,25 @@
+<div class="box video" id="video-<%= video.id %>">
+
+  <%= like(video) unless @home %>
+
+  <%= link_to image_tag("default-thumb.png", :alt=>"#{video.name} lesson thumb"), video_path(video) %>
+
+  <ul class="meta">
+    <li><%= link_to video.channel.t_name, channel_path(video.channel)%></li>
+    <li><%= link_to video.user.name, user_path(video.user) %></li>
+  </ul>
+
+  <h2><%= link_to video.t_name, video_path(video) %></h2>
+
+  <%= meta(video) %>
+
+  <p>
+    <%= link_to t("videos.button.learn"), video_path(video), :class=>"button learn" %>
+    <% if video.is_paid %>
+        <%= paid(video) %>
+    <% else %>
+        <%= free_video %>
+    <% end %>
+  </p>
+
+</div>

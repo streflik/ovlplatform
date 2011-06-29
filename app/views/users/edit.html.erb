@@ -1,0 +1,37 @@
+<% title t("users.profile.name") %>
+
+<h1><%= t("users.profile.name") %></h1>
+
+<%= simple_form_for(@user, :html=>{:multipart=>true}) do |f| %>
+
+    <div class="inputs">
+      <h2><%= t("users.profile.basics") %></h2>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+    </div>
+
+    <% if is_teacher?(@user) %>
+        <div class="inputs">
+          <h2><%= t("users.profile.teacher") %></h2>
+          <%= f.input :description %>
+           <%= f.input :description_pl %>
+        </div>
+    <% end %>
+
+    <% if is_admin? %>
+        <div class="inputs">
+          <h2>Admin</h2>
+          <%= f.input :is_admin %>
+          <%= f.input :is_teacher %>
+          <%= f.input :is_subscriber %>
+          <%= f.input :credits_total %>
+          <%= f.input :credits_available %>
+        </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.button :submit %>
+    </div>
+
+<% end %>

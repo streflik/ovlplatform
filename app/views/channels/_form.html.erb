@@ -1,0 +1,21 @@
+<%= simple_form_for(@channel) do |f| %>
+
+    <%= f.error_notification %>
+
+    <div class="inputs">
+      <h2>En</h2>
+      <%= f.input :name %>
+      <%= f.input :description %>
+    </div>
+
+    <div class="inputs">
+      <h2>Pl</h2>
+      <%= f.input :name_pl %>
+      <%= f.input :description_pl %>
+    </div>
+
+    <div class="actions">
+      <%= f.button :submit %>
+    </div>
+
+<% end %>

@@ -1,14 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ovlplatform</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+
+  <!-- title -->
+
+  <% if @home %>
+      <title><%= t('site.title') %></title>
+  <% else %>
+      <title><%= yield :title %> - OVL</title>
+  <% end %>
+
+  <!-- css -->
+
+  <%= stylesheet_link_tag "reset", "grid", "design" %>
+
+  <!-- js -->
+
+  <script src="http://connect.facebook.net/en_US/all.js#appId=213365585368019&amp;xfbml=1"></script>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" %>
+  <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" %>
+  <%= javascript_include_tag "rails.js" %>
+
+  <!-- meta -->
+
+  <% if @home %>
+      <meta name="description" content="<%= t("site.description") %>">
+  <% end %>
+
   <%= csrf_meta_tag %>
+
+  <!-- adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- custom styles, js and others for pages  -->
+
+  <%= yield :head %>
+
 </head>
 <body>
 
-<%= yield %>
+<%- flash.each do |name, msg| -%>
+    <%= content_tag :div, content_tag(:p, msg), :class => "wider flash", :id => "#{name}" %>
+<%- end -%>
 
+<% if user_signed_in? %>
+    <div class="wider top">
+      <%= user_menu(current_user) %>
+    </div>
+<% end %>
+
+<div class="wider header">
+  <div>
+    <%= link_to image_tag("ovl-logo.png"), root_url, :class=>"Open Video Learning OVL logo" %>
+    <ul class="left">
+      <li><%= link_to_with_highlight "#{t("videos.model_name")}", videos_path %></li>
+      <li><%= link_to_with_highlight "#{t("channels.model_name")}", channels_path %></li>
+      <li><%= link_to_with_highlight "#{t("teachers.model_name")}", users_path %></li>
+    </ul>
+
+    <form>
+      <input type="text" value="<%= t"header.what_to_learn" %>" class="text_field" />
+      <input type="submit" value="<%= t"header.search" %>"/>
+    </form>
+
+    <ul class="right">
+      <li><%= link_to_with_highlight "#{t"header.about"}", about_path %></li>
+      <li><%= link_to "#{t("header.blog")}", "http://ovlplatform.com/blog" %></li>
+      <li><%= link_to_with_highlight "#{t"users.sign_in"}", new_user_session_path %></li>
+      <li><%= link_to_with_highlight "#{t"header.join"}", new_user_registration_path, :class=>"join" %></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="clear"></div>
+
+<div class="container_12">
+
+  <div class="language">
+    <h3>Translate:</h3>
+    <ul>
+      <li><%= link_to "English", "/en"  %></li>
+      <li><%= link_to "Polski", "/pl" %></li>
+    </ul>
+  </div>
+
+  <%= content_for?(:content) ? yield(:content) : yield %>
+
+</div>
+
+<div id="fb-root"></div>
 </body>
 </html>

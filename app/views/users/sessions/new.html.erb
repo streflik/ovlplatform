@@ -1,0 +1,28 @@
+<% title "Sign in" %>
+
+<div class="grid_8">
+
+  <h1>Good to see you again!</h1>
+
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <!--
+        <% if devise_mapping.rememberable? -%>
+            <%= f.input :remember_me %>
+        <% end -%>
+        -->
+      </div>
+
+      <div class="actions">
+        <%= f.button :submit, "Sign in" %>
+      </div>
+
+  <% end %>
+
+  <p><%= link_to "Forgot your password? Create new." %></p>
+  <p><%= link_to "Don't have an account? Sign up.", new_user_registration_path %></p>
+
+</div>

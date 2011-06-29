@@ -1,0 +1,193 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pl:
+
+  site:
+    title: "OVL - Najlepsze Wideolekcje Światowej Klasy Ekspertów"
+    description: "Jakiś napis dla google."
+
+  #coomons
+
+  hi: "Cześć"
+  home: "Główna"
+  contact_us: "Skontaktuj się"
+  created: "Utworzono pomyślnie"
+  updated: "Zaktualizowano pomyślnie"
+  deleted: "Usunięto pomyślnie"
+  denied: "Dostęp zabroniony"
+
+  # header
+
+  header:
+    what_to_learn: "Czego się nauczyć?"
+    search: "Szukaj"
+    about: "Idea"
+    blog: "Blog"
+    join: "Dołącz"
+
+  # home
+
+  home:
+    welcome: "Witaj w OVL!"
+    intro: "
+    <p>OVL to miejsce gdzie kupisz doskonałej jakości filmy edukacyjne.</p>
+   <p>Ucz się od światowej klasy ekspertów różnych tematów, od przedmiotów szkolnych do wiedzy profesjonalnej,
+   języków obcych a nawet muzyki.</p>
+   <p>OVL oznacza Open Video Learning, ponieważ nie zamykamy się na żaden ciekawy temat.</p>
+    <p>Wiesz co? Jesteśmy gotów Cię zachwycić!!</p>"
+    wanna_learn: "Szukasz wiedzy?"
+    wanna_teach: "Chcesz nauczać?"
+    or: "lub"
+    browse_all_videos: "Zobacz wideolekcje"
+    see_how_it_works: "Sprawdź jak to działa"
+    video_of_the_day: "Wideolekcja dnia"
+    newest: "Najnowsze"
+
+  # users
+
+  teachers:
+    model_name: "Nauczyciele"
+    all: "Wszyscy %{number} nauczyciele"
+    all_raw: "Wszyscy nauczyciele"
+    to_see_email: " aby zobaczyć email."
+  users:
+    sign_up: "Zarejestruj się"
+    sign_in: "Zaloguj się"
+    sign_out: "Wyloguj"
+    credits:
+      name: "Kup OVL Punkty"
+      available: "%{number} dostępnych OVL Punktów"
+      welcome: "Kup OVL Punkty i odblokuj nimi dostęp do wybranych lekcji"
+    hub:
+      name: "Twoje wideolekcje"
+      welcome: "Witaj ponownie %{name}!"
+      heading: "Twoje odblokowane wideolekcje:"
+      lets_browse: "Sprawdź wideolekcje, które oferujemy!"
+    profile:
+      name: "Edytuj profil"
+      basics: "Podstawowe"
+      teacher: "Nauczyciel"
+    password:
+      name: "Zmień hasło"
+
+  # empty
+
+  empty:
+    unlocks: "Nie odblokowano jeszcze żadnej wideolekcji."
+    comments: "Jeszcze nie ma komentarzy. Dodaj pierwszy!"
+
+  # videos
+
+  videos:
+    model_name: "Wideolekcje"
+    all: "Wszystkie %{number} wideolekcje"
+    all_raw: "Wszystkie videolessons"
+    count: "%{number} wideolekcje"
+    free:
+      price: "Ta lekcja jest bezpłatna!"
+      info: "Oglądaj do woli i nie zapomnij podzielić się ze swoimi przyjaciółmi na Facebooku."
+      subscriber: "Yupii, masz bezpłatny dostęp do wszystkich lekcji!"
+    paid:
+      price: "%{price} Punktów na %{days} Dni."
+      info: "Zobacz trailer poniżej i odblokuj %{duration} minutową pełną wersję."
+      unlocks:
+        all: "%{number} odlokowań"
+        info: "Odblokowano %{start} do %{end}."
+        sign_in: "Zaloguj się, aby odblokować tę i inne wideolekcje."
+    description: "Opis & Materiały Dodatkowe"
+    teacher: "Twój Nauczyciel"
+    level:
+      beginner: "Podstawowy"
+      advanced: "Zaawansowany"
+    meta:
+      title:
+        date: "Data dodania wideolekcji"
+        duration: "Czas trwania wideolekcji"
+        level: "Poziom wideoelkcji"
+        comments: "Liczba komentarzy"
+        unlocks: "Liczba odblokowań"
+    button:
+      learn: "Oglądaj Teraz"
+      unlock: "Odblokuj Pełną Wersję"
+
+  #comments
+
+  comments:
+    all: "%{number} komentarze"
+    all_alt: "Komentarze (%{number})"
+    info: "%{teacher} czeka na Twoje pytania.Pomyśl też o dodaniu własnych materiałów."
+    to_add: " aby dodawać komenatrze."
+
+  # channels
+
+  channels:
+    model_name: "Kanały"
+    all: "Wszystkie  %{number} kanały"
+    all_raw: "Wszystkie kanały"
+    teachers: "Nauczyciele tej serii"
+    join_teachers: "Chcesz do nich dołączyć? Zobacz jak!"
+
+  # about
+
+  # policy
+
+  # date formats
+
+  time:
+    formats:
+      default: "%d/%m/%Y"
+
+  # simple form
+
+  simple_form:
+    "yes": 'Tak'
+    "no": 'Nie'
+    required:
+      text: 'wymagane'
+      mark: '*'
+    error_notification:
+      default_message: "Popraw błędy:"
+    hints:
+      password: 'Minimum 6 znaków. Tylko litery i cyfry.'
+
+    labels:
+      video:
+        embed: "Full version embed"
+        youtube: 'YouTube trailer ID'
+      user:
+        first_name: "Imię"
+        last_name: "Nazwisko"
+        description: "Notka biograficzna (po angielsku)"
+        description_pl: "Notka biograficzna (po polsku)"
+        current_password: "Aktualne hasło"
+        password: "Hasło"
+        password_confirmation: "Hasło ponownie"
+
+  helpers:
+    submit:
+      user:
+        create: "Utwórz"
+        update: "Aktualizuj"
+        submit: "Zapisz"
+
+  # devise
+
+  devise:
+    failure:
+      already_authenticated: 'Jesteś już zalogowany.'
+      unauthenticated: 'Musisz się zalogować, aby to wykonać.'
+      invalid: 'Niewłaściwy email lub hasło.'
+      invalid_token: 'Niewłaściwy token.'
+    sessions:
+      signed_in: 'Zalogowano pomyślnie.'
+      signed_out: 'Wylogowano pomyślnie.'
+    passwords:
+      send_instructions: 'Właśnie został wysłany do Ciebie mail z instrukcją jak zresetować hasło.'
+      updated: 'Twoje hasło zostało zmienione pomyślnie.'
+      send_paranoid_instructions: "Właśnie został wysłany do Ciebie mail z instrukcją jak zresetować hasło."
+    registrations:
+      signed_up: 'Witaj! Zarejestrowano pomyślnie.'
+    mailer:
+      reset_password_instructions:
+        subject: 'Instrukcje zmiany hasła'

@@ -1,0 +1,67 @@
+<div class="grid_5">
+
+  <div class="intro">
+    <h1><%= t("home.welcome") %></h1>
+    <%= raw t("home.intro") %>
+
+    <div class="wanna learn">
+      <h3><%= t("home.wanna_learn") %></h3>
+      <p><%= link_to "#{t("users.sign_up")}", new_user_registration_path, :class=>"button" %></p>
+      <p><%= t("home.or") %> <%=link_to "#{t("home.browse_all_videos")}", videos_path  %></p>
+    </div>
+
+    <div class="wanna teach">
+      <h3><%= t("home.wanna_teach") %></h3>
+      <p><%= link_to "#{t("contact_us")}", "", :class=>"button" %></p>
+      <p><%= t("home.or") %> <%= link_to "#{t("home.see_how_it_works")}", "" %></p>
+    </div>
+
+  </div>
+</div>
+
+<div class="grid_7">
+  <div class="player">
+    <iframe width="540" height="339" src="http://www.youtube.com/embed/aQR-LTYWQ7E" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<div class="clear"></div>
+
+<div class="grid_7">
+
+  <h3><%= t("home.video_of_the_day") %></h3>
+
+  <%= render :partial => @featured %>
+
+</div>
+
+<div class="grid_5">
+
+  <h3><%= t("home.newest") %> | <%= link_to "#{t("videos.all", :number => @videos.count)}", videos_path %></h3>
+
+  <% @videos.each do |video| %>
+
+      <div class="box video mini">
+        <%= link_to image_tag("default-thumb-mini.png"), video_path(video) %>
+        <h2><%= link_to video.name, video_path(video) %></h2>
+        <%= meta(video) %>
+      </div>
+
+  <% end %>
+
+</div>
+
+<div class="clear"></div>
+
+<div class="grid_4">
+  <%= link_to image_tag("feature.png") %>
+</div>
+
+<div class="grid_4">
+  <%= link_to image_tag("feature.png") %>
+</div>
+
+<div class="grid_4">
+  <%= link_to image_tag("feature.png") %>
+</div>

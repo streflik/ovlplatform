@@ -1,4 +1,34 @@
 Ovlplatform::Application.routes.draw do
+
+  scope "(:locale)", :locale => /en|pl/ do
+
+    devise_for :users, :path => "/", :path_names => { :sign_up => 'sign_up', :sign_in => 'sign_in', :sign_out => 'sign_out', :password => 'password' }
+
+    resources :users do
+      member do
+        get 'hub'
+        get 'credits'
+        get 'admin'
+        get 'password'
+        put 'password'
+      end
+    end
+
+    resources :channels
+
+    resources :videos do
+       resources :comments
+    end
+
+    match '/about' => 'company#about'
+    match '/policy' => 'company#policy'
+
+    match '/:locale' => 'company#home'
+    root :to => "company#home"
+
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +78,7 @@ Ovlplatform::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+
 
   # See how all your routes lay out with "rake routes"
 

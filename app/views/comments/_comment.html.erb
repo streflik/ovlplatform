@@ -1,0 +1,16 @@
+<%= div_for comment, :class=>"comment" do %>
+
+    <div class="avatar">
+      <%= image_tag("default-avatar_60.jpeg") %>
+    </div>
+
+    <div class="body">
+      <ul>
+        <li><%= comment.user.name %></li>
+        <li><%= l(comment.created_at, :format => :long) %></li>
+        <li><%= link_to t("delete"), [@video, comment], :confirm=>t("confirm"), :method=>:delete %></li>
+      </ul>
+      <%= raw auto_link simple_format comment.body %>
+    </div>
+
+<% end %>

@@ -1,0 +1,51 @@
+<% title @channel.t_name %>
+
+<div class="grid_12">
+  <ul class="breadcrumbs">
+    <li><%= home_link %></li>
+    <li><%= link_to t("channels.model_name"), channels_path %></li>
+    <li><%= yield(:title) %></li>
+  </ul>
+</div>
+
+<%= render :partial => 'channels/topper' %>
+
+<div class="channel" id="channel-<%= @channel.id %>">
+
+  <div class="grid_9">
+
+    <h1><%= yield(:title) %></h1>
+    <%= description(@channel) %>
+
+  </div>
+
+  <div class="grid_3">
+    <div class="teachers">
+      <h3><%= t("channels.teachers") %></h3>
+      <!-- history -->
+      <% if @channel.id == 1 %>
+          <%= link_to image_tag("default-avatar_60.jpeg"), "" %>
+          <%= link_to image_tag("default-avatar_60.jpeg"), "" %>
+          <%= link_to image_tag("default-avatar_60.jpeg"), "" %>
+      <% end %>
+      <!-- physics-->
+      <% if @channel.id == 2 %>
+          <%= link_to image_tag("default-avatar_60.jpeg"), "" %>
+          <%= link_to image_tag("default-avatar_60.jpeg"), "" %>
+          <%= link_to image_tag("default-avatar_60.jpeg"), "" %>
+      <% end %>
+      <!-- ovp -->
+      <% if @channel.id == 3 %>
+          <%= link_to image_tag("default-avatar_60.jpeg"), "" %>
+          <%= link_to image_tag("default-avatar_60.jpeg"), "" %>
+          <%= link_to image_tag("default-avatar_60.jpeg"), "" %>
+      <% end %>
+      <p class="join"><%= link_to t("channels.join_teachers"), "" %></p>
+    </div>
+  </div>
+
+  <div class="grid_12">
+    <%= render :partial => @videos %>
+  </div>
+
+</div>

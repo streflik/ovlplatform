@@ -1,0 +1,187 @@
+<% title t("admins.name") %>
+
+<h1><%= yield(:title) %></h1>
+
+<div class="stats">
+
+  <div class="stat">
+    <span class="number"><%= @videos.count %></span>
+    <span>videolessons</span>
+  </div>
+
+  <div class="stat">
+    <span class="number"><%= @users.count %></span>
+    <span>users</span>
+  </div>
+
+  <div class="stat">
+    <span class="number"><%= @comments.count %></span>
+    <span>comments</span>
+  </div>
+
+  <div class="stat">
+    <span class="number"><%= User.sum(:credits_total) %></span>
+    <span>sum of total credits</span>
+  </div>
+
+  <div class="stat">
+    <span class="number"><%= User.sum(:credits_available) %></span>
+    <span>sum of avlb credits</span>
+  </div>
+
+
+  <!-- seocond row -->
+
+  <div class="stat">
+    <span class="number">9999<%= %></span>
+    <span>sum of payments ($)</span>
+  </div>
+
+  <div class="stat">
+    <span class="number">999</span>
+    <span>sum of unlockings</span>
+  </div>
+
+  <div class="stat">
+    <span class="number">999</span>
+    <span>unlockings money ($)</span>
+  </div>
+
+  <div class="stat">
+    <span class="number">999</span>
+    <span>teachers earnings ($)</span>
+  </div>
+
+  <div class="stat">
+    <span class="number"><%= "8765" %></span>
+    <span>profit so far ($)</span>
+  </div>
+
+</div>
+
+
+
+
+
+<h2>Videos</h2>
+
+<table>
+  <tr>
+    <th>Video</th>
+    <th>Teacher</th>
+    <th>Unlocks</th>
+    <th>Comments</th>
+  </tr>
+  <% @videos.each do |v| %>
+      <tr>
+        <td><%= link_to v.name, video_path(v) %></td>
+        <td><%= link_to v.user.name, user_path(v.user) %></td>
+        <td>999</td>
+        <td>999</td>
+        <td><%= link_to "Edit", edit_video_path(v) %></td>
+        <td><%= link_to "Delete", video_path(v), :confirm=>"Delete this video?", :method=>:delete %></td>
+      </tr>
+  <% end %>
+</table>
+
+<h2>Channels</h2>
+
+<table>
+  <tr>
+    <th>Channel</th>
+  </tr>
+  <% @channels.each do |ch| %>
+      <tr>
+        <td><%= link_to ch.name, channel_path(ch) %></td>
+        <td><%= link_to "Edit", edit_channel_path(ch) %></td>
+        <td><%= link_to "Delete", channel_path(ch), :confirm=>"Delete this video?", :method=>:delete %></td>
+      </tr>
+  <% end %>
+</table>
+
+<h2>Teachers</h2>
+
+<table>
+  <tr>
+    <th>Teacher</th>
+    <th>Earnings</th>
+    <th>Comments</th>
+  </tr>
+  <% @teachers.each do |t| %>
+      <tr>
+        <td><%= link_to t.name, user_path(t) %></td>
+        <td>999$</td>
+        <td>999</td>
+        <td><%= link_to "Edit", edit_user_path(t) %></td>
+      </tr>
+  <% end %>
+</table>
+
+<h2>Users</h2>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>User</th>
+    <th>Admin?</th>
+    <th>Teacher?</th>
+    <th>Subscriber?</th>
+    <th>Comments</th>
+    <th>A Credits</th>
+    <th>T Credits</th>
+  </tr>
+  <% @users.each do |u| %>
+      <tr>
+        <td><%= l(u.created_at) %></td>
+        <td><%= link_to u.name, hub_user_path(u) %></td>
+        <td><%= u.is_admin %></td>
+        <td><%= u.is_teacher %></td>
+        <td><%= u.is_subscriber %></td>
+        <td>999</td>
+        <td><%= u.credits_available %></td>
+        <td><%= u.credits_total %></td>
+        <td><%= link_to "Edit", edit_user_path(u) %></td>
+      </tr>
+  <% end %>
+</table>
+
+<h2>Comments</h2>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>User</th>
+    <th>Video</th>
+    <th>Comment</th>
+  </tr>
+  <% @comments.each do |c| %>
+      <tr>
+        <td><%= l(c.created_at) %></td>
+        <td><%= link_to c.user.name, hub_user_path(c.user) %></td>
+        <td><%= link_to c.video.name, video_path(c.video)+"#comments" %></td>
+        <td><%= truncate(c.body, :length => 50) %></td>
+      </tr>
+  <% end %>
+</table>
+
+<h2>Payments</h2>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>User</th>
+    <th>Credits</th>
+  </tr>
+</table>
+
+<h2>Unlockings</h2>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Date exp</th>
+    <th>User</th>
+    <th>Video</th>
+    <th>Credits</th>
+  </tr>
+</table>

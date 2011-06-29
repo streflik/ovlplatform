@@ -1,0 +1,9 @@
+<div class="box user" id="user-<%= user.id %>">
+
+  <%= link_to image_tag("default-avatar.jpeg", :alt=>"#{user.name} avatar"), user_path(user) %>
+
+  <h2><%= link_to user.name, user_path(user) %></h2>
+
+  <p><%= link_to t("videos.count", :number=>user.videos.count), user_path(user) %></p>
+
+</div>

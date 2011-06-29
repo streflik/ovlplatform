@@ -1,0 +1,33 @@
+<% title @user.name %>
+
+<div class="grid_12">
+  <ul class="breadcrumbs">
+    <li><%= home_link %></li>
+    <li><%= link_to t("teachers.model_name"), users_path %></li>
+    <li><%= yield(:title) %></li>
+  </ul>
+</div>
+
+<div class="grid_2">
+  <%= image_tag("default-avatar.jpeg", :alt=>"#{@user.name} avatar")  %>
+</div>
+
+<div class="grid_9">
+  <h1><%= yield(:title) %></h1>
+
+<p class="email">
+  <% if user_signed_in? %>
+      <%= @user.email %>
+  <% else %>
+      <%= link_to t("users.sign_in"), new_user_session_path %> <%= t("teachers.to_see_email") %>.
+  <% end %>
+</p>
+  <%= description(@user) %>
+</div>
+
+<div class="clear"></div>
+
+<div class="grid_12">
+  <h2><%= t("videos.model_name") %></h2>
+  <%= render :partial => @videos %>
+</div>

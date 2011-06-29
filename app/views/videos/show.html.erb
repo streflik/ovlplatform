@@ -1,0 +1,133 @@
+<% title @video.t_name %>
+
+<div class="grid_12">
+  <ul class="breadcrumbs">
+    <li><%= home_link %></li>
+    <li><%= link_to t("channels.model_name"), channels_path %></li>
+    <li><%= link_to @channel.t_name, channel_path(@channel) %></li>
+    <li><%= yield(:title)%></li>
+  </ul>
+</div>
+
+<%= render :partial => 'channels/topper' %>
+
+<div class="video" id="video-<%= @video.id %>">
+
+  <div class="grid_12">
+    <h1><%= yield(:title)%></h1>
+    <%= meta(@video) %>
+  </div>
+
+  <%= like(@video) %>
+
+  <div class="grid_12">
+    <p class="unlock">
+      <% if @video.is_paid %>
+          <% if user_signed_in? %>
+              <% if current_user.is_subscriber %>
+                  <%= paid(@video) %>
+                  <%= content_tag(:span, t("videos.free.subscriber")) %>
+              <% else %>
+                  <% if is_locked?(@video) %>
+                      <%= link_to t("button.unlock"), "", :class=>"button unlock" %>
+                      <%= paid(@video) %>
+                      <% if current_user.credits_available >= @video.price %>
+                          <%= content_tag(:span, t("videos.paid.info.go", :duration=>@video.duration)) %>
+                      <% else %>
+                          <%= content_tag(:span, link_to((t("videos.paid.info.buy_credits", :duration=>@video.duration)), credits_user_path  )) %>
+                      <% end %>
+                  <% else %>
+                      <%= paid(@video) %>
+                      <%= content_tag(:span, t("videos.paid.info.unlocked", :start=>"12/02/2011 11:00", :end=>"19/02/2011 11:00")) %>
+                  <% end %>
+              <% end %>
+          <% else %>
+              <%= paid(@video) %>
+              <%= content_tag(:span,link_to(t("videos.paid.info.sign_in"), new_user_session_path)) %>
+          <% end %>
+      <% else %>
+          <%= free_video %>
+          <%= content_tag(:span, t("videos.free.info")) %>
+      <% end %>
+    </p>
+
+  </div>
+
+  <div class="grid_12">
+    <div class="player">
+    </div>
+    <% if user_signed_in? %>
+        <% if current_user.is_subscriber %>
+            <%= full_version %>
+        <% else %>
+            <% if is_locked?(@video) %>
+                <%= trailer %>
+            <% else %>
+                <%= full_version %>
+            <% end %>
+        <% end %>
+    <% else %>
+        <% if @video.is_paid %>
+            <%= trailer %>
+        <% else %>
+            <%= full_version %>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div class="grid_9">
+
+    <h2><%= t("videos.description") %></h2>
+    <%= description(@video) %>
+
+    <h2><a name="comments"></a><%= t("comments.all_alt", :number=>@comments.count) %></h2>
+    <p><%= t("comments.info", :teacher=>@video.user.first_name) %></p>
+
+    <div id="comments">
+      <% unless @comments.blank? %>
+          <%= render :partial => @comments, :locals => {:list => true} %>
+      <% else %>
+          <p><%= t("empty.comments") %></p>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? %>
+        <div class="comments_form">
+          <%= simple_form_for([@video, Comment.new]) do |f| %>
+              <div class="inputs">
+                <%= f.input :body %>
+              </div>
+              <div class="actions">
+                <%= f.button :submit %>
+              </div>
+          <% end %>
+        </div>
+    <% else %>
+        <p><%= link_to t("users.sign_in"), new_user_session_path %> <%= t("comments.to_add") %></p>
+    <% end %>
+
+  </div>
+
+  <div class="grid_3">
+
+    <h2><%= t("videos.teacher") %></h2>
+
+    <div class="box">
+      <%= link_to image_tag("default-avatar_60.jpeg", :alt=>"#{@user.name} avatar small"), user_path(@user) %>
+      <h3><%= link_to @user.name, user_path(@user) %></h3>
+      <p><%= link_to "#{@user.videos.count} videolessons", user_path(@user) %></p>
+    </div>
+
+  </div>
+
+</div>
+
+<% content_for :head do %>
+    <meta name="description" content="<%= truncate(@video.description, :length => 150) %>">
+    <meta property="og:title" content="<%= @video.name %>"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content="/<%#=@video.thumb.url(:original) %>"/>
+    <meta property="og:url" content="<%= video_url(@video) %>"/>
+    <meta property="og:site_name" content="OVL"/>
+    <meta property="og:admins" content="rysiul"/>
+<% end %>

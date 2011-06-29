@@ -1,0 +1,13 @@
+<% title t("videos.all_raw") %>
+
+<div class="grid_12">
+  <ul class="breadcrumbs">
+    <li><%= link_to "#{t("start_page")}", root_path %></li>
+    <li><%= t("videos.model_name") %></li>
+  </ul>
+</div>
+
+<div class="grid_12">
+  <h1><%= t("videos.all", :number=>@videos.count) %></h1>
+  <%= render :partial => @videos %>
+</div>

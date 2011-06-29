@@ -1,0 +1,23 @@
+<% content_for :content do %>
+
+<div class="grid_2 stats">
+  <%= user_menu(@user) %>
+  <h3>Need help?</h3>
+  <p><%= link_to "Contact us" %></p>
+
+  <% if is_admin? %>
+       <h3>Admin, huh?</h3>
+    <p><%= link_to t("admins.name"), admin_user_path(current_user) %></p>
+  <% end %>
+
+</div>
+
+<div class="grid_10">
+
+  <%= yield %>
+
+</div>
+
+<% end %>
+
+<%= render :file => 'layouts/application' %>

@@ -1,0 +1,17 @@
+<% title t("teachers.alll_raw") %>
+
+<div class="grid_12">
+  <ul class="breadcrumbs">
+    <li><%= home_link %></li>
+    <li><%= t("teachers.model_name") %></li>
+  </ul>
+</div>
+
+<div class="grid_12">
+  <h1><%= t("teachers.all", :number=>@teachers.count) %></h1>
+  <%= render :partial => @teachers %>
+</div>
+
+
+
+
