@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def dupa
+
+  end
 end
