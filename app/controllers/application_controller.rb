@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+def test
+
+end
+
   # setting  language
 
   def set_locale
