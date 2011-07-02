@@ -2,7 +2,8 @@ Ovlplatform::Application.routes.draw do
 
   scope "(:locale)", :locale => /en|pl/ do
 
-    devise_for :users, :path => "/", :path_names => { :sign_up => 'sign_up', :sign_in => 'sign_in', :sign_out => 'sign_out', :password => 'password' }
+    devise_for :users, :path => "/", 
+	:path_names => { :sign_up => 'sign_up', :sign_in => 'sign_in', :sign_out => 'sign_out'}
 
     resources :users do
       member do

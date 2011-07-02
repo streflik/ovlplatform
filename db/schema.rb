@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20110628112854) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -45,11 +45,11 @@ ActiveRecord::Schema.define(:version => 20110628112854) do
     t.boolean  "accept_policy"
     t.text     "description"
     t.text     "description_pl"
-    t.boolean  "is_admin"
-    t.boolean  "is_teacher"
-    t.boolean  "is_subscriber"
-    t.integer  "credits_available"
-    t.integer  "credits_total"
+    t.boolean  "is_admin",                              :default => false
+    t.boolean  "is_teacher",                            :default => false
+    t.boolean  "is_subscriber",                         :default => false
+    t.integer  "credits_available",                     :default => 0
+    t.integer  "credits_total",                         :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

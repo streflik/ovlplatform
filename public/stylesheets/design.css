@@ -40,7 +40,7 @@ h3 {
     background:#eee
 }
 
-.wider div, .wider ul.user_menu, .wider p {
+.wider div, .wider p {
     margin:0 auto;
     width:940px;
 }
@@ -59,14 +59,10 @@ h3 {
     background:red
 }
 
-/* user menu */
+/* user nav */
 
-.wider.top {
+.wider.nav {
     background:#ddd
-}
-
-.wider.top .user_menu li {
-    display: inline
 }
 
 /* stat */
@@ -225,9 +221,12 @@ ul.breadcrumbs li {
 
 /* meta */
 
-.meta li {
+.belonging li, .meta li {
     display: inline;
     font-size:12px;
+}
+
+.meta li {
     padding:0 5px 0 0;
     margin:0 4px 0 0;
     border-right:1px solid #ddd

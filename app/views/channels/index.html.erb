@@ -1,0 +1,13 @@
+<% title t("channels.all") %>
+
+<div class="grid_12">
+  <ul class="breadcrumbs">
+    <%= home %>
+    <li><%= t("channels.model_name") %></li>
+  </ul>
+</div>
+
+<div class="grid_12">
+  <h1><%= t("channels.all_counted", :number => @channels.count) %></h1>
+  <%= render :partial => @channels %>
+</div>

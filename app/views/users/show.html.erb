@@ -2,7 +2,7 @@
 
 <div class="grid_12">
   <ul class="breadcrumbs">
-    <li><%= home_link %></li>
+    <li><%= home %></li>
     <li><%= link_to t("teachers.model_name"), users_path %></li>
     <li><%= yield(:title) %></li>
   </ul>
@@ -19,7 +19,7 @@
   <% if user_signed_in? %>
       <%= @user.email %>
   <% else %>
-      <%= link_to t("users.sign_in"), new_user_session_path %> <%= t("teachers.to_see_email") %>.
+      <%= sign_in %> <%= t("teachers.to_see_email") %>.
   <% end %>
 </p>
   <%= description(@user) %>

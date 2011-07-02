@@ -16,11 +16,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean :accept_policy
       t.text :description
       t.text :description_pl
-      t.boolean :is_admin
-      t.boolean :is_teacher
-      t.boolean :is_subscriber
-      t.integer :credits_available
-      t.integer :credits_total
+      t.boolean :is_admin, :default => false
+      t.boolean :is_teacher, :default => false
+      t.boolean :is_subscriber, :default => false
+      t.integer :credits_available, :default => "0"
+      t.integer :credits_total, :default => "0"
 
       t.timestamps
     end

@@ -1,18 +1,18 @@
-<% title t("users.hub.name")%>
+<% title t("users.hub.title")%>
 
 <h1><%= yield(:title) %></h1>
 <p><%= t("users.hub.info") %></p>
 
-<h2><%= t("users.hub.heading.videolessons") %></h2>
-<p><%= t("empty.unlocks") %> <%= link_to t("users.hub.lets.browse"), videos_path %></p>
+<h2><%= t("users.hub.heading.videos") %></h2>
+<p><%= t("empty.videos") %> &raquo; <%= link_to t("users.hub.lets.browse"), videos_path %></p>
 
-<h2><%= t("users.hub.heading.payments") %></h2>
-<p><%= t("empty.payments") %> <%= link_to t("users.hub.lets.buy"), videos_path %></p>
-
-<h2><%= t("users.hub.heading.unlockings") %></h2>
+<h2><%= t("users.hub.heading.unlocks") %></h2>
 <p><%= t("empty.unlocks") %></p>
 
-<% if is_teacher?(@user) %>
+<h2><%= t("users.hub.heading.payments") %></h2>
+<p><%= t("empty.payments") %> &raquo; <%= link_to t("users.hub.lets.buy"), videos_path %></p>
+
+<% if @user.is_teacher %>
     <h2><%= t("users.hub.heading.earnings") %></h2>
     <p><%= t("empty.earnings") %></p>
 <% end %>

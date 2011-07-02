@@ -1,4 +1,4 @@
-<% title t("admins.name") %>
+<% title "Admin" %>
 
 <h1><%= yield(:title) %></h1>
 
@@ -59,11 +59,7 @@
 
 </div>
 
-
-
-
-
-<h2>Videos</h2>
+<h2>Videos (<%= link_to "New Video", new_video_path %>)</h2>
 
 <table>
   <tr>
@@ -84,7 +80,7 @@
   <% end %>
 </table>
 
-<h2>Channels</h2>
+<h2>Channels (<%= link_to "New Channel", new_channel_path %>)</h2>
 
 <table>
   <tr>
@@ -174,7 +170,7 @@
   </tr>
 </table>
 
-<h2>Unlockings</h2>
+<h2>Unlocks</h2>
 
 <table>
   <tr>

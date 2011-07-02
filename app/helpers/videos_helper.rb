@@ -7,7 +7,13 @@ module VideosHelper
   end
 
   def trailer
-    raw"<iframe title='YouTube video player' width='940' height='565' src='http://www.youtube.com/embed/#{@video.youtube}?rel=0&amp;hd=1' frameborder='0' allowfullscreen></iframe>"
+    raw"<iframe title='YouTube video player' 
+                width='940' 
+                height='565' 
+                src='http://www.youtube.com/embed/#{@video.youtube}?rel=0&amp;hd=1' 
+                frameborder='0' 
+                allowfullscreen>
+    </iframe>"
   end
 
   def full_version
@@ -15,7 +21,7 @@ module VideosHelper
   end
 
   def is_locked?(video)
-        true
+    true
   end
 
 end

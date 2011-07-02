@@ -1,4 +1,4 @@
-<% title t("users.credits.name") %>
+<% title t("users.credits.title") %>
 
 <h1><%= yield(:title) %></h1>
 <p><%= raw t("users.credits.info") %></p>
@@ -6,30 +6,14 @@
 <h2 class="first step"><span>1</span> <%= t("users.credits.first_step.heading") %></h2>
 <p><%= t("users.credits.first_step.info") %></p>
 
-<ul class="variants">
+<%= simple_form_for "a" do |f| %>
 
-  <li>
-    <label>
-      <input type="radio" value="10" name="amount" id="amount_10" class="checkbox" checked="checked">
-      10 Credits for <span>$</span>10
-    </label>
-  </li>
-
-    <li>
-    <label>
-      <input type="radio" value="50" name="amount" id="amount_50" class="checkbox">
-      50 Credits for <span>$</span>50
-    </label>
-  </li>
-
-    <li>
-    <label>
-      <input type="radio" value="100" name="amount" id="amount_100" class="checkbox">
-      100 Credits for <span>$</span>100
-    </label>
-  </li>
-
-</ul>
+<%= f.collection_radio :amount, 
+	[[10, t("users.credits.package", :amount=>"10", :price=>"10")], 
+	[50, t("users.credits.package", :amount=>"50", :price=>"50")],
+	[100, t("users.credits.package", :amount=>"100", :price=>"100")]], 
+	:first, :last %>
+<% end %>
 
 <h2 class="second step"><span>2</span> <%= t("users.credits.second_step.heading") %></h2>
 <p><%= t("users.credits.second_step.info") %></p>
@@ -37,4 +21,4 @@
 
 <%= image_tag("http://audiojungle.net/images/common/payment/paypal.png") %>
 
-<%= link_to t("button.buy"), "", :class=> "button buy" %>
+<%= link_to t("buttons.buy"), "", :class=> "button buy" %>

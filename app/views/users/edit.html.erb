@@ -1,25 +1,25 @@
-<% title t("users.profile.name") %>
+<% title t("users.edit.title") %>
 
-<h1><%= t("users.profile.name") %></h1>
+<h1><%= yield(:title) %></h1>
 
 <%= simple_form_for(@user, :html=>{:multipart=>true}) do |f| %>
 
     <div class="inputs">
-      <h2><%= t("users.profile.basics") %></h2>
+      <h2><%= t("users.edit.basics") %></h2>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.input :email %>
     </div>
 
-    <% if is_teacher?(@user) %>
+    <% if @user.is_teacher %>
         <div class="inputs">
-          <h2><%= t("users.profile.teacher") %></h2>
+          <h2><%= t("users.edit.teacher") %></h2>
           <%= f.input :description %>
            <%= f.input :description_pl %>
         </div>
     <% end %>
 
-    <% if is_admin? %>
+    <% if @user.is_admin %>
         <div class="inputs">
           <h2>Admin</h2>
           <%= f.input :is_admin %>

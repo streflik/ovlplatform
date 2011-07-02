@@ -17,9 +17,11 @@
     <div class="inputs">
       <h2>Basics</h2>
       <%= f.input :level ,:collection => Video::LEVEL, :prompt => false %>
-      <%= f.association :user, :label_method => :name, :value_method => :id, :collection => @teachers, :prompt => false %>
-      <%= f.association :channel, :label_method => :name, :value_method => :id, :collection => @channels, :prompt => false %>
-      <%= f.inputs :is_featured %>
+      <%= f.association :user, :label_method => :name, :value_method => :id, 
+	:collection => @teachers, :prompt => false %>
+      <%= f.association :channel, :label_method => :name, :value_method => :id, 
+	:collection => @channels, :prompt => false %>
+      <%= f.input :is_featured %>
     </div>
 
     <div class="inputs">
@@ -29,7 +31,7 @@
       <%= f.input :is_paid, :as => :radio %>
       <%= f.input :price %>
       <%= f.input :days %>
-      <%= f.input :trailer %>
+      <%= f.input :youtube %>
     </div>
 
     <div class="actions">

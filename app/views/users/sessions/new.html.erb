@@ -1,8 +1,8 @@
-<% title "Sign in" %>
+<% title t("users.sign_in.title") %>
 
 <div class="grid_8">
 
-  <h1>Good to see you again!</h1>
+  <h1><%= t("users.sign_in.heading") %></h1>
 
   <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
@@ -17,12 +17,12 @@
       </div>
 
       <div class="actions">
-        <%= f.button :submit, "Sign in" %>
+        <%= f.button :submit %>
       </div>
 
   <% end %>
 
-  <p><%= link_to "Forgot your password? Create new." %></p>
-  <p><%= link_to "Don't have an account? Sign up.", new_user_registration_path %></p>
+  <p><%= link_to t("users.sign_in.link.remind_password"), "" %></p>
+  <p><%= link_to t("users.sign_in.link.sign_up"), new_user_registration_path %></p>
 
 </div>

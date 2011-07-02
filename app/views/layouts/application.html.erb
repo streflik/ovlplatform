@@ -5,9 +5,9 @@
   <!-- title -->
 
   <% if @home %>
-      <title><%= t('site.title') %></title>
+      <title><%= t("title") %></title>
   <% else %>
-      <title><%= yield :title %> - OVL</title>
+      <title><%= yield :title %> - <%= t("short") %></title>
   <% end %>
 
   <!-- css -->
@@ -24,7 +24,7 @@
   <!-- meta -->
 
   <% if @home %>
-      <meta name="description" content="<%= t("site.description") %>">
+      <meta name="description" content="<%= t"meta.description" %>">
   <% end %>
 
   <%= csrf_meta_tag %>
@@ -45,8 +45,10 @@
 <%- end -%>
 
 <% if user_signed_in? %>
-    <div class="wider top">
-      <%= user_menu(current_user) %>
+    <div class="wider nav">
+ <div>
+      <%= nav(current_user) %>
+ </div>
     </div>
 <% end %>
 
@@ -54,21 +56,21 @@
   <div>
     <%= link_to image_tag("ovl-logo.png"), root_url, :class=>"Open Video Learning OVL logo" %>
     <ul class="left">
-      <li><%= link_to_with_highlight "#{t("videos.model_name")}", videos_path %></li>
-      <li><%= link_to_with_highlight "#{t("channels.model_name")}", channels_path %></li>
-      <li><%= link_to_with_highlight "#{t("teachers.model_name")}", users_path %></li>
+      <li><%= link_to "#{t"videos.model_name"}", videos_path %></li>
+      <li><%= link_to "#{t"channels.model_name"}", channels_path %></li>
+      <li><%= link_to "#{t"teachers.model_name"}", users_path %></li>
     </ul>
 
     <form>
-      <input type="text" value="<%= t"header.what_to_learn" %>" class="text_field" />
-      <input type="submit" value="<%= t"header.search" %>"/>
+      <input type="text" value="<%= t("search.value") %>" class="text_field" />
+      <input type="submit" value="<%= t"search.submit" %>"/>
     </form>
 
     <ul class="right">
-      <li><%= link_to_with_highlight "#{t"header.about"}", about_path %></li>
-      <li><%= link_to "#{t("header.blog")}", "http://ovlplatform.com/blog" %></li>
-      <li><%= link_to_with_highlight "#{t"users.sign_in"}", new_user_session_path %></li>
-      <li><%= link_to_with_highlight "#{t"header.join"}", new_user_registration_path, :class=>"join" %></li>
+      <li><%= link_to "#{t"about.link_to"}", about_path %></li>
+      <li><%= link_to "Blog", "http://ovlplatform.com/blog" %></li>
+      <li><%= link_to "#{t"header.sign_in"}", new_user_session_path %></li>
+      <li><%= link_to "#{t"header.sign_up"}", new_user_registration_path %></li>
     </ul>
   </div>
 

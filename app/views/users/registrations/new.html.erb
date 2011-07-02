@@ -1,8 +1,8 @@
-<% title "Sign up" %>
+<% title t("users.sign_up.title") %>
 
 <div class="grid_8">
 
-  <h1>Join OVL - It's fast and easy.</h1>
+  <h1><%= t("users.sign_up.heading") %></h1>
 
   <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
@@ -16,22 +16,20 @@
       </div>
 
       <div class="actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit %>
       </div>
 
   <% end %>
 
-  <p><%= link_to "Already on OVL? Sign in.", new_user_session_path %></p>
+  <p><%= link_to t("users.sign_up.link.sign_in"), new_user_session_path %></p>
 
 </div>
 
 <div class="grid_4">
-  <h3>Why is it worth?</h3>
-
+  <h3><%= t("users.sign_up.benefits.heading") %></h3>
   <ul class="benefits">
-    <li>You can unlock desired videolessons.</li>
-    <li>You can ask questions in comments.</li>
-    <li>You can see emails of our teachers.</li>
+    <li><%= t("users.sign_up.benefits.first") %></li>
+    <li><%= t("users.sign_up.benefits.second") %></li>
+    <li><%= t("users.sign_up.benefits.third") %></li>
   </ul>
-
 </div>

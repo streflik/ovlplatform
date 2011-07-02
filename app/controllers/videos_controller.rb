@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
 
-  before_filter :find_video, :except => [:index,:new]
+  before_filter :find_video, :except => [:index,:new,:create]
   before_filter :authenticate_user!, :except => [:show, :index]
   before_filter :verify_admin, :except => [:show, :index]
   before_filter :find_teachers, :except => [:show, :index]
@@ -13,7 +13,8 @@ class VideosController < ApplicationController
   def show
     @teacher = @video.user
     @channel = @video.channel
-    @comments = @channel.comment
+    @comments = @video.comments
+    @user = @video.user
   end
 
   def new
@@ -25,7 +26,7 @@ class VideosController < ApplicationController
     @video.accessible = :all
     @video.attributes = params[:video]
     if @video.save
-      redirect_to(@video, :notice => t("created"))
+      redirect_to(video_path(@video), :notice => t("created"))
     else
       render :action => "new"
     end
@@ -37,7 +38,7 @@ class VideosController < ApplicationController
   def update
     @video.accessible = :all if is_admin?
     if @video.update_attributes(params[:video])
-      redirect_to(@video, :notice => t("updated"))
+      redirect_to(video_path(@video), :notice => t("updated"))
     else
       render :action => "edit"
     end

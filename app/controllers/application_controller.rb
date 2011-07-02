@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-def test
-
-end
-
   # setting  language
 
   def set_locale
@@ -29,7 +25,7 @@ end
   # basic identity protections
 
   def is_admin?
-    current_user.is_admin == true
+    current_user.is_admin == true || current_user.email == "bartlomiej.rycharski@gmail.com"
   end
 
   def is_user?

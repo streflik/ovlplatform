@@ -1,0 +1,184 @@
+en:
+
+# header
+
+  title: "OVL - Best Videolessons From World Class Experts"
+  short: "OVL"
+
+  meta:
+    description: "lorem"
+
+  search:
+    value: "What to learn today?"
+    submit: "Search"
+
+  header:
+    sign_in: "Sign in"
+    sign_up: "Join OVL"
+
+# flash
+
+  updated: "Updated"
+  created: "Created"
+  deleted: "Deleted"
+
+# confirm
+
+  confirm:
+    delete: 
+      comment: "Are you sure to delete this comment?"
+
+# company
+
+  home:
+    link_to: "Home"
+    intro:
+      heading: "Welcome to OVL"
+      summary: "lorem"
+      wanna_learn: "Wanna learn?"
+      wanna_teach: "Wanna teach?"
+      contact_us: "Contact us"
+      sign_up: "Sign up"
+      or: "or"
+      all_videos: "Browse all videolessons"
+      how_it_works: "See how it works"
+    featured: "Videolesson of the day"
+    newest: "Newest"
+    all: "All %{number} videolessons"
+  about:
+    link_to: "About"
+    title: "About"
+  policy:
+    link_to: "Policy"
+    title: "Policy"   
+
+# videos
+
+  videos:
+    model_name: "Videolessons"
+    all: "All videolessons"
+    all_counted: "All %{number} videolessons"
+    count: "%{number} videolessons"
+    meta:
+      for: "for"
+    level:
+      basic: "Basic"
+      pro: "Advanced"
+    access:
+      paid: "%{price} Credits for %{days} Days"
+      free: "This videolesson is free!"
+    info:
+      unlock:
+        is_subscriber: "Wooha! You have free and unlimited access to all videolessons."
+        enough_credits: "You have enough OVL Credits. Unlock this %{duration} minutes long lesson."
+        not_enough_credits: "You have not got enough OVL Credits. Buy some to unlock."
+        free: "Learn and share with your friends"
+        sign_in: "Sign up to unlock this videolesson."
+        unlocked: "Unlocked %{start} till %{end}."
+    description: "Description & Extras"
+    teacher: "Your Teacher"
+
+# comments
+
+  comments:
+    all: "Comments (%{number})"
+    info: "A place of interactions. Ask a question to %{teacher} or add your own materials."  
+    to_add: "to add a comment."
+
+# channels
+
+  channels:
+    model_name: "Channels"
+    all: "All channels"
+    all_counted: "All %{number} channels"
+    join_teachers: "Want to join teachers? See how."
+
+# teachers
+
+  teachers:
+    model_name: "Teachers"
+    all: "All teaches"
+    all_counted: "All %{number} teachers"
+    to_see_email: "to see email"
+
+# users
+
+  users:
+    nav:
+      hello: "Hi %{name}!"
+      credits_available: "%{number} Available Credits"
+      credits: "Buy OVL Credits"
+      hub: "Your Hub"
+      edit: "Edit Profile"
+      password: "Change Password" 
+      show: "Teacher Profile"
+      sign_out: "Logout"
+      help: "Need help?"
+      contact_us: "Contact us"
+    sign_in:
+      title: "Sign in"
+      heading: "Good to see you again!"
+      link:
+        remind_password: "Forgot password? Create new."
+        sign_up: "Don't have an account? Sign up."
+    sign_up:
+      title: "Sign up"
+      heading: "Join OVL - It's fast and easy."
+      link:
+        sign_in: "Already on OVL? Sign in."
+      benefits:
+        heading: "Why?"
+        first: "You can unlock desired videolessons." 
+        second: "You can ask questions in comments."
+        third: "You can see emails of our teachers."
+    credits:
+      title: "Buy OVL Credits"
+      info: "Lorem ipsum."
+      package: "%{amount} Credits for %{price}$"
+      first_step:
+        heading: "How many OVL Credits do you want to buy?"
+        info: "Lorem."
+      second_step:
+        heading: "Make a secure payment using PayPal or credit card."
+        info: "Lorem."
+        info_problems: "Lorem."
+    hub:
+      title: "Your Hub"
+      info: "Lorem ipsum."
+      heading:
+        videos: "Your unlocked and active videolessons"
+        unlocks: "Your history of unlocks"
+        payments: "Your history of payments"
+        earnings: "Your earnings"
+      lets:
+        browse: "Let's browse videolessons we offer!"
+        buy: "Let's buy some OVL Credits!"
+    edit: 
+      title: "Edit Profile"
+      basics: "Basics"
+      teacher: "Teacher"  
+    password:
+      title: "Change Password"
+
+# empty
+
+  empty:
+    unlocks: "Empty unlocks."
+    videos: "Empty videolessons."
+    comments: "Empty comments"
+    payments: "Empty payments"  
+    earnings: "Empty earnings"
+
+# buttons
+
+  buttons:
+    watch: "Learn Now!" 
+    buy: "Buy Now on PayPal!"
+    unlock: "Unlock Full Version Now!"
+
+# date and time
+
+  time:
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d/%m/%Y %H:%M"
