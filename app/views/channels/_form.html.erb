@@ -3,19 +3,23 @@
     <%= f.error_notification %>
 
     <div class="inputs">
-      <h2>En</h2>
-      <%= f.input :name %>
-      <%= f.input :description %>
+      <h2>English</h2>
+      <%= f.input :name_en %>
+      <%= f.input :tagline_en %>
     </div>
 
     <div class="inputs">
-      <h2>Pl</h2>
+      <h2>Polish</h2>
       <%= f.input :name_pl %>
-      <%= f.input :description_pl %>
+      <%= f.input :tagline_pl %>
     </div>
 
     <div class="actions">
       <%= f.button :submit %>
     </div>
 
+<% end %>
+
+<% content_for :head do %>
+<%= javascript_include_tag :ckeditor %>
 <% end %>

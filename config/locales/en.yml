@@ -2,15 +2,11 @@ en:
 
 # header
 
-  title: "OVL - Best Videolessons From World Class Experts"
+  title: "OVL - Best Videolessons From World-Class Experts"
   short: "OVL"
 
   meta:
     description: "lorem"
-
-  search:
-    value: "What to learn today?"
-    submit: "Search"
 
   header:
     sign_in: "Sign in"
@@ -33,8 +29,16 @@ en:
   home:
     link_to: "Home"
     intro:
-      heading: "Welcome to OVL"
-      summary: "lorem"
+      heading: "Become who you want to be."
+      summary: "
+        <p>OVL is a place when you learn from world-class experts
+        a knowledge that helps you grow.</p>
+        <p>Best teachers record <strong>amazing videolessons</strong><br />
+        on specific topics that you can buy from 2$.<p>
+	<p>We are open to anything from math to music.</p>
+        <p>Available in 
+          <span class='en'><a href='/en'>English</a></span> and 
+          <span class='pl'><a href='/pl'>Polish</a></span>.</p>"
       wanna_learn: "Wanna learn?"
       wanna_teach: "Wanna teach?"
       contact_us: "Contact us"
@@ -46,8 +50,8 @@ en:
     newest: "Newest"
     all: "All %{number} videolessons"
   about:
-    link_to: "About"
-    title: "About"
+    link_to: "How it works"
+    title: "How it works"
   policy:
     link_to: "Policy"
     title: "Policy"   
@@ -61,21 +65,37 @@ en:
     count: "%{number} videolessons"
     meta:
       for: "for"
+      comments_number: "%{number} comments"
+      unlocks_number: "%{number} unlocks" 
     level:
       basic: "Basic"
       pro: "Advanced"
     access:
-      paid: "%{price} Credits for %{days} Days"
+      price: "%{price} Credits"
+      days: "for %{days} days access" 
       free: "This videolesson is free!"
     info:
       unlock:
         is_subscriber: "Wooha! You have free and unlimited access to all videolessons."
         enough_credits: "You have enough OVL Credits. Unlock this %{duration} minutes long lesson."
-        not_enough_credits: "You have not got enough OVL Credits. Buy some to unlock."
-        free: "Learn and share with your friends"
+        not_enough_credits: "You haven't got enough OVL Credits. Buy some to unlock."
+        free: "Learn and share with friends."
         sign_in: "Sign up to unlock this videolesson."
-        unlocked: "Unlocked %{start} till %{end}."
+        unlocked: "Lesson unlocked!<br />Access till %{date}"
+        rly: "Do you want to unlock this lesson now?"
+    notice:
+      unlock:
+        success: "Unlocked successfullty! Happy learning!"
+        fail: "Something goes wrong. Try again."
+        not_enough_credits: "You haven't got enough OVL Credits. Buy some to unlock."
+    player:
+      trailer: "Trailer"
+      full_version: "Full Version"
+    language:
+      native: "Native:"
+      captions: "Captions:"
     description: "Description & Extras"
+    paid_description: "Unlock full version of this lesson to see the rest of the materials (%{characters} characters)."
     teacher: "Your Teacher"
 
 # comments
@@ -83,7 +103,7 @@ en:
   comments:
     all: "Comments (%{number})"
     info: "A place of interactions. Ask a question to %{teacher} or add your own materials."  
-    to_add: "to add a comment."
+    sign_in: "Sign in to add a comment."
 
 # channels
 
@@ -99,7 +119,8 @@ en:
     model_name: "Teachers"
     all: "All teaches"
     all_counted: "All %{number} teachers"
-    to_see_email: "to see email"
+    sign_in_to_see_email: "Sign in to see an email."
+    write_to: "How can I help you?"
 
 # users
 
@@ -146,17 +167,19 @@ en:
       title: "Your Hub"
       info: "Lorem ipsum."
       heading:
-        videos: "Your unlocked and active videolessons"
-        unlocks: "Your history of unlocks"
-        payments: "Your history of payments"
+        unlocks: "Your unlocks"
+        payments: "Your payments"
         earnings: "Your earnings"
       lets:
         browse: "Let's browse videolessons we offer!"
         buy: "Let's buy some OVL Credits!"
+      is_subscriber: "Wooha! You have free and unlimited access to all videolessons."
     edit: 
       title: "Edit Profile"
       basics: "Basics"
-      teacher: "Teacher"  
+      teacher: "Teacher" 
+      description: "Bio in English"
+      description_pl: "Bio in Polish" 
     password:
       title: "Change Password"
 
@@ -164,8 +187,6 @@ en:
 
   empty:
     unlocks: "Empty unlocks."
-    videos: "Empty videolessons."
-    comments: "Empty comments"
     payments: "Empty payments"  
     earnings: "Empty earnings"
 

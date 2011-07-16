@@ -2,32 +2,33 @@
 
 <div class="grid_12">
   <ul class="breadcrumbs">
-    <li><%= home %></li>
+    <%= home %>
     <li><%= link_to t("teachers.model_name"), users_path %></li>
     <li><%= yield(:title) %></li>
   </ul>
 </div>
 
-<div class="grid_2">
-  <%= image_tag("default-avatar.jpeg", :alt=>"#{@user.name} avatar")  %>
+<div class="grid_3">
+  <%= image_tag("default-thumb.png", :alt=>"#{@user.name} avatar")  %>
 </div>
 
-<div class="grid_9">
+<div class="grid_8">
   <h1><%= yield(:title) %></h1>
+
+<%= tagline(@user) %>
 
 <p class="email">
   <% if user_signed_in? %>
-      <%= @user.email %>
+      <%= t("teachers.write_to") %> &raquo; <%= link_to @user.email, "mailto:#{@user.email}" %>
   <% else %>
-      <%= sign_in %> <%= t("teachers.to_see_email") %>.
+      <%= t("teachers.write_to") %> &raquo; <%= link_to t("teachers.sign_in_to_see_email"), new_user_session_path %>
   <% end %>
 </p>
   <%= description(@user) %>
 </div>
 
-<div class="clear"></div>
+<div class="spacer"></div>
 
 <div class="grid_12">
-  <h2><%= t("videos.model_name") %></h2>
   <%= render :partial => @videos %>
 </div>

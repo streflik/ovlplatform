@@ -14,12 +14,16 @@
     <% if @user.is_teacher %>
         <div class="inputs">
           <h2><%= t("users.edit.teacher") %></h2>
-          <%= f.input :description %>
-           <%= f.input :description_pl %>
+           <h3><%= t("users.edit.description_en") %></h3>
+           <%= f.input :tagline_en %>
+	   <%= f.cktext_area :description_en, :toolbar => 'Basic', :width => '600px', :height => '300px' %>
+           <h3><%= t("users.edit.description_pl") %></h3>
+	   <%= f.input :tagline_pl %>
+           <%= f.cktext_area :description_pl, :toolbar => 'Basic', :width => '600px', :height => '300px' %>
         </div>
     <% end %>
 
-    <% if @user.is_admin %>
+    <%# if current_user.is_admin %>
         <div class="inputs">
           <h2>Admin</h2>
           <%= f.input :is_admin %>
@@ -28,10 +32,14 @@
           <%= f.input :credits_total %>
           <%= f.input :credits_available %>
         </div>
-    <% end %>
+    <%# end %>
 
     <div class="actions">
       <%= f.button :submit %>
     </div>
 
+<% end %>
+
+<% content_for :head do %>
+<%= javascript_include_tag :ckeditor %>
 <% end %>

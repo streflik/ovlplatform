@@ -1,8 +1,11 @@
 body {
-    color:#333;
+    color:#3E3E3E;
     font-size:14px;
     font-family:Arial, sans-serif;
+    line-height:1.6em
 }
+
+/* positioners */
 
 .left {
     float:left
@@ -12,32 +15,81 @@ body {
     float:right
 }
 
+/* make it strong! */
+
+strong, .strong {
+font-weight:bold
+}
+
+/* links */
+
+a {
+color:#19558D;
+text-decoration:none
+}
+
+a:hover {
+text-decoration:underline
+}
+
 /* headings */
 
 h1,h2,h3 {
-    font-weight:bold
+    font-weight:bold;
+  color:#2B2922
 }
 
 h1 {
-    font-size:40px;
-    line-height:1.1em;
+    font-size:30px;
+    line-height:1em;
+    word-spacing:-2px
 }
 
 h2 {
     font-size:20px;
-    line-height:1.5em; /* temp*/
+    line-height:1.1em;
 }
 
 h3 {
-    font-size:15px;
-    line-height:1.5em; /* temp */
+    font-size:14px;
+    line-height:1em
+}
+
+.index h1 {
+  margin:0 0 20px 0
+}
+
+/* languages */
+
+.language {
+    position:relative;
+    margin:0 -60px 0 0;
+    float:right;
+    width:50px
+}
+
+.language li {
+padding:0 0 0 20px;
+}
+
+.pl, .en {;
+padding-left:20px;
+background-repeat:no-repeat;
+background-position:left center
+}
+
+.pl {
+background-image:url("/images/pl.png")
+}
+
+.en {
+background-image:url("/images/en.png")
 }
 
 /* wider */
 
 .wider {
     width:100%;
-    background:#eee
 }
 
 .wider div, .wider p {
@@ -51,165 +103,274 @@ h3 {
 
 /* flash*/
 
+.wider.flash {
+color:white;
+font-size:12px;
+line-height:2.2em;
+color:#fff
+}
+
 .wider.flash#notice {
-    background:green
+    background:#007020
 }
 
 .wider.flash#alert {
-    background:red
+    background:#BF0404
 }
 
-/* user nav */
+/* nav */
 
 .wider.nav {
-    background:#ddd
+  background:#381414;
+  font-size:12px;
+  line-height:2.5em;
+color:#fff
 }
 
-/* stat */
-
-.stats {
-    width:100%;
-    float:left
+.wider.nav li {
+  padding:0 10px 0 0;
+  margin:0 9px 0 0;
+  border-right:1px dotted #fff;
 }
 
-.stats .stat {
-    width:120px;
-    float:left;
-    padding:8px;
-    border:1px solid #ddd;
-    text-align:center;
-    margin:0 10px 10px 0
+.wider.nav li:last-child {
+  border:0;
+  margin-right:0;
+  padding:0
 }
 
-.stats .stat span {
-    width:100%;
-    float:left;
-    font-size:12px
-}
-
-
-.stats .stat .number {
-    width:100%;
-    font-size:50px;
-    font-weight:bold
+.wider.nav li a {
+color:#fff
 }
 
 /* header */
 
 .wider.header {
-    background:#eee;
-    height:40px
+background:#4C1B1B;
+height:40px;
+margin-bottom:50px;
+-moz-box-shadow: 0 6px 5px 0 #ddd
+-webkit-box-shadow: 0 6px 5px 0 #ddd;
+box-shadow: 0 6px 5px 0 #ddd;
 }
 
-.header .logo {
-    float:left;
+.wider.header .logo {
+float:left;
 }
 
-.header li a {
-    border-right:1px dotted #ddd;
-    display:block;
+.wider.header li a {
+color:#fff;
+border-right:1px dotted #fff;
+display:block;
     float:left;
     line-height:40px;
     padding:0 15px;
 }
 
-.header li a:hover, .header li a.current {
-    background:yellow
+.wider.header li a:hover, .wider.header li a.current {
+    background:#381414;
+  text-decoration:none
 }
 
-.header form {
-    line-height:40px;
-    float:left;
-    padding:0 0 0 15px
-}
-
-.header form input.text_field {
-    width:160px
+.wider.header .left li a {
+  font-weight:bold;
 }
 
 /* breadcrumbs */
 
-.language {
-    position:relative;
-    margin:0 -50px 0 0;
-    float:right;
-    width:50px
+ul.breadcrumbs {
+  margin:-30px 0 10px 0
 }
-
-/* breadcrumbs */
 
 ul.breadcrumbs li {
-    display:inline
+  display:inline;
+  margin:0 4px 0 0;
+  padding: 0 5px 0 0;
+  border-right:1px solid #ddd
+}
+
+ul.breadcrumbs li:last-child {
+border-right:0;
+padding:0;
+margin:0
 }
 
 /*  intro on home page */
 
+.intro h1 {
+margin:0 0 20px 0;
+font-size:26px
+}
+
 .intro p {
     font-size:16px;
-    margin:0 0 10px 0
+    margin:0 0 15px 0;
 }
 
 .intro .wanna {
     float:left;
-    width:50%
+    width:50%;
+margin:0 0 10px 0
 }
 
-.intro .wanna .button {
-    font-size:25px
+.intro .wanna h3 {
+margin:5px 0 0 0
 }
 
 .intro .wanna p {
-    font-size:14px
+    font-size:14px;
+margin:0
+}
+
+/* buttons */
+
+.button {
+background:#B9121B;
+padding:0.5em;
+color:white;
+font-weight:bold;
+margin-right:10px;
+-moz-box-shadow: inset 0 0 10px #8C0101;
+-webkit-box-shadow: inset 0 0 10px #8C0101;
+box-shadow: inner 0 0 10px #8C0101;
+
+-moz-border-radius: 4px;
+border-radius: 4px;
+
+}
+
+.intro .button {
+font-size:25px;
+display:block;
+width:140px;
+margin:10px 0
+}
+
+.button:hover {
+background:#8C0101;
+text-decoration:none
 }
 
 /* common elements for box */
 
 .box {
-    float:left;
-    width:100%;
+  float:left;
+  width:100%;
+  line-height:1
+}
+
+/* video box */
+
+.box.video {
+  margin:0 0 24px 0;
+  padding: 0 0 25px 0;
+  border-bottom:1px dotted #ddd
+}
+
+.box.video img {
+  float:left;
+  margin: 0 15px 0 0
+}
+
+.box.video h2 {
+margin:10px 0	
+}
+
+.box.video ul li {
+display:inline;
+font-size:12px
+}
+
+.box.video p {
+margin:20px 0 0 0
+}
+
+/* featured video box */
+
+.featured h3 {
     margin:0 0 20px 0
 }
 
-.box img {
-    float:left;
-    margin: 0 10px 0 0
+.featured .box {
+margin-bottom:0;
+padding-bottom:0;
+border:none
 }
 
-/* box for channels */
+/* mini video box */
+
+.mini h3 {
+    margin:0 0 20px 0
+}
+
+.mini .box h2 {
+font-size:14px;
+margin:0
+}
+
+.mini .box {
+margin-bottom:10px;
+padding-bottom:0;
+border:none
+}
+
+/* channel box */
 
 .box.channel {
-    width:430px;
-    margin-right:40px
+    width:408px;
+    margin:0 40px 40px 0;
+padding:10px;
+border:1px solid #ddd;
+-moz-border-radius: 6px;
+border-radius: 6px;
 }
 
-.box.channel img {
-    float:none;
-    margin:0
+.box.channel h2 {
+margin:5px 0
 }
 
-/* bix for users */
+/* user box */
 
 .box.user {
-    width:270px;
-    margin-right:40px
+    width:220px;
+    margin:0 40px 40px 0;
+padding:10px;
+border:1px solid #ddd;
+-moz-border-radius: 6px;
+border-radius: 6px;
 }
 
-/* box for videos - mini version on home */
-
-.box.mini {
-    margin:0 0 10px 0
+.box.user h2 {
+margin:5px 0 0 0
 }
 
-.box.mini .comments_number {
-    display:none
+/* channel and user tagline */
+
+.tagline {
+margin:10px 0;
+color:#969696
+}
+
+/* spacer */
+
+.spacer {
+border:1px dotted #ddd;
+float:left;
+width:940px;
+margin:20px 10px
+}
+
+.spacer.inside {
+width:100%;
+margin:20px 0
 }
 
 /* like buttons */
 
 .like {
-    width:51px;
+    width:60px;
     position:fixed;
-    margin:10px 0 0 -51px
+    margin:10px 0 0 -60px
 }
 
 .box .like {
@@ -219,31 +380,204 @@ ul.breadcrumbs li {
 
 }
 
-/* meta */
-
-.belonging li, .meta li {
-    display: inline;
-    font-size:12px;
-}
-
-.meta li {
-    padding:0 5px 0 0;
-    margin:0 4px 0 0;
-    border-right:1px solid #ddd
+.like .gplus {
+float:left;
+width:60px;
+margin:10px 0 0 0
 }
 
 /* video page */
 
-.video .player {
+.meta {
+color:#969696
 }
 
-.free {
-    color: green
+ul.meta li {
+display:inline;
+border-right:1px solid #ddd;
+padding:0 5px 0 0;
+margin:0 4px 0 0
 }
 
-.price {
-    color:orange
+ul.meta li:last-child {
+border-right:none;
+padding:0;
+margin:0
 }
+
+ul.meta img {
+float:none!important;
+margin:0 0 0 5px!important
+}
+
+.videos.show ul.meta {
+margin:8px 0 0 0
+}
+
+/* video others */
+
+.videos.show h1 {
+font-size:40px;
+}
+
+.videos.show .grid_1 img {
+display:block;
+}
+
+/* video sidebar */
+
+.videos.show .grid_3 div {
+margin:0 0 30px 0
+}
+
+.videos.show .grid_3 div h2 {
+margin:0 0 15px 0
+}
+
+.videos.show .grid_3 div h3 {
+margin:10px 0 10px 0
+}
+
+.videos.show .grid_3 div img {
+display:block;
+margin-bottom:10px
+}
+
+.videos.show div.unlock {
+padding:15px 10px 10px 10px;
+border:1px solid #ddd;
+background:#FCFAE1;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+
+.videos.show div.unlock p {
+text-align:center;
+margin:5px 0
+}
+
+.videos.show div.unlock .price {
+font-size:30px;
+font-weight:bold;
+}
+
+.videos.show div.unlock .days {
+font-size:16px;
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.videos.show div.unlock .button {
+display:block;
+margin:10px 0 10px 0
+}
+
+.videos.show div.unlock .like_mini {
+margin:10px 0 0 0;
+padding:10px 0 0 0;
+border-top:1px solid #ddd
+}
+
+.videos.show div.teacher h3 {
+margin-bottom:0px
+}
+
+.videos.show div.teacher p {
+margin:0
+}
+
+.videos.show .grid_9 h2 {
+margin:0 0 15px 0
+}
+
+/* comments */
+
+.comments p {
+margin:0 0 15px 0
+}
+
+.comments p.author {
+background:#FCFAE1;
+padding:2px 10px;
+font-size:12px
+}
+
+/* description */
+
+.description p {
+margin:0 0 15px 0
+}
+
+.unlock_to_see {
+padding:5px;
+background:#FCFAE1;
+border:1px solid #ddd;
+text-align:center;
+font-weight:bold;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+
+/* tabs */
+
+/* root element for tabs  */
+ul.tabs { 
+	list-style:none; 
+	margin:0 !important; 
+	padding:0;	
+	height:30px;
+}
+
+/* single tab */
+ul.tabs li { 
+	float:left;	 
+	text-indent:0;
+	padding:0;
+	margin:0 !important;
+	list-style-image:none !important; 
+}
+
+/* link inside the tab. uses a background image */
+ul.tabs a { 
+	display:block;
+	height: 30px;  
+	line-height:30px;
+	width: 134px;
+	text-align:center;	
+	text-decoration:none;
+	color:#333;
+	padding:0px;
+	margin:0px;	
+	position:relative;
+	top:1px;
+       border:1px solid #ddd;
+       margin:0 -1px 10px 0;
+       font-weight:bold
+}
+
+ul.tabs a:active {
+	outline:none;		
+}
+
+/* when mouse enters the tab move the background image */
+/* active tab uses a class name "current". its highlight is also done by moving the background image. */
+ul.tabs a:hover, ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
+background:#FCFAE1	
+}
+
+/* initially all panes are hidden */ 
+.panes .pane {
+	display:none;		
+}
+
+/* price */
+
+.price, .days, .free {
+font-weight:bold;
+color:#007020
+}
+
+
 
 /* comments */
 
@@ -268,29 +602,35 @@ ul.breadcrumbs li {
 
 /* channel page */
 
-.channel .teachers img {
-    margin:0 10px 10px 0
+.topper {
+color:#fff;
+padding:10px;
+margin:0 0 30px 0
 }
 
-/* channel topper */
+.topper p {
+margin:0
+}
+
+.topper .name {
+font-weight:bold;
+font-size:16px
+}
 
 .topper a {
-    display:block;
-    padding:10px;
-    background:gray  /* default */
+color:#fff
 }
 
-.topper#channel-1 a {
-    background:red;
+/* user page */
+
+.users.show .email {
+margin:0 0 15px
 }
 
-.topper#channel-2 a {
-    background:purple;
+.users.show .spacer {
+margin-top:5px
 }
 
-.topper#channel-3 a {
-    background:blue;
-}
 
 /* form */
 

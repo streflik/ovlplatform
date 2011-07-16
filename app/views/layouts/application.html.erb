@@ -16,10 +16,13 @@
 
   <!-- js -->
 
-  <script src="http://connect.facebook.net/en_US/all.js#appId=213365585368019&amp;xfbml=1"></script>
-  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" %>
-  <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" %>
   <%= javascript_include_tag "rails.js" %>
+  <script script src="http://connect.facebook.net/en_US/all.js#appId=122215534533466&amp;xfbml=1"></script>
+  <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+
 
   <!-- meta -->
 
@@ -56,21 +59,18 @@
   <div>
     <%= link_to image_tag("ovl-logo.png"), root_url, :class=>"Open Video Learning OVL logo" %>
     <ul class="left">
-      <li><%= link_to "#{t"videos.model_name"}", videos_path %></li>
-      <li><%= link_to "#{t"channels.model_name"}", channels_path %></li>
-      <li><%= link_to "#{t"teachers.model_name"}", users_path %></li>
+      <li><%= link_to_with_highlight "#{t"videos.model_name"}", videos_path %></li>
+      <li><%= link_to_with_highlight "#{t"channels.model_name"}", channels_path %></li>
+      <li><%= link_to_with_highlight "#{t"teachers.model_name"}", users_path %></li>
     </ul>
 
-    <form>
-      <input type="text" value="<%= t("search.value") %>" class="text_field" />
-      <input type="submit" value="<%= t"search.submit" %>"/>
-    </form>
-
     <ul class="right">
-      <li><%= link_to "#{t"about.link_to"}", about_path %></li>
+      <li><%= link_to_with_highlight "#{t"about.link_to"}", about_path %></li>
       <li><%= link_to "Blog", "http://ovlplatform.com/blog" %></li>
-      <li><%= link_to "#{t"header.sign_in"}", new_user_session_path %></li>
-      <li><%= link_to "#{t"header.sign_up"}", new_user_registration_path %></li>
+      <% unless user_signed_in? %>
+      <li><%= link_to_with_highlight "#{t"header.sign_in"}", new_user_session_path %></li>
+      <li><%= link_to_with_highlight "#{t"header.sign_up"}", new_user_registration_path %></li>
+      <% end %>
     </ul>
   </div>
 
@@ -78,13 +78,12 @@
 
 <div class="clear"></div>
 
-<div class="container_12">
+<div class="container_12 <%= @current_controller %> <%= @current_action %>">
 
   <div class="language">
-    <h3>Translate:</h3>
     <ul>
-      <li><%= link_to "English", "/en"  %></li>
-      <li><%= link_to "Polski", "/pl" %></li>
+      <li class="en"><%= link_to "English",  change_language_url(:locale=>:en)  %></li>
+      <li class="pl"><%= link_to "Polski", change_language_url(:locale=>:pl) %></li>
     </ul>
   </div>
 

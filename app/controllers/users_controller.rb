@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @users = User.all
     @teachers = User.teachers
     @comments = Comment.all
+    @unlocks = Unlock.all
   end
 
   # users views

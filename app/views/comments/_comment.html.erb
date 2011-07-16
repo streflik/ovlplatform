@@ -1,14 +1,19 @@
 <%= div_for comment, :class=>"comment" do %>
 
-    <div class="avatar">
+    <div class="grid_1 alpha">
       <%= image_tag("default-avatar_60.jpeg") %>
     </div>
 
-    <div class="body">
-      <ul class="author">
-        <li><%= comment.user.name %></li>
-        <li><%= l(comment.created_at, :format=>:long) %></li>
-        <li><%= link_to t("delete"), [@video, comment], :confirm=>t("confirm.delete.comment"), :method=>:delete %></li>
+    <div class="grid_8 omega">
+      <p class="author">
+       <strong><% if comment.user.is_teacher %><%= link_to comment.user.name, comment.user %><% else %><%= comment.user.name %><% end %></strong>, 
+               <%= l(comment.created_at, :format=>:long) %>
+        <% if is_owner?(comment) %>
+          <%= link_to t("delete"), [@video, comment], :confirm=>t("confirm.delete.comment"), :method=>:delete %>
+        <% end%>
+        <% if comment.user.is_teacher %>
+          <span class="right">OVL Teacher</span>
+        <% end %>
       </ul>
       <%= raw auto_link simple_format comment.body %>
     </div>

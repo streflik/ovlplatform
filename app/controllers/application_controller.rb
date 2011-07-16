@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_locale
+  before_filter :instantiate_controller_and_action_names
 
   private
 
@@ -25,7 +26,7 @@ class ApplicationController < ActionController::Base
   # basic identity protections
 
   def is_admin?
-    current_user.is_admin == true || current_user.email == "bartlomiej.rycharski@gmail.com"
+    current_user.is_admin == true
   end
 
   def is_user?
@@ -33,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_owner?(object)
-    object.user == current_user
+    is_admin? || object.user == current_user
   end
 
   def verify_admin
@@ -58,7 +59,12 @@ class ApplicationController < ActionController::Base
   end
 
   def find_teachers
-    @teachers = User.teachers
+    @teachers = User.teachers*3
+  end
+
+  def instantiate_controller_and_action_names
+    @current_action = action_name
+    @current_controller = controller_name
   end
 
 end

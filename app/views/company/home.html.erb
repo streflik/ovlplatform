@@ -4,15 +4,17 @@
     <h1><%= t"home.intro.heading" %></h1>
     <%= raw t"home.intro.summary" %>
 
+   <div class="clear"></div>
+
     <div class="wanna learn">
       <h3><%= t"home.intro.wanna_learn" %></h3>
-      <p><%= link_to "#{t"home.intro.sign_up"}", new_user_registration_path, :class=>"button" %></p>
+      <%= link_to "#{t"home.intro.sign_up"}", new_user_registration_path, :class=>"button signup" %>
       <p><%= t"home.intro.or" %> <%=link_to "#{t"home.intro.all_videos"}", videos_path  %></p>
     </div>
 
     <div class="wanna teach">
       <h3><%= t"home.intro.wanna_teach" %></h3>
-      <p><%= link_to "#{t"home.intro.contact_us"}", "", :class=>"button" %></p>
+      <%= link_to "#{t"home.intro.contact_us"}", "", :class=>"button about" %>
       <p><%= t"home.intro.or" %> <%= link_to "#{t"home.intro.how_it_works"}", "" %></p>
     </div>
 
@@ -21,14 +23,13 @@
 
 <div class="grid_7">
   <div class="player">
-    <iframe width="540" height="339" src="http://www.youtube.com/embed/aQR-LTYWQ7E" frameborder="0" allowfullscreen></iframe>
+    <iframe width="540" height="339" src="http://www.youtube.com/embed/SaOFuW011G8" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
 
+<div class="spacer"></div>
 
-<div class="clear"></div>
-
-<div class="grid_7">
+<div class="grid_8 featured">
 
   <h3><%= t"home.featured" %></h3>
 
@@ -36,23 +37,22 @@
 
 </div>
 
-<div class="grid_5">
+<div class="grid_4 mini">
 
   <h3><%= t"home.newest" %> | <%= link_to "#{t("home.all", :number => @videos.count)}", videos_path %></h3>
 
   <% @videos.each do |video| %>
 
-      <div class="box video mini">
+      <div class="box video">
         <%= link_to image_tag("default-thumb-mini.png"), video %>
-        <h2><%= link_to video.t_name, video %></h2>
-        <%= meta(video) %>
+        <h2><%= link_to video.name, video %></h2>
       </div>
 
   <% end %>
 
 </div>
 
-<div class="clear"></div>
+<div class="spacer"></div>
 
 <div class="grid_4">
   <%= link_to image_tag("feature.png") %>

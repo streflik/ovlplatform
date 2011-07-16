@@ -14,8 +14,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.boolean :accept_policy
-      t.text :description
+      t.text :description_en
       t.text :description_pl
+      t.string :tagline_en
+      t.string :tagline_pl
       t.boolean :is_admin, :default => false
       t.boolean :is_teacher, :default => false
       t.boolean :is_subscriber, :default => false

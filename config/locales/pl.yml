@@ -50,7 +50,8 @@ pl:
     model_name: "Nauczyciele"
     all: "Wszyscy %{number} nauczyciele"
     all_raw: "Wszyscy nauczyciele"
-    to_see_email: " aby zobaczyć email."
+    sign_in_to_see_email: " aby zobaczyć email."
+    write_to: "Can I help you?"
   users:
     sign_up: "Zarejestruj się"
     sign_in: "Zaloguj się"

@@ -1,126 +1,165 @@
-<% title @video.t_name %>
+<% title @video.name %>
 
 <div class="grid_12">
   <ul class="breadcrumbs">
-    <li><%= home %></li>
+    <%= home %>
     <li><%= link_to t("channels.model_name"), channels_path %></li>
-    <li><%= link_to @channel.t_name, channel_path(@channel) %></li>
+    <li><%= link_to @channel.name, channel_path(@channel) %></li>
     <li><%= yield(:title)%></li>
   </ul>
 </div>
 
 <%= render :partial => 'channels/topper' %>
 
-<div class="video" id="video-<%= @video.id %>">
+<div id="video-<%= @video.id %>">
 
-  <div class="grid_12">
+  <%= like(@video) %>
+
+  <div class="grid_1">
+    <%= link_to image_tag("default-avatar_60.jpeg", :alt=>"#{@user.name} avatar small"), user_path(@user) %>
+  </div>
+
+  <div class="grid_11">
     <h1><%= yield(:title)%></h1>
     <%= meta(@video) %>
   </div>
 
-  <%= like(@video) %>
-
-  <div class="grid_12">
-    <p class="unlock">
-      <% if @video.is_paid %>
-          <% if user_signed_in? %>
-              <% if current_user.is_subscriber %>
-                  <%= paid(@video) %>
-                  <%= content_tag(:span, t("videos.info.unlock.is_subscriber")) %>
-              <% else %>
-                  <% if is_locked?(@video) %>
-                      <%= link_to t("buttons.unlock"), "", :class=>"button unlock" %>
-                      <%= paid(@video) %>
-                      <% if current_user.credits_available >= @video.price %>
-                          <%= content_tag(:span, t("videos.info.unlock.enough_credits", :duration=>@video.duration)) %>
-                      <% else %>
-                          <%= content_tag(:span, link_to((t("videos.info.unlock.not_enough_credits", :duration=>@video.duration)), credits_user_path  )) %>
-                      <% end %>
-                  <% else %>
-                      <%= paid(@video) %>
-                      <%= content_tag(:span, t("videos.info.unlock.unlocked", :start=>"12/02/2011 11:00", :end=>"19/02/2011 11:00")) %>
-                  <% end %>
-              <% end %>
-          <% else %>
-              <%= paid(@video) %>
-              <%= content_tag(:span,link_to(t("videos.info.unlock.sign_in"), new_user_session_path)) %>
-          <% end %>
-      <% else %>
-          <%= free_video %>
-          <%= content_tag(:span, t("videos.info.unlock.free")) %>
-      <% end %>
-    </p>
-
-  </div>
-
-  <div class="grid_12">
-    <div class="player">
-    </div>
-    <% if user_signed_in? %>
-        <% if current_user.is_subscriber %>
-            <%= full_version %>
-        <% else %>
-            <% if is_locked?(@video) %>
-                <%= trailer %>
-            <% else %>
-                <%= full_version %>
-            <% end %>
-        <% end %>
-    <% else %>
-        <% if @video.is_paid %>
-            <%= trailer %>
-        <% else %>
-            <%= full_version %>
-        <% end %>
-    <% end %>
-  </div>
+<div class="spacer"></div>
 
   <div class="grid_9">
 
+    <div class="player">
+
+      <!-- the tabs -->
+      <ul class="tabs">
+	<li><a href="#"><%= t("videos.player.trailer") %></a></li>
+	<li><a href="#"><%= t("videos.player.full_version") %></a></li>
+      </ul>
+
+     <div class="clear"></div>
+
+      <!-- tab "panes" -->
+      <div class="panes">
+	<div><%= youtube_trailer %></div>
+        <div><%= raw @video.full_version %></div>
+      </div>
+
+    </div>
+
+    <div class="spacer inside"></div>
+
     <h2><%= t("videos.description") %></h2>
     <%= description(@video) %>
-
-      <h2><a name="comments"></a><%= t("comments.all", :number=>@comments.count) %></h2>
-      <p><%= t("comments.info", :teacher=>@video.user.first_name) %></p>
-
-      <% unless @comments.blank? %>
-          <%= render :partial => @comments, :locals => {:list => true} %>
+ 
+    <% if @video.is_paid %>
+      <% if @is_locked %>
+        <p class="unlock_to_see"><%= t("videos.paid_description", :characters => @video.description_en_paid.size) %><p>
       <% else %>
-          <p><%= t("empty.comments") %></p>
+        <%= content_tag(:div, raw(auto_link(@video.description_paid)), :class=>"description") %>
       <% end %>
+    <% end %>
 
-      <% if user_signed_in? %>
-        <%= simple_form_for([@video, Comment.new]) do |f| %>
-          <div class="inputs">
-            <%= f.input :body %>
-          </div>
-          <div class="actions">
-            <%= f.button :submit %>
-          </div>
+    <div class="spacer inside"></div>
+
+    <div class="comments">
+
+    <h2><a name="comments"></a><%= t("comments.all", :number => @comments.count) %></h2>
+    <p><%= t("comments.info", :teacher => @video.user.first_name) %></p>
+
+    <%= render :partial => @comments, :locals => {:list => true} %>
+
+    <% if user_signed_in? %>
+      <%= simple_form_for([@video, Comment.new]) do |f| %>
+        <div class="inputs">
+           <%= f.input :body %>
+        </div>
+        <div class="actions">
+          <%= f.button :submit %>
+        </div>
       <% end %>
     <% else %>
-        <p><%= link_to t("users.sign_in"), new_user_session_path %> <%= t("comments.to_add") %></p>
+      <p><%= link_to t("comments.sign_in"), new_user_session_path %></p>
     <% end %>
+
+   </div>
 
   </div>
 
   <div class="grid_3">
+    
+    <div class="unlock">
+      <% if @video.is_paid %>
+          <p><%= price(@video) %></p>
+          <p><%= days(@video) %></p>
+        <% if user_signed_in? %>
+          <% if current_user.is_subscriber %>
+            <p><%= t("videos.info.unlock.is_subscriber") %></p>  
+          <% else %>
+            <% if @is_locked %>
+              <p><%= link_to t("buttons.unlock"), video_unlock_path(@video), :confirm=>t("videos.info.unlock.rly"), :class=>"button unlock" %></p>
+              <p><strong><%= @video.unlocks.count %> unlocks so far</strong></p>
+              <% if current_user.credits_available >= @video.price %>
+                <p><%= t("videos.info.unlock.enough_credits", :duration=>@video.duration) %></p>
+              <% else %>        
+                <p><%= link_to((t("videos.info.unlock.not_enough_credits", :duration=>@video.duration)), credits_user_path(current_user)) %></p>
+              <% end %>
+              <p>1 Credit = 1$</p>
+            <% else %>
+              <p class="unlocked"><%= raw(t("videos.info.unlock.unlocked", 
+:date=>l(current_user.unlocks.where('video_id = ?', @video.id).order('expires_at DESC').first.expires_at, :format=>:long))) %></p>   
+            <% end %>  
+          <% end %>
+        <% else %>
+          <p><strong><%= @video.unlocks.count %> unlocks so far</strong></p>
+          <p><%= link_to(t("videos.info.unlock.sign_in"), new_user_session_path) %></p>
+          <p>1 Credit = 1$</p> 
+        <% end %>
+      <% else %>
+        <p><%= free %></p>
+        <p><%= t("videos.info.unlock.free") %></p>
+      <% end %>      
+      <div class="like_mini">
+        <fb:like href="<%= video_url(@video)%>" send="false" layout="button_count" width="198" show_faces="false"></fb:like>
+      </div>
+    </div>
 
-    <h2><%= t("videos.teacher") %></h2>
+    <div class="teacher"> 
+      <h2>Your teacher</h2>
+      <%= link_to image_tag("default-thumb.png", :alt=>"#{@video.name} lesson thumb"), video_path(@video) %>
+      <h3><%= link_to @teacher.name, @teacher %></h3>
+      <%= tagline(@teacher) %> 
+    </div>
 
-    <div class="box">
-      <%= link_to image_tag("default-avatar_60.jpeg", :alt=>"#{@user.name} avatar small"), user_path(@user) %>
-      <h3><%= link_to @user.name, user_path(@user) %></h3>
-      <p><%= link_to "#{@user.videos.count} videolessons", user_path(@user) %></p>
+    <div class="related">
+      <h2>Related lessons</h2>
+      <% @related.each do |video| %>
+        <%= link_to image_tag("default-thumb.png", :alt=>"#{@video.name} lesson thumb"), video_path(@video) %>
+        <h3><%= link_to video.name, video %></h3>
+      <% end %>
     </div>
 
   </div>
 
 </div>
 
+
+
+
 <% content_for :head do %>
-    <meta name="description" content="<%= truncate(@video.t_description, :length => 150) %>">
-    <meta property="og:title" content="<%= @video.t_name %>"/>
+
+<!-- UI Tools: Tabs, Tooltip, Scrollable and Overlay (4.05 Kb) -->
+<script src="http://cdn.jquerytools.org/1.2.5/tiny/jquery.tools.min.js"></script>
+
+<script>
+// perform JavaScript after the document is scriptable.
+$(function() {
+	// setup ul.tabs to work as tabs for each div directly under div.panes
+	$("ul.tabs").tabs("div.panes > div");
+});
+</script>
+
+    <meta name="description" content="<%= truncate(@video.description, :length => 150) %>">
+    <meta property="og:title" content="<%= @video.name %>"/>
     <meta property="og:type" content="article"/>
     <meta property="og:image" content="/<%#=@video.thumb.url(:original) %>"/>
     <meta property="og:url" content="<%= video_url(@video) %>"/>

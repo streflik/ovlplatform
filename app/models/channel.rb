@@ -1,29 +1,29 @@
 class Channel < ActiveRecord::Base
 
-   attr_accessible :name, :description, :name_pl, :description_pl
+  attr_accessible :name_en, :name_pl, :tagline_en, :tagline_pl
 
-  validates :name, :description, :name_pl, :description_pl, :presence => true
-  validates :name, :uniqueness => true
+  validates :name_en, :name_pl, :tagline_en, :tagline_pl, :presence => true
+  validates :name_en, :name_pl, :uniqueness => true
 
-  default_scope :order => "name ASC"
+  default_scope :order => "created_at DESC"
 
   has_many:videos
 
   # translation
 
-  def t_name
+  def name
     if I18n.locale == :en
-      name
+      name_en
     else
       name_pl
     end
   end
 
-  def t_description
+  def tagline
     if I18n.locale == :en
-      description
+      tagline_en
     else
-      description_pl
+      tagline_pl
     end
   end
 

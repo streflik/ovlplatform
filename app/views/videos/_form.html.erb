@@ -3,15 +3,21 @@
     <%= f.error_notification %>
 
     <div class="inputs">
-      <h2>En</h2>
-      <%= f.input :name %>
-      <%= f.input :description %>
+      <h2>English</h2>
+      <%= f.input :name_en %>
+      <h3>Free description in English</h3>
+      <%= f.cktext_area :description_en, :toolbar => 'Easy', :width => '600px', :height => '300px' %>
+      <h3>Paid description in English</h3>
+      <%= f.cktext_area :description_en_paid, :toolbar => 'Easy', :width => '600px', :height => '300px' %>
     </div>
 
     <div class="inputs">
-      <h2>Pl</h2>
+      <h2>Polish</h2>
       <%= f.input :name_pl %>
-      <%= f.input :description_pl %>
+      <h3>Free description in Polish</h3>
+      <%= f.cktext_area :description_pl, :toolbar => 'Easy', :width => '600px', :height => '300px' %>
+      <h3>Paid description in Polish</h3>
+      <%= f.cktext_area :description_pl_paid, :toolbar => 'Easy', :width => '600px', :height => '300px' %>
     </div>
 
     <div class="inputs">
@@ -22,20 +28,32 @@
       <%= f.association :channel, :label_method => :name, :value_method => :id, 
 	:collection => @channels, :prompt => false %>
       <%= f.input :is_featured %>
+       <%= f.input :native, :collection => Video::CAPTIONS, :prompt=> false %>
+       <%= f.input :has_pl_captions %>
+       <%= f.input :has_en_captions %>
+    </div>
+
+    <div class="inputs">
+      <h2>Pricing</h2>
+      <%= f.input :is_paid, :as => :radio %>
+      <%= f.input :price %>
+      <%= f.input :days %>
+      <%= f.input :commission %>
     </div>
 
     <div class="inputs">
       <h2>Video</h2>
-      <%= f.input :embed %>
+      <%= f.input :youtube_trailer %>
+      <%= f.input :full_version %>
       <%= f.input :duration %>
-      <%= f.input :is_paid, :as => :radio %>
-      <%= f.input :price %>
-      <%= f.input :days %>
-      <%= f.input :youtube %>
     </div>
 
     <div class="actions">
       <%= f.button :submit %>
     </div>
 
+<% end %>
+
+<% content_for :head do %>
+<%= javascript_include_tag :ckeditor %>
 <% end %>

@@ -18,13 +18,14 @@ Ovlplatform::Application.routes.draw do
     resources :channels
 
     resources :videos do
+       get 'unlock'
        resources :comments
     end
 
     match '/about' => 'company#about'
     match '/policy' => 'company#policy'
 
-    match '/:locale' => 'company#home'
+    match '/change_language/:locale' => 'company#change_language', :as=>:change_language
     root :to => "company#home"
 
   end

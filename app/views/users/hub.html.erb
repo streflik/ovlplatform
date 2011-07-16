@@ -3,16 +3,71 @@
 <h1><%= yield(:title) %></h1>
 <p><%= t("users.hub.info") %></p>
 
-<h2><%= t("users.hub.heading.videos") %></h2>
-<p><%= t("empty.videos") %> &raquo; <%= link_to t("users.hub.lets.browse"), videos_path %></p>
-
 <h2><%= t("users.hub.heading.unlocks") %></h2>
-<p><%= t("empty.unlocks") %></p>
+
+<% unless @user.is_subscriber %>
+
+<% unless @user.unlocks.blank? %>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Video</th>
+      <th>Teacher</th>
+      <th>Date cr</th>
+      <th>Date exp</th>
+      <th>Credits</th>
+    </tr>
+  <% @user.unlocks.each do |u| %>
+    <tr>
+      <td><%= "#" + u.id.to_s %></td>
+      <td><%= link_to u.video.name, u.video %></td>
+      <td><%= link_to u.video.user.name, u.video.user %></td>
+      <td><%= l(u.created_at, :format=>:long) %></td>
+      <td><%= l(u.expires_at, :format=>:long) %></td>
+      <td><%= u.credits %></td>
+    </tr>  
+  <% end %>
+  </table>
+<% else %>
+  <p><%= t("empty.videos") %> &raquo; <%= link_to t("users.hub.lets.browse"), videos_path %></p>
+<% end %>
 
 <h2><%= t("users.hub.heading.payments") %></h2>
-<p><%= t("empty.payments") %> &raquo; <%= link_to t("users.hub.lets.buy"), videos_path %></p>
+<p><%= t("empty.payments") %> &raquo; <%= link_to t("users.hub.lets.buy"), credits_user_path(@user) %></p>
+
+<% else %>
+<p><%= t("users.hub.is_subscriber") %></p>
+<% end %>
 
 <% if @user.is_teacher %>
-    <h2><%= t("users.hub.heading.earnings") %></h2>
-    <p><%= t("empty.earnings") %></p>
+<h2><%= t("users.hub.heading.earnings") %></h2>
+
+<% unless @user.earnings.blank? %>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Video</th>
+      <th>Buyer</th>
+      <th>Date cr</th>
+      <th>Date exp</th>
+      <th>Credits</th>
+      <th>Your Commission</th>
+    </tr>
+  <% @user.earnings.each do |e| %>
+    <tr>
+      <td><%= "#" + e.id.to_s %></td>
+      <td><%= link_to e.video.name, e.video %></td>
+      <td><%= e.user.name %></td>
+      <td><%= l(e.created_at, :format=>:long) %></td>
+      <td><%= l(e.expires_at, :format=>:long) %></td>
+      <td><%= e.credits %></td>
+      <td><%= e.credits*e.commission/100 %>$ (<%= e.commission %>%)</td>
+    </tr>  
+  <% end %>
+  </table>
+<% else %>
+  <p><%= t("empty.videos") %> &raquo; <%= link_to t("users.hub.lets.browse"), videos_path %></p>
+<% end %>
+
 <% end %>

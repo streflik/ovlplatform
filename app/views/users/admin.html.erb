@@ -2,63 +2,6 @@
 
 <h1><%= yield(:title) %></h1>
 
-<div class="stats">
-
-  <div class="stat">
-    <span class="number"><%= @videos.count %></span>
-    <span>videolessons</span>
-  </div>
-
-  <div class="stat">
-    <span class="number"><%= @users.count %></span>
-    <span>users</span>
-  </div>
-
-  <div class="stat">
-    <span class="number"><%= @comments.count %></span>
-    <span>comments</span>
-  </div>
-
-  <div class="stat">
-    <span class="number"><%= User.sum(:credits_total) %></span>
-    <span>sum of total credits</span>
-  </div>
-
-  <div class="stat">
-    <span class="number"><%= User.sum(:credits_available) %></span>
-    <span>sum of avlb credits</span>
-  </div>
-
-
-  <!-- seocond row -->
-
-  <div class="stat">
-    <span class="number">9999<%= %></span>
-    <span>sum of payments ($)</span>
-  </div>
-
-  <div class="stat">
-    <span class="number">999</span>
-    <span>sum of unlockings</span>
-  </div>
-
-  <div class="stat">
-    <span class="number">999</span>
-    <span>unlockings money ($)</span>
-  </div>
-
-  <div class="stat">
-    <span class="number">999</span>
-    <span>teachers earnings ($)</span>
-  </div>
-
-  <div class="stat">
-    <span class="number"><%= "8765" %></span>
-    <span>profit so far ($)</span>
-  </div>
-
-</div>
-
 <h2>Videos (<%= link_to "New Video", new_video_path %>)</h2>
 
 <table>
@@ -88,7 +31,7 @@
   </tr>
   <% @channels.each do |ch| %>
       <tr>
-        <td><%= link_to ch.name, channel_path(ch) %></td>
+        <td><%= link_to ch.t_name, channel_path(ch) %></td>
         <td><%= link_to "Edit", edit_channel_path(ch) %></td>
         <td><%= link_to "Delete", channel_path(ch), :confirm=>"Delete this video?", :method=>:delete %></td>
       </tr>
@@ -178,6 +121,17 @@
     <th>Date exp</th>
     <th>User</th>
     <th>Video</th>
+    <th>Teacher</th>
     <th>Credits</th>
   </tr>
+  <% @unlocks.each do |u| %>
+  <tr>
+    <th><%= l(u.created_at, :format=>:long) %></th>
+    <th><%= l(u.expires_at, :format=>:long) %></th>
+    <th><%= u.user.name %></th>
+    <th><%= u.video.name %></th>
+    <th><%= u.teacher.name %></th>
+    <th><%= u.credits %></th>
+  </tr>
+  <% end %>
 </table>

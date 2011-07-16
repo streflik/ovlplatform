@@ -1,8 +1,10 @@
-<div class="box channel" id="channel-<%= channel.id %>">
+<div class="box channel">
 
   <%= link_to image_tag("default-thumb-channel.jpeg", :alt=>"#{channel.name} channel thumb"), channel_path(channel) %>
 
-  <h2><%= link_to channel.t_name, channel_path(channel) %></h2>
+  <h2><%= link_to channel.name, channel_path(channel) %></h2>
+
+  <%= tagline(channel) %>
 
   <p><%= link_to t("videos.count", :number=>channel.videos.count), channel_path(channel) %></p>
 
