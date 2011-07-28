@@ -1,20 +1,20 @@
 <div class="box video">
 
-  <%= like(video) unless @home %>
+  <%= share(video) unless @home %>
 
-  <%= link_to image_tag("default-thumb.png", :alt=>"#{video.name} lesson thumb"), video_path(video) %>
+  <%= link_to image_tag(video.thumb.url(:normal), :alt=>video.name), video %>
 
   <ul>
-    <li><%= link_to video.user.name, user_path(video.user) %></li>
-    <li><%= t("videos.meta.for") %> <%= link_to video.channel.name, channel_path(video.channel)%></li>
+    <li><%= link_to video.user.name, video.user %></li>
+    <li><%= t("videos.meta.for") %> <%= link_to video.channel.name, video.channel %></li>
   </ul>
 
-  <h2><%= link_to video.name, video_path(video) %></h2>
+  <h2><%= link_to video.name, video %></h2>
 
   <%= meta(video) %>
 
   <p>
-    <%= link_to t("buttons.watch"), video_path(video), :class=>"button learn" %>
+    <%= link_to t("buttons.watch"), video, :class=>"button learn" %>
     <% if video.is_paid %>
         <%= price(video) + " " + days(video) %>
     <% else %>

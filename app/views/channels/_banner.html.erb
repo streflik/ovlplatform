@@ -1,0 +1,10 @@
+<div class="grid_12">
+
+  <div class="banner" style="background-image:url(<%= @channel.banner.url(:normal) %>)">
+
+  <p><%= link_to @channel.name, @channel %><p>
+
+  <%= tagline(@channel) %>
+
+  </div>
+</div>

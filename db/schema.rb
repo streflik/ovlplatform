@@ -10,17 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110703112854) do
+ActiveRecord::Schema.define(:version => 20110703112855) do
 
   create_table "channels", :force => true do |t|
     t.string   "name_en"
     t.string   "name_pl"
-    t.text     "description_en"
-    t.text     "description_pl"
     t.string   "tagline_en"
     t.string   "tagline_pl"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "thumb_file_name"
+    t.string   "thumb_content_type"
+    t.integer  "thumb_file_size"
+    t.datetime "thumb_updated_at"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   create_table "comments", :force => true do |t|
@@ -70,6 +76,14 @@ ActiveRecord::Schema.define(:version => 20110703112854) do
     t.integer  "credits_total",                         :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "thumb_file_name"
+    t.string   "thumb_content_type"
+    t.integer  "thumb_file_size"
+    t.datetime "thumb_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -84,20 +98,28 @@ ActiveRecord::Schema.define(:version => 20110703112854) do
     t.text     "description_en_paid"
     t.text     "description_pl"
     t.text     "description_pl_paid"
-    t.text     "full_version"
-    t.string   "duration"
+    t.text     "summary_en"
+    t.text     "summary_pl"
+    t.integer  "duration"
     t.boolean  "is_featured"
     t.boolean  "is_paid"
     t.integer  "price"
     t.integer  "days"
     t.integer  "commission"
-    t.string   "youtube_trailer"
+    t.string   "paid_video_sd"
+    t.string   "paid_video_hd"
+    t.string   "paid_video_iphone"
+    t.string   "youtube_video"
     t.integer  "level"
     t.string   "native"
     t.boolean  "has_pl_captions"
     t.boolean  "has_en_captions"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "thumb_file_name"
+    t.string   "thumb_content_type"
+    t.integer  "thumb_file_size"
+    t.datetime "thumb_updated_at"
   end
 
 end

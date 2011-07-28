@@ -25,6 +25,8 @@ Ovlplatform::Application.routes.draw do
     match '/about' => 'company#about'
     match '/policy' => 'company#policy'
 
+    match '/sitemap.xml' => 'sitemap#sitemap'
+
     match '/change_language/:locale' => 'company#change_language', :as=>:change_language
     root :to => "company#home"
 

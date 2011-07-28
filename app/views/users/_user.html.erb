@@ -1,11 +1,11 @@
 <div class="box user">
 
-  <%= link_to image_tag("default-thumb.png", :alt=>"#{user.name} avatar"), user_path(user) %>
+  <%= link_to image_tag(user.thumb.url(:normal), :alt=>user.name), user %>
 
-  <h2><%= link_to user.name, user_path(user) %></h2>
+  <h2><%= link_to user.name, user %></h2>
 
   <%= tagline(user) %>
 
-  <p><%= link_to t("videos.count", :number=>user.videos.count), user_path(user) %></p>
+  <p><%= link_to t("videos.count", :number=>user.videos.count), user %></p>
 
 </div>

@@ -1,0 +1,144 @@
+xml.instruct!
+xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
+
+# VIDEOS
+
+  @videos.each do |video|
+    xml.url do
+      xml.loc url_for(:controller => 'videos', 
+                      :action => 'show', 
+                      :id => video.id,
+                      :only_path => false,
+                      :locale => 'en')
+      xml.lastmod video.updated_at.to_date
+      xml.changefreq "daily"
+      xml.priority "1.0"
+    end
+  end
+
+  @videos.each do |video|
+    xml.url do
+      xml.loc url_for(:controller => 'videos', 
+                      :action => 'show', 
+                      :id => video.id,
+                      :only_path => false,
+                      :locale => 'pl')
+      xml.lastmod video.updated_at.to_date
+      xml.changefreq "daily"
+      xml.priority "1.0"
+    end
+  end
+
+# CHANNELS
+
+  @channels.each do |channel|
+    xml.url do
+      xml.loc url_for(:controller => 'channels', 
+                      :action => 'show', 
+                      :id => channel.id,
+                      :only_path => false,
+                      :locale => 'en')
+      xml.lastmod channel.updated_at.to_date
+      xml.changefreq "weekly"
+      xml.priority "0.8"
+    end
+  end
+
+  @channels.each do |channel|
+    xml.url do
+      xml.loc url_for(:controller => 'channels', 
+                      :action => 'show', 
+                      :id => channel.id,
+                      :only_path => false,
+                      :locale => 'en')
+      xml.lastmod channel.updated_at.to_date
+      xml.changefreq "weekly"
+      xml.priority "0.8"
+    end
+  end
+
+# TEACHERS
+
+  @teachers.each do |teacher|
+    xml.url do
+      xml.loc url_for(:controller => 'users', 
+                      :action => 'show', 
+                      :id => teacher.id,
+                      :only_path => false,
+                      :locale => 'en')
+      xml.lastmod teacher.updated_at.to_date
+      xml.changefreq "weekly"
+      xml.priority "0.8"
+    end
+  end
+
+  @teachers.each do |teacher|
+    xml.url do
+      xml.loc url_for(:controller => 'users', 
+                      :action => 'show', 
+                      :id => teacher.id,
+                      :only_path => false,
+                      :locale => 'pl')
+      xml.lastmod teacher.updated_at.to_date
+      xml.changefreq "weekly"
+      xml.priority "0.8"
+    end
+  end
+
+# STATIC
+
+    xml.url do
+      xml.loc url_for(:controller => 'company', 
+                      :action => 'home',
+                      :only_path => false,
+                      :locale => 'en')
+      xml.changefreq "daily"
+      xml.priority "0.5"
+    end
+
+    xml.url do
+      xml.loc url_for(:controller => 'company', 
+                      :action => 'home',
+                      :only_path => false,
+                      :locale => 'pl')
+      xml.changefreq "daily"
+      xml.priority "0.5"
+    end
+
+    xml.url do
+      xml.loc url_for(:controller => 'company', 
+                      :action => 'about',
+                      :only_path => false,
+                      :locale => 'en')
+      xml.changefreq "monthly"
+      xml.priority "0.3"
+    end
+
+    xml.url do
+      xml.loc url_for(:controller => 'company', 
+                      :action => 'about',
+                      :only_path => false,
+                      :locale => 'pl')
+      xml.changefreq "monthly"
+      xml.priority "0.3"
+    end
+
+    xml.url do
+      xml.loc url_for(:controller => 'company', 
+                      :action => 'policy',
+                      :only_path => false,
+                      :locale => 'en')
+      xml.changefreq "monthly"
+      xml.priority "0.1"
+    end
+
+    xml.url do
+      xml.loc url_for(:controller => 'company', 
+                      :action => 'policy',
+                      :only_path => false,
+                      :locale => 'pl')
+      xml.changefreq "monthly"
+      xml.priority "0.1"
+    end
+
+end

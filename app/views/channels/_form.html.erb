@@ -1,4 +1,4 @@
-<%= simple_form_for(@channel) do |f| %>
+<%= simple_form_for(@channel, :html=>{:multipart=>true}) do |f| %>
 
     <%= f.error_notification %>
 
@@ -13,6 +13,12 @@
       <%= f.input :name_pl %>
       <%= f.input :tagline_pl %>
     </div>
+
+   <div class="inputs">
+     <h2>Images</h2>
+     <%= f.input :thumb %>
+     <%= f.input :banner %>
+   </div>
 
     <div class="actions">
       <%= f.button :submit %>

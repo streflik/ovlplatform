@@ -3,10 +3,12 @@
 <div class="grid_2">
 
 <div class="nav">
+ <%= image_tag(@user.avatar.url(:normal), :alt=>"#{@user.name}") %>
  <%= nav(@user) %>
   <h3><%= t("users.nav.help") %></h3>
   <p><%= link_to t("users.nav.contact_us") %></p>
 </div>
+
 </div>
 
 <div class="grid_10">

@@ -4,19 +4,19 @@
   <ul class="breadcrumbs">
     <%= home %>
     <li><%= link_to t("channels.model_name"), channels_path %></li>
-    <li><%= link_to @channel.name, channel_path(@channel) %></li>
+    <li><%= link_to @channel.name, @channel %></li>
     <li><%= yield(:title)%></li>
   </ul>
 </div>
 
-<%= render :partial => 'channels/topper' %>
+<%= render :partial => 'channels/banner' %>
 
 <div id="video-<%= @video.id %>">
 
-  <%= like(@video) %>
+  <%= share(@video) %>
 
   <div class="grid_1">
-    <%= link_to image_tag("default-avatar_60.jpeg", :alt=>"#{@user.name} avatar small"), user_path(@user) %>
+    <%= link_to image_tag(@user.avatar.url(:mini), :alt=>@user.name), @user %>
   </div>
 
   <div class="grid_11">
@@ -24,36 +24,40 @@
     <%= meta(@video) %>
   </div>
 
+
 <div class="spacer"></div>
 
-  <div class="grid_9">
+<div class="grid_12">
 
-    <div class="player">
+ <div class="player">
 
-      <!-- the tabs -->
-      <ul class="tabs">
-	<li><a href="#"><%= t("videos.player.trailer") %></a></li>
-	<li><a href="#"><%= t("videos.player.full_version") %></a></li>
-      </ul>
+      <% if @video.is_paid %>
+        <% if @is_locked %>
+          <%= youtube(@video.youtube_video) %>
+	  <p class="unlock_to_see"><%= t("videos.locked.video", :duration => duration(@video)) %><p>
+        <% else %>
 
-     <div class="clear"></div>
-
-      <!-- tab "panes" -->
-      <div class="panes">
-	<div><%= youtube_trailer %></div>
-        <div><%= raw @video.full_version %></div>
-      </div>
+        <div id="container"><%= image_tag("loader.gif") %></div>
+  
+        <% end %>
+      <% else %>
+        <%= youtube(@video.youtube_video) %>
+      <% end %>
 
     </div>
 
-    <div class="spacer inside"></div>
+</div>
+
+<div class="spacer"></div>
+
+  <div class="grid_9">
 
     <h2><%= t("videos.description") %></h2>
     <%= description(@video) %>
  
     <% if @video.is_paid %>
       <% if @is_locked %>
-        <p class="unlock_to_see"><%= t("videos.paid_description", :characters => @video.description_en_paid.size) %><p>
+        <p class="unlock_to_see"><%= t("videos.locked.description", :characters => @video.description_en_paid.size) %><p>
       <% else %>
         <%= content_tag(:div, raw(auto_link(@video.description_paid)), :class=>"description") %>
       <% end %>
@@ -93,30 +97,30 @@
           <p><%= days(@video) %></p>
         <% if user_signed_in? %>
           <% if current_user.is_subscriber %>
-            <p><%= t("videos.info.unlock.is_subscriber") %></p>  
+            <p><%= t("videos.unlock.is_subscriber") %></p>  
           <% else %>
             <% if @is_locked %>
-              <p><%= link_to t("buttons.unlock"), video_unlock_path(@video), :confirm=>t("videos.info.unlock.rly"), :class=>"button unlock" %></p>
-              <p><strong><%= @video.unlocks.count %> unlocks so far</strong></p>
+              <p><%= link_to t("buttons.unlock"), video_unlock_path(@video), :confirm=>t("confirm.unlock"), :class=>"button unlock" %></p>
+              <p><strong><%= unlocks_number(@video) %></strong></p>
               <% if current_user.credits_available >= @video.price %>
-                <p><%= t("videos.info.unlock.enough_credits", :duration=>@video.duration) %></p>
+                <p><%= t("videos.unlock.enough_credits", :duration=>duration(@video)) %></p>
               <% else %>        
-                <p><%= link_to((t("videos.info.unlock.not_enough_credits", :duration=>@video.duration)), credits_user_path(current_user)) %></p>
+                <p><%= link_to((t("videos.unlock.not_enough_credits", :duration=>duration(@video))), credits_user_path(current_user)) %></p>
               <% end %>
-              <p>1 Credit = 1$</p>
+              <p><%= t("videos.unlock.credit_price") %></p>
             <% else %>
-              <p class="unlocked"><%= raw(t("videos.info.unlock.unlocked", 
+              <p class="unlocked"><%= raw(t("videos.unlock.unlocked", 
 :date=>l(current_user.unlocks.where('video_id = ?', @video.id).order('expires_at DESC').first.expires_at, :format=>:long))) %></p>   
             <% end %>  
           <% end %>
         <% else %>
-          <p><strong><%= @video.unlocks.count %> unlocks so far</strong></p>
-          <p><%= link_to(t("videos.info.unlock.sign_in"), new_user_session_path) %></p>
-          <p>1 Credit = 1$</p> 
+          <p><strong><%= unlocks_number(@video) %></strong></p>
+          <p><%= link_to(t("videos.unlock.sign_in"), new_user_session_path) %></p>
+          <p><%= t("videos.unlock.credit_price") %></p> 
         <% end %>
       <% else %>
         <p><%= free %></p>
-        <p><%= t("videos.info.unlock.free") %></p>
+        <p><%= t("videos.unlock.free") %></p>
       <% end %>      
       <div class="like_mini">
         <fb:like href="<%= video_url(@video)%>" send="false" layout="button_count" width="198" show_faces="false"></fb:like>
@@ -124,45 +128,92 @@
     </div>
 
     <div class="teacher"> 
-      <h2>Your teacher</h2>
-      <%= link_to image_tag("default-thumb.png", :alt=>"#{@video.name} lesson thumb"), video_path(@video) %>
+      <h2><%= t("videos.teacher") %></h2>
+      <%= link_to image_tag(@teacher.thumb.url(:normal), :alt=>@teacher.name), @teacher %>
       <h3><%= link_to @teacher.name, @teacher %></h3>
       <%= tagline(@teacher) %> 
     </div>
 
     <div class="related">
-      <h2>Related lessons</h2>
+      <h2><%= t("videos.related.title") %></h2>
       <% @related.each do |video| %>
-        <%= link_to image_tag("default-thumb.png", :alt=>"#{@video.name} lesson thumb"), video_path(@video) %>
+        <%= link_to image_tag(video.thumb.url(:normal), :alt=>video.name), video %>
         <h3><%= link_to video.name, video %></h3>
       <% end %>
+      <p><%= link_to t("videos.related.all", :channel=>@channel.name), @channel %></p>
     </div>
 
   </div>
 
 </div>
+        
 
 
+<% content_for :footer do %>
+
+<script type="text/javascript">
+jwplayer("container").setup({
+height: 480,
+width: 853,
+skin: "/javascripts/jwplayer/skins/modieus.zip",
+image: "<%= @video.thumb.url(:sd) %>",
+provider: "http",
+file: "http://d28q1112rgpawm.cloudfront.net/<%= @video.paid_video_sd %>", // todo:protect
+buffering: 2,
+//provider: "rtmp",
+//file: "<%= @video.paid_video_sd %>",
+//streamer: "rtmp://s6ln0mynd2lg2.cloudfront.net/cfx/st",
+duration: <%= @video.duration %>,
+plugins: {
+	'hd-1': {
+          'file': 'http://d28q1112rgpawm.cloudfront.net/<%= @video.paid_video_hd %>', // todo: protect
+          'fullscreen': 'false'
+         },
+	'gapro-2': {
+           'idstring': '<%= @video.name_en %>',
+           'trackstarts': 'true',
+           'trackpercentage': 'true',
+           'tracktime': 'true'
+        },
+        'captions-2': {
+           'back': 'true'
+	}
+	},
+
+modes: [
+        {type: 'flash', src: '/javascripts/jwplayer/player.swf'},
+        {
+          type: 'html5',
+          config: {
+           'file': 'http://d28q1112rgpawm.cloudfront.net/<%= @video.paid_video_iphone %>', // todo: protect 
+           'provider': 'video'
+          }
+        }
+    ]
+
+});
+</script>
+
+<% end %>
 
 
 <% content_for :head do %>
 
-<!-- UI Tools: Tabs, Tooltip, Scrollable and Overlay (4.05 Kb) -->
-<script src="http://cdn.jquerytools.org/1.2.5/tiny/jquery.tools.min.js"></script>
+<!-- jw player -->
 
-<script>
-// perform JavaScript after the document is scriptable.
-$(function() {
-	// setup ul.tabs to work as tabs for each div directly under div.panes
-	$("ul.tabs").tabs("div.panes > div");
-});
-</script>
+<%= javascript_include_tag "jwplayer/jwplayer.js" %>
 
-    <meta name="description" content="<%= truncate(@video.description, :length => 150) %>">
-    <meta property="og:title" content="<%= @video.name %>"/>
+<!-- meta description -->
+
+<meta name="description" content="<%= @video.summary %>" >
+
+<!-- facebook meta tags -->
+
+    <meta property="og:title" content="<%= @video.name + ' - ' + t('short') %>"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:image" content="/<%#=@video.thumb.url(:original) %>"/>
+    <meta property="og:image" content="http://ovlplatform.com<%= @video.thumb.url(:normal) %>"/>
     <meta property="og:url" content="<%= video_url(@video) %>"/>
-    <meta property="og:site_name" content="OVL"/>
-    <meta property="og:admins" content="rysiul"/>
+    <meta property="og:site_name" content="<%= t('short') %>"/>
+    <meta property="og:description" content="<%= @video.summary %>"/>
+
 <% end %>

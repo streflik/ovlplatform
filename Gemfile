@@ -11,6 +11,7 @@ gem 'devise'
 
 gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
 
+gem "paperclip", "~> 2.3"
 
 # gem 'tiny_mce'
 

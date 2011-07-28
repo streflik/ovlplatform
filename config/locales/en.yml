@@ -2,7 +2,7 @@ en:
 
 # header
 
-  title: "OVL - Best Videolessons From World-Class Experts"
+  title: "OVL - Videolessons - Become who you want to be."
   short: "OVL"
 
   meta:
@@ -23,6 +23,7 @@ en:
   confirm:
     delete: 
       comment: "Are you sure to delete this comment?"
+    unlock: "Do you want to unlock this lesson?"
 
 # company
 
@@ -31,8 +32,7 @@ en:
     intro:
       heading: "Become who you want to be."
       summary: "
-        <p>OVL is a place when you learn from world-class experts
-        a knowledge that helps you grow.</p>
+        <p>OVL is a global marketplace for educational videos.</p>
         <p>Best teachers record <strong>amazing videolessons</strong><br />
         on specific topics that you can buy from 2$.<p>
 	<p>We are open to anything from math to music.</p>
@@ -48,7 +48,6 @@ en:
       how_it_works: "See how it works"
     featured: "Videolesson of the day"
     newest: "Newest"
-    all: "All %{number} videolessons"
   about:
     link_to: "How it works"
     title: "How it works"
@@ -61,12 +60,13 @@ en:
   videos:
     model_name: "Videolessons"
     all: "All videolessons"
-    all_counted: "All %{number} videolessons"
+    all_counted: "All videolessons (%{number})"
     count: "%{number} videolessons"
     meta:
       for: "for"
       comments_number: "%{number} comments"
       unlocks_number: "%{number} unlocks" 
+      duration: "%{number} minutes"
     level:
       basic: "Basic"
       pro: "Advanced"
@@ -74,15 +74,14 @@ en:
       price: "%{price} Credits"
       days: "for %{days} days access" 
       free: "This videolesson is free!"
-    info:
-      unlock:
-        is_subscriber: "Wooha! You have free and unlimited access to all videolessons."
-        enough_credits: "You have enough OVL Credits. Unlock this %{duration} minutes long lesson."
-        not_enough_credits: "You haven't got enough OVL Credits. Buy some to unlock."
-        free: "Learn and share with friends."
-        sign_in: "Sign up to unlock this videolesson."
-        unlocked: "Lesson unlocked!<br />Access till %{date}"
-        rly: "Do you want to unlock this lesson now?"
+    unlock:
+      is_subscriber: "Wooha! You have free and unlimited access to all videolessons."
+      enough_credits: "You have enough OVL Credits."
+      not_enough_credits: "Buy OVL Credits to unlock."
+      free: "Learn and share with friends."
+      sign_in: "Sign in to unlock this lesson."
+      unlocked: "Lesson unlocked!<br />Access till %{date}"
+      credit_price: "1 Credit = 1$"
     notice:
       unlock:
         success: "Unlocked successfullty! Happy learning!"
@@ -91,12 +90,19 @@ en:
     player:
       trailer: "Trailer"
       full_version: "Full Version"
+      do_you_like: "Do tou like a trailer?"
+      see_full_version: "See full version now."
     language:
       native: "Native:"
       captions: "Captions:"
     description: "Description & Extras"
-    paid_description: "Unlock full version of this lesson to see the rest of the materials (%{characters} characters)."
-    teacher: "Your Teacher"
+    locked:
+      video: "Unlock this lesson to see full video (%{duration} long)."
+      description: "Unlock this lesson to see the rest of the materials (%{characters} characters)."
+    teacher: "Your teacher"
+    related:
+      title: "What to learn next?"
+      all: "See all from channel %{channel}"
 
 # comments
 
@@ -110,15 +116,14 @@ en:
   channels:
     model_name: "Channels"
     all: "All channels"
-    all_counted: "All %{number} channels"
-    join_teachers: "Want to join teachers? See how."
+    all_counted: "All channels (%{number})"
 
 # teachers
 
   teachers:
     model_name: "Teachers"
     all: "All teaches"
-    all_counted: "All %{number} teachers"
+    all_counted: "All teachers (%{number})"
     sign_in_to_see_email: "Sign in to see an email."
     write_to: "How can I help you?"
 
@@ -127,7 +132,7 @@ en:
   users:
     nav:
       hello: "Hi %{name}!"
-      credits_available: "%{number} Available Credits"
+      credits_available: "<span>%{number}</span> Available Credits"
       credits: "Buy OVL Credits"
       hub: "Your Hub"
       edit: "Edit Profile"
@@ -148,24 +153,18 @@ en:
       link:
         sign_in: "Already on OVL? Sign in."
       benefits:
-        heading: "Why?"
+        heading: "Where is the Love?"
         first: "You can unlock desired videolessons." 
-        second: "You can ask questions in comments."
-        third: "You can see emails of our teachers."
+        second: "You can ask, disqus and share in comments."
+        third: "You can email to our teachers."
     credits:
       title: "Buy OVL Credits"
-      info: "Lorem ipsum."
       package: "%{amount} Credits for %{price}$"
-      first_step:
-        heading: "How many OVL Credits do you want to buy?"
-        info: "Lorem."
-      second_step:
-        heading: "Make a secure payment using PayPal or credit card."
-        info: "Lorem."
-        info_problems: "Lorem."
+      first_step: "How many OVL Credits do you want to buy?"
+      second_step: "Complete information about you for payment."
+      third_step: "Make a secure payment using PayPal or credit card."
     hub:
       title: "Your Hub"
-      info: "Lorem ipsum."
       heading:
         unlocks: "Your unlocks"
         payments: "Your payments"
@@ -174,11 +173,18 @@ en:
         browse: "Let's browse videolessons we offer!"
         buy: "Let's buy some OVL Credits!"
       is_subscriber: "Wooha! You have free and unlimited access to all videolessons."
+      table:
+        id: "ID"
+        video: "Videolesson"
+        start: "Start"
+        end: "End"
+        credits: "Credits"
+        buyer: "Buyer"
+        commission: "Commission"
     edit: 
       title: "Edit Profile"
-      basics: "Basics"
       teacher: "Teacher" 
-      description: "Bio in English"
+      description_en: "Bio in English"
       description_pl: "Bio in Polish" 
     password:
       title: "Change Password"
@@ -187,8 +193,8 @@ en:
 
   empty:
     unlocks: "Empty unlocks."
-    payments: "Empty payments"  
-    earnings: "Empty earnings"
+    payments: "Empty payments."  
+    earnings: "Empty earnings."
 
 # buttons
 
@@ -197,9 +203,94 @@ en:
     buy: "Buy Now on PayPal!"
     unlock: "Unlock Full Version Now!"
 
+# footer
+
+  footer:
+    facebook: "Join us on Facebook"
+    rss: "Subscribe RSS"
+    code: "Contribute to code on GitHub"
+    copy: "Edu 2.0 Bartlomiej Rycharski"
+
+# simple form
+
+  simple_form:
+    hints:
+      users:
+        password: "At least 6 characters."
+        avatar: "1 MB maximum. Only .jpg, .jpeg and .png formats allowed."
+    labels:
+      comment:
+        body: "Text:"
+      user:
+        password_confirmation: "Confirm password"
+        avatar: "Picture of you"
+        tagline_en: "Tagline in English"
+        tagline_pl: "Tagline in Polish"
+      video:
+        user: "Teacher"
+
+  helpers:
+    submit:
+      user:
+        create: "Sign up"
+        update: "Save Changes"
+      comment:
+        create: "ss"
+
 # date and time
 
   time:
     formats:
       default: "%d/%m/%Y"
       long: "%d/%m/%Y %H:%M"
+
+# active errors
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Obiekt nie został zachowany z powodu jednego błędu"
+          other: "Obiekt nie został zachowany z powodu %{count} błędów"
+        body: "Błędy dotyczą następujących pól:"
+      messages:
+        inclusion: "nie znajduje się na liście dopuszczalnych wartości"
+        exclusion: "znajduje się na liście zabronionych wartości"
+        invalid: "pole jest nieprawidłowe"
+        confirmation: "nie zgadza się z potwierdzeniem"
+        accepted: "pole musi być zaakceptowane"
+        empty: "pole nie może być puste"
+        blank: "pole nie może być puste"
+        too_long: "wartość jest za długa (maksymalnie %{count} znaków)"
+        too_short: "wartość jest za krótka (minimalnie %{count} znaków)"
+        wrong_length: "wartość jest nieprawidłowej długości (powinna wynosić %{count} znaków)"
+        taken: "zostało już zajęte"
+        not_a_number: "wartość nie jest liczbą"
+        not_an_integer: "wartość nie jest liczbą całkowitą"
+        greater_than: "wartość musi być większa niż %{count}"
+        equal_to: "wartość musi być równa %{count}"
+        less_than: "wartość musi być mniejsza niż %{count}"
+        record_invalid: "Negatywne sprawdzenie poprawności: %{errors}"
+        greater_than_or_equal_to: "wartość musi być równa lub większa od %{count}"
+      full_messages:
+        format: "%{attribute} %{message}"
+
+# devise
+
+  devise:
+    failure:
+      unauthenticated: 'Zaloguj się, aby kontynuować.'
+      invalid: 'Niepoprawny email lub hasło.'
+      invalid_token: 'Invalid authentication token.'
+    sessions:
+      link: 'Zaloguj się'
+      signed_in: 'Zalogowano'
+      signed_out: 'Wylogowano'
+      unauthenticated: 'Zaloguj się, aby kontynuować.'
+      invalid_token: 'Błąd systemu: niepoprawny token. Spróbuj jeszcze raz.'
+    registrations:
+      signed_up: 'Witaj w OVL! Mamy nadzieję, że spodobają Ci się wideolekcje, które dla Ciebie 
+
+
+
+

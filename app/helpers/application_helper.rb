@@ -23,7 +23,7 @@ module ApplicationHelper
   end
 
   def is_admin?
-    current_user.is_admin == true
+    current_user && current_user.is_admin == true
   end
 
   def is_owner?(object)
@@ -36,7 +36,7 @@ module ApplicationHelper
   content_tag(:ul,
     content_tag(:li, t("users.nav.hello", :name => user.first_name)) +
     unless user.is_subscriber
-    content_tag(:li, t("users.nav.credits_available", :number => user.credits_available)) +
+    content_tag(:li, raw(t("users.nav.credits_available", :number => user.credits_available)), :class=>"stat") +
     content_tag(:li, link_to_unless_current(t("users.nav.credits"), credits_user_path(user)))
     end +
     content_tag(:li, link_to_unless_current(t("users.nav.hub"), hub_user_path(user))) +
@@ -63,24 +63,32 @@ module ApplicationHelper
     content_tag(:p, object.tagline, :class=>"tagline")
   end
 
-  # video
+  # video meta
 
   def meta(video)
   content_tag(:ul,
     content_tag(:li, l(video.created_at)) +
-    content_tag(:li, video.duration) +
+    content_tag(:li, duration(video)) +
     content_tag(:li, level(video)) +
     unless is_home
-    content_tag(:li, t("videos.meta.comments_number", :number=>video.comments.count))
+    content_tag(:li, link_to(t("videos.meta.comments_number", :number=>video.comments.count), video_path(video) + "#comments"))
     end +
     if video.is_paid
-      content_tag(:li, t("videos.meta.unlocks_number", :number=>video.unlocks.count))
+      content_tag(:li, unlocks_number(video))
     end +
     unless is_home
-      content_tag(:li, raw(t("videos.language.native") + native(video))) + #raw(native(video)) )+
-      content_tag(:li, raw(t("videos.language.captions") + en_captions(video) + pl_captions(video)))   
+      content_tag(:li, raw(t("videos.language.native") + native(video)))+
+      content_tag(:li, raw(t("videos.language.captions")  + en_captions(video).to_s + pl_captions(video).to_s))   
     end,
   :class=>"meta")   	
+  end
+
+  def unlocks_number(video)
+    t("videos.meta.unlocks_number", :number=>video.unlocks.count) 
+  end
+
+  def duration(video)
+   t("videos.meta.duration", :number=>(video.duration / 60))
   end
 
   def native(video)
@@ -94,11 +102,12 @@ module ApplicationHelper
   def en_captions(video)
     if video.has_en_captions
       image_tag("en.png")
+    else
     end
   end
 
   def pl_captions(video)
-    if video.has_pl_captions
+    if video.has_pl_captions 
       image_tag("pl.png")
     end
   end

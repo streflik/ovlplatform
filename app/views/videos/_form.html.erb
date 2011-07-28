@@ -1,10 +1,11 @@
-<%= simple_form_for(@video) do |f| %>
+<%= simple_form_for(@video, :html=>{:multipart=>true}) do |f| %>
 
     <%= f.error_notification %>
 
     <div class="inputs">
       <h2>English</h2>
       <%= f.input :name_en %>
+      <%= f.input :summary_en %>
       <h3>Free description in English</h3>
       <%= f.cktext_area :description_en, :toolbar => 'Easy', :width => '600px', :height => '300px' %>
       <h3>Paid description in English</h3>
@@ -14,6 +15,7 @@
     <div class="inputs">
       <h2>Polish</h2>
       <%= f.input :name_pl %>
+      <%= f.input :summary_pl %>
       <h3>Free description in Polish</h3>
       <%= f.cktext_area :description_pl, :toolbar => 'Easy', :width => '600px', :height => '300px' %>
       <h3>Paid description in Polish</h3>
@@ -31,6 +33,7 @@
        <%= f.input :native, :collection => Video::CAPTIONS, :prompt=> false %>
        <%= f.input :has_pl_captions %>
        <%= f.input :has_en_captions %>
+       <%= f.input :thumb %>
     </div>
 
     <div class="inputs">
@@ -43,8 +46,10 @@
 
     <div class="inputs">
       <h2>Video</h2>
-      <%= f.input :youtube_trailer %>
-      <%= f.input :full_version %>
+      <%= f.input :youtube_video %>
+      <%= f.input :paid_video_sd %>
+      <%= f.input :paid_video_hd %>
+      <%= f.input :paid_video_iphone %>
       <%= f.input :duration %>
     </div>
 

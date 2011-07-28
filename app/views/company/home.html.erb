@@ -39,12 +39,12 @@
 
 <div class="grid_4 mini">
 
-  <h3><%= t"home.newest" %> | <%= link_to "#{t("home.all", :number => @videos.count)}", videos_path %></h3>
+  <h3><%= t"home.newest" %> | <%= link_to "#{t("videos.all")}", videos_path %></h3>
 
   <% @videos.each do |video| %>
 
       <div class="box video">
-        <%= link_to image_tag("default-thumb-mini.png"), video %>
+        <%= link_to image_tag(video.thumb.url(:mini), :alt=>video.name), video %>
         <h2><%= link_to video.name, video %></h2>
       </div>
 

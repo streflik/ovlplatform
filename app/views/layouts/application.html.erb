@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" <% if params[:locale] == 'pl' %>lang="pl"<% else %>lang="en"<% end %>>
 <head>
 
   <!-- title -->
@@ -9,6 +9,38 @@
   <% else %>
       <title><%= yield :title %> - <%= t("short") %></title>
   <% end %>
+
+  <!-- meta -->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <meta name="robots" content="index, follow" />
+
+  <% if params[:locale] == "pl" %>
+  <meta http-equiv="content-language" content="pl">
+  <% else %>
+  <meta http-equiv="content-language" content="en">
+  <% end %>
+
+  <% if @home %>
+  <meta name="description" content="<%= t('meta.description') %>">
+
+  <!-- facebook meta tags -->
+
+  <meta property="og:title" content="<%= t('title') %>"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="<% if params[:locale] == 'pl' %>http://ovlplatform.com/pl<% else %>http://ovlplatform.com/en<% end %>"/>
+  <meta property="og:image" content="http://ovlplatform.com<%= image_path('ovl-logo-facebook.png') %>"/>
+  <meta property="og:site_name" content="<%= t('short') %>"/>
+  <meta property="og:description" content="<%= t('meta.description') %>"/>
+
+  <% end %>
+
+  <%= csrf_meta_tag %>
+
+  <!-- adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <!-- css -->
 
@@ -21,20 +53,6 @@
   <%= javascript_include_tag "rails.js" %>
   <script script src="http://connect.facebook.net/en_US/all.js#appId=122215534533466&amp;xfbml=1"></script>
   <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-
-
-  <!-- meta -->
-
-  <% if @home %>
-      <meta name="description" content="<%= t"meta.description" %>">
-  <% end %>
-
-  <%= csrf_meta_tag %>
-
-  <!-- adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
-
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <!-- custom styles, js and others for pages  -->
 
@@ -57,7 +75,7 @@
 
 <div class="wider header">
   <div>
-    <%= link_to image_tag("ovl-logo.png"), root_url, :class=>"Open Video Learning OVL logo" %>
+    <%= link_to image_tag("logo.png", :class=>"logo", :alt=>"OVL Open Video Learning logo"), root_url %>
     <ul class="left">
       <li><%= link_to_with_highlight "#{t"videos.model_name"}", videos_path %></li>
       <li><%= link_to_with_highlight "#{t"channels.model_name"}", channels_path %></li>
@@ -66,7 +84,7 @@
 
     <ul class="right">
       <li><%= link_to_with_highlight "#{t"about.link_to"}", about_path %></li>
-      <li><%= link_to "Blog", "http://ovlplatform.com/blog" %></li>
+      <li><%= link_to "Facebook Blog", "http://facebook.com/ovl" %></li>
       <% unless user_signed_in? %>
       <li><%= link_to_with_highlight "#{t"header.sign_in"}", new_user_session_path %></li>
       <li><%= link_to_with_highlight "#{t"header.sign_up"}", new_user_registration_path %></li>
@@ -89,8 +107,36 @@
 
   <%= content_for?(:content) ? yield(:content) : yield %>
 
+<div class="grid_12">
+<div class="footer">
+<ul>
+<li><%= link_to t("footer.facebook"), "http://facebook.com/ovl" %></li>
+<li><%= link_to t("footer.rss"), "" %></li>
+<li><%= link_to t("footer.code"), "https://github.com/bartekrycharski/ovlplatform" %></li>
+<li><%= link_to t("about.link_to"), about_path %></li>
+<li><%= link_to "Blog", "http://ovlplatform.com/blog" %></li>
+<li><%= link_to t("policy.link_to"), policy_path %></li>
+</ul>
+<p class="copy">&copy; <%= t("footer.copy") %></p>
+</div>
+</div>
+
 </div>
 
 <div id="fb-root"></div>
+ <%= yield :footer %>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24663533-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>

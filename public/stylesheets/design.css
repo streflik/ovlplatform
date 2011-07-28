@@ -34,7 +34,7 @@ text-decoration:underline
 
 /* headings */
 
-h1,h2,h3 {
+h1,h2,h3,h4 {
     font-weight:bold;
   color:#2B2922
 }
@@ -50,13 +50,21 @@ h2 {
     line-height:1.1em;
 }
 
-h3 {
+h3,h4 {
     font-size:14px;
     line-height:1em
 }
 
 .index h1 {
-  margin:0 0 20px 0
+  margin:0 0 25px 0
+}
+
+/* img */
+
+img {
+-moz-border-radius: 4px;
+border-radius: 4px;
+display:block
 }
 
 /* languages */
@@ -176,6 +184,10 @@ display:block;
   font-weight:bold;
 }
 
+.wider.header .logo {
+margin:5px 10px 0 0 
+}
+
 /* breadcrumbs */
 
 ul.breadcrumbs {
@@ -204,7 +216,7 @@ font-size:26px
 
 .intro p {
     font-size:16px;
-    margin:0 0 15px 0;
+    margin:0 0 17px 0;
 }
 
 .intro .wanna {
@@ -233,7 +245,6 @@ margin-right:10px;
 -moz-box-shadow: inset 0 0 10px #8C0101;
 -webkit-box-shadow: inset 0 0 10px #8C0101;
 box-shadow: inner 0 0 10px #8C0101;
-
 -moz-border-radius: 4px;
 border-radius: 4px;
 
@@ -264,7 +275,7 @@ text-decoration:none
 .box.video {
   margin:0 0 24px 0;
   padding: 0 0 25px 0;
-  border-bottom:1px dotted #ddd
+  border-bottom:1px solid #ddd
 }
 
 .box.video img {
@@ -303,21 +314,22 @@ border:none
     margin:0 0 20px 0
 }
 
+.mini .box {
+margin:0 0 15px 0;
+padding:0;
+border:none;
+}
+
 .mini .box h2 {
 font-size:14px;
 margin:0
 }
 
-.mini .box {
-margin-bottom:10px;
-padding-bottom:0;
-border:none
-}
 
 /* channel box */
 
 .box.channel {
-    width:408px;
+    width:400px;
     margin:0 40px 40px 0;
 padding:10px;
 border:1px solid #ddd;
@@ -326,7 +338,7 @@ border-radius: 6px;
 }
 
 .box.channel h2 {
-margin:5px 0
+margin:10px 0 -2px 0
 }
 
 /* user box */
@@ -341,7 +353,7 @@ border-radius: 6px;
 }
 
 .box.user h2 {
-margin:5px 0 0 0
+margin:10px 0 -2px 0
 }
 
 /* channel and user tagline */
@@ -354,33 +366,32 @@ color:#969696
 /* spacer */
 
 .spacer {
-border:1px dotted #ddd;
+border-bottom:1px solid #ddd;
 float:left;
 width:940px;
-margin:20px 10px
+margin:25px 10px
 }
 
 .spacer.inside {
 width:100%;
-margin:20px 0
+margin:25px 0
 }
 
-/* like buttons */
+/* share buttons */
 
-.like {
+.share {
     width:60px;
     position:fixed;
-    margin:10px 0 0 -60px
+    margin:0 0 0 -60px
 }
 
-.box .like {
+.box .share {
     float:left;
     margin:0 10px 0 0;
     position:relative;
-
 }
 
-.like .gplus {
+.share .gplus {
 float:left;
 width:60px;
 margin:10px 0 0 0
@@ -388,26 +399,29 @@ margin:10px 0 0 0
 
 /* video page */
 
-.meta {
+.meta, .meta a {
 color:#969696
 }
 
-ul.meta li {
+.meta li {
 display:inline;
 border-right:1px solid #ddd;
 padding:0 5px 0 0;
 margin:0 4px 0 0
 }
 
-ul.meta li:last-child {
+.meta li:last-child {
 border-right:none;
 padding:0;
 margin:0
 }
 
-ul.meta img {
+.meta img {
+display:inline;
 float:none!important;
-margin:0 0 0 5px!important
+margin:0 0 0 5px!important;
+-moz-border-radius: 0px;
+border-radius: 0px;
 }
 
 .videos.show ul.meta {
@@ -420,8 +434,18 @@ margin:8px 0 0 0
 font-size:40px;
 }
 
-.videos.show .grid_1 img {
-display:block;
+/* video player */
+
+.videos.show .player #container_wrapper, .videos.show .player #youtube {
+width:853px;
+margin:0 auto;
+}
+
+/* video content */
+
+.container_12.videos.show .grid_9 {
+ padding-right: 20px;
+    width: 680px;
 }
 
 /* video sidebar */
@@ -431,7 +455,8 @@ margin:0 0 30px 0
 }
 
 .videos.show .grid_3 div h2 {
-margin:0 0 15px 0
+margin:0 0 20px 0;
+font-size:14px
 }
 
 .videos.show .grid_3 div h3 {
@@ -439,7 +464,6 @@ margin:10px 0 10px 0
 }
 
 .videos.show .grid_3 div img {
-display:block;
 margin-bottom:10px
 }
 
@@ -449,6 +473,9 @@ border:1px solid #ddd;
 background:#FCFAE1;
 -moz-border-radius: 6px;
 border-radius: 6px;
+-moz-box-shadow: 0 0px 4px 0 #ddd
+-webkit-box-shadow: 0 0px 4px 0 #ddd;
+box-shadow: 0 0px 4px 0 #ddd;
 }
 
 .videos.show div.unlock p {
@@ -502,6 +529,34 @@ padding:2px 10px;
 font-size:12px
 }
 
+.simple_form.comment textarea.text {
+    font-size: 14px;
+    height: 150px;
+    line-height: 1.5em;
+    padding: 5px;
+    width: 525px;
+}
+
+.simple_form.comment {
+margin-top:0
+}
+
+.simple_form.comment label {
+width:60px
+}
+
+.simple_form.comment div.input {
+margin:0
+}
+
+.simple_form.comment input[type="submit"] {
+    margin-left: 80px;
+}
+
+.container_12.videos.show .comment .grid_8 {
+width:600px;
+}
+
 /* description */
 
 .description p {
@@ -516,6 +571,7 @@ text-align:center;
 font-weight:bold;
 -moz-border-radius: 6px;
 border-radius: 6px;
+margin:15px 0 0 0
 }
 
 /* tabs */
@@ -584,7 +640,7 @@ color:#007020
 .comment {
     float:left;
     width:100%;
-    margin:0 0 20px 0
+    margin:10px 0
 }
 
 .comment .avatar {
@@ -600,39 +656,145 @@ color:#007020
     display:inline
 }
 
-/* channel page */
+/* channel banner */
 
-.topper {
+.banner {
 color:#fff;
 padding:10px;
-margin:0 0 30px 0
+margin:0 0 30px 0;
+height:45px
 }
 
-.topper p {
-margin:0
-}
-
-.topper .name {
+.banner a {
+color:#fff;
 font-weight:bold;
 font-size:16px
 }
 
-.topper a {
-color:#fff
+.banner .tagline {
+margin:0;
+color:#fff;
 }
 
-/* user page */
+/* user show */
 
 .users.show .email {
 margin:0 0 15px
 }
 
-.users.show .spacer {
-margin-top:5px
+/* user hub */
+
+.users.hub h2 {
+margin:30px 0 15px 0
 }
 
+/* user credits */
+
+.users.credits h2 {
+margin:30px 0 15px 0
+}
+
+.users.credits h2 span {
+color:#B9121B;
+}
+
+.users.credits p {
+margin:0 0 15px 0
+}
+
+.users.credits form span {
+    display: block;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+.users.credits .grid_10 img {
+margin:0 0 15px 0
+}
+
+/* user nav */
+
+.grid_2 .nav {
+line-height:2em;
+padding:0 10px 0 0
+}
+
+.grid_2 .nav img {
+margin:0 0 10px 0
+}
+
+.grid_2 .nav h3 {
+margin:15px 0 5px
+}
+
+.grid_2 .nav .stat {
+display:block;
+padding:10px;
+border:1px solid #ddd;
+margin:10px 0;
+text-align:center;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+
+.grid_2 .nav .stat span {
+font-size:50px;
+font-weight:bold;
+width:100%;
+display:block;
+line-height:1em
+}
+
+/* user signup */
+
+.benefits {
+padding:0 0 0 20px
+}
+
+.benefits h3 {
+margin:0 0 10px 0
+}
+
+.benefits li {
+padding:0 0 0 20px;
+background:url("/images/check.png") no-repeat left center;
+}
+
+/* table */
+
+table {
+width:100%;
+text-align:left;
+}
+
+td, th {
+padding:5px
+}
+
+th {
+background:#FCFAE1
+}
+
+tr {
+border-bottom:1px solid #ddd
+}
 
 /* form */
+
+.simple_form .inputs {
+border-top:1px solid #ddd;
+margin-top:20px;
+padding-top:20px
+}
+
+.simple_form h2 {
+margin:0 0 20px 0
+}
+
+.simple_form h3 {
+margin:20px 0
+}
 
 .simple_form label {
     float: left;
@@ -667,6 +829,10 @@ margin-top:5px
     display: block;
 }
 
+.simple_form div.boolean .error {
+margin:0
+}
+
 .simple_form .hint {
     clear: left;
     margin-left: 140px;
@@ -676,3 +842,136 @@ margin-top:5px
     font-style: italic;
 }
 
+.simple_form input.string {
+width:300px
+}
+
+.simple_form input.integer {
+width:50px
+}
+
+.simple_form .actions {
+width:100%;
+float:left;
+margin:0 0 20px 0
+}
+
+.users.edit .simple_form .actions {
+margin-top:10px
+}
+
+/* footer */
+
+.footer {
+margin:25px 0 0 0;
+padding:10px 0;
+border-top:1px solid #ddd
+}
+
+.footer ul, .footer p, .footer a {
+color:#969696;
+font-size:12px;
+margin:0!important
+}
+
+.footer li {
+display:inline;
+margin:0 4px 0 0!important;
+padding:0 5px 0 0;
+border-right:1px solid #ddd
+}
+
+.footer li:last-child {
+margin:0;
+padding:0;
+border:none
+}
+
+.footer .copy {
+color:#bbb;
+margin:5px 0 0 0!important
+}
+
+/* company - about */
+
+
+.company.about .player {
+margin:0 auto;
+width:940px;
+height:550px;
+padding:40px 0 0 0;
+background:url('http://www.airbnb.com/images/referrals/bg_site.jpg') no-repeat center top
+}
+
+.company.about .player div {
+width:853px
+}
+
+.company.about .insider {
+margin:0 auto;
+width:700px
+}
+
+.company.about .insider h2 {
+margin:35px 0 15px 0;
+}
+
+.company.about .insider h3 {
+margin:20px 0 15px 0;
+}
+
+.company.about .insider p {
+margin:0 0 15px 0;
+text-align:justify
+}
+
+.company.about .insider ul {
+margin:0 0 15px 0;
+}
+
+.company.about li .insider {
+margin:2px 0 2px 15px;
+list-style:circle
+}
+
+.company.about .insider .summary p {
+ font-size:16px;
+line-height:1.7em;
+margin:15px 0 0 0
+}
+
+.company.about .insider .benefit {
+width:200px;
+padding:10px;
+float:left;
+border:1px solid #ddd;
+-moz-box-shadow: 0 0px 4px 0 #ddd
+-webkit-box-shadow: 0 0px 4px 0 #ddd;
+box-shadow: 0 0px 4px 0 #ddd;
+-moz-border-radius: 6px;
+border-radius: 6px;
+margin:10px 0
+}
+
+.company.about .insider .benefit.employees {
+margin-left:15px;
+margin-right:15px
+}
+
+.company.about .insider .benefit img {
+width:200px;
+margin:0 0 10px 0
+}
+
+.company.about .insider .benefit p {
+margin:5px 0 0 0;
+color:#666
+}
+
+.company.about .insider table {
+margin:0 0 15px 0;
+}
+
+.star {
+color:#777
+}
