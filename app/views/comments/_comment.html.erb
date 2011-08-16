@@ -10,7 +10,7 @@
 
     <div class="grid_8 omega">
       <p class="author">
-       <strong><% if comment.user.is_teacher %><%= link_to comment.user.name, comment.user %><% else %><%= comment.user.name %><% end %></strong>, 
+       <strong><% if comment.user.is_teacher %><%= link_to comment.user.name, comment.user %><% else %><%= comment.user.name %><% end %></strong> &middot;  
         <%= l(comment.created_at, :format=>:long) %>
         <% if is_owner?(comment) %>
           <%= link_to t("delete"), [@video, comment], :confirm=>t("confirm.delete.comment"), :method=>:delete %>

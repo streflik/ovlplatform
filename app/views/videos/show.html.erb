@@ -9,56 +9,62 @@
   </ul>
 </div>
 
-<%= render :partial => 'channels/banner' %>
+<div class="grid_1">
+  <%= link_to image_tag(@user.avatar.url(:mini), :alt=>@user.name), @user %>
+</div>
 
-<div id="video-<%= @video.id %>">
-
-  <%= share(@video) %>
-
-  <div class="grid_1">
-    <%= link_to image_tag(@user.avatar.url(:mini), :alt=>@user.name), @user %>
-  </div>
-
-  <div class="grid_11">
-    <h1><%= yield(:title)%></h1>
-    <%= meta(@video) %>
-  </div>
-
-
-<div class="spacer"></div>
-
-<div class="grid_12">
-
- <div class="player">
-
-      <% if @video.is_paid %>
-        <% if @is_locked %>
-          <%= youtube(@video.youtube_video) %>
-	  <p class="unlock_to_see"><%= t("videos.locked.video", :duration => duration(@video)) %><p>
-        <% else %>
-
-        <div id="container"><%= image_tag("loader.gif") %></div>
-  
-        <% end %>
-      <% else %>
-        <%= youtube(@video.youtube_video) %>
-      <% end %>
-
-    </div>
-
+<div class="grid_11">
+  <h1><%= yield(:title)%></h1>
+  <%= meta(@video) %>
 </div>
 
 <div class="spacer"></div>
 
-  <div class="grid_9">
+<div class="grid_9">
+
+  <div class="player">
+      <% if @video.is_paid %>
+        <% if @is_locked %>
+          <%= youtube(@video.youtube_video) %>
+        <% else %>
+          <div id="container"><%= image_tag("loader.gif") %></div>
+        <% end %>
+      <% else %>
+        <%= youtube(@video.youtube_video) %>
+      <% end %>
+  </div>
+
+<div class="spacer inside"></div>
+
+<div class="share">
+
+  <div class="fblike">
+    <fb:like href="<%= video_url(@video) %>" send="true" width="500" show_faces="true" font=""></fb:like>
+  </div>
+
+  <div class="gplus">
+    <g:plusone></g:plusone>
+  </div>
+
+  <div class="twit">
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= video_url(@video) %>" data-count="horizontal" data-via="ovl">Tweet</a>
+  </div>
+
+</div>
+
+<div class="clear"></div>
+
+<div class="spacer inside"></div>
 
     <h2><%= t("videos.description") %></h2>
     <%= description(@video) %>
  
     <% if @video.is_paid %>
       <% if @is_locked %>
+          <div class="clear"></div>
         <p class="unlock_to_see"><%= t("videos.locked.description", :characters => @video.description_en_paid.size) %><p>
       <% else %>
+        <div class="clear"></div>
         <%= content_tag(:div, raw(auto_link(@video.description_paid)), :class=>"description") %>
       <% end %>
     <% end %>
@@ -68,7 +74,8 @@
     <div class="comments">
 
     <h2><a name="comments"></a><%= t("comments.all", :number => @comments.count) %></h2>
-    <p><%= t("comments.info", :teacher => @video.user.first_name) %></p>
+    <p class="info"><%= t("comments.info", :teacher => @video.user.first_name) %> 
+                    <%= link_to(t("comments.sign_in"), new_user_session_path) unless user_signed_in? %></p>
 
     <%= render :partial => @comments, :locals => {:list => true} %>
 
@@ -81,8 +88,6 @@
           <%= f.button :submit %>
         </div>
       <% end %>
-    <% else %>
-      <p><%= link_to t("comments.sign_in"), new_user_session_path %></p>
     <% end %>
 
    </div>
@@ -127,25 +132,35 @@
       </div>
     </div>
 
+    <div class="chapters">
+      <h2><%= t("videos.chapters.title") %></h2>
+      <% if @video.is_paid %>
+        <p class="info"><%= t("videos.chapters.info") %></p>
+      <% end %>
+	<%= raw @video.chapters  %>
+
+    </div>
+
     <div class="teacher"> 
       <h2><%= t("videos.teacher") %></h2>
-      <%= link_to image_tag(@teacher.thumb.url(:normal), :alt=>@teacher.name), @teacher %>
+      <%= link_to image_tag(@teacher.avatar.url(:thumb), :alt=>@teacher.name), @teacher %>
       <h3><%= link_to @teacher.name, @teacher %></h3>
       <%= tagline(@teacher) %> 
     </div>
 
     <div class="related">
       <h2><%= t("videos.related.title") %></h2>
+<p class="info"><%= link_to t("videos.related.all"), @channel %></p>
       <% @related.each do |video| %>
         <%= link_to image_tag(video.thumb.url(:normal), :alt=>video.name), video %>
         <h3><%= link_to video.name, video %></h3>
       <% end %>
-      <p><%= link_to t("videos.related.all", :channel=>@channel.name), @channel %></p>
+      
     </div>
 
   </div>
 
-</div>
+
         
 
 
@@ -153,16 +168,13 @@
 
 <script type="text/javascript">
 jwplayer("container").setup({
-height: 480,
-width: 853,
+width: 640,
+height: 360,
 skin: "/javascripts/jwplayer/skins/modieus.zip",
 image: "<%= @video.thumb.url(:sd) %>",
 provider: "http",
 file: "http://d28q1112rgpawm.cloudfront.net/<%= @video.paid_video_sd %>", // todo:protect
 buffering: 2,
-//provider: "rtmp",
-//file: "<%= @video.paid_video_sd %>",
-//streamer: "rtmp://s6ln0mynd2lg2.cloudfront.net/cfx/st",
 duration: <%= @video.duration %>,
 plugins: {
 	'hd-1': {
@@ -198,6 +210,20 @@ modes: [
 
 
 <% content_for :head do %>
+
+<!-- twitter button -->
+
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+<!-- google plus button -->
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 
 <!-- jw player -->
 

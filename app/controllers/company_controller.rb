@@ -10,7 +10,7 @@ class CompanyController < ApplicationController
 
   end
 
-  def policy
+  def terms
 
   end
 

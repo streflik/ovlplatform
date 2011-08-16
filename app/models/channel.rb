@@ -10,19 +10,10 @@ class Channel < ActiveRecord::Base
 
   has_many:videos
 
-  has_attached_file :banner, :styles => { :normal => "940x65#" }, 
-  :default_url => '/images/default-banner.jpeg',
-  :url => "/system/channels/:attachment/:id/:style/:basename.:extension",  
-  :path => ":rails_root/public/system/channels/:attachment/:id/:style/:basename.:extension"
-
   has_attached_file :thumb, :styles => { :normal => "400x250#" }, 
   :default_url => '/images/default-channel-thumb.jpeg',
   :url => "/system/channels/:attachment/:id/:style/:basename.:extension",  
   :path => ":rails_root/public/system/channels/:attachment/:id/:style/:basename.:extension"
-
-validates_attachment_presence :banner
-validates_attachment_size :banner, :less_than => 1.megabytes  
-validates_attachment_content_type :banner, :content_type => ['image/jpeg', 'image/png'] 
 
 validates_attachment_presence :thumb
 validates_attachment_size :thumb, :less_than => 1.megabytes  

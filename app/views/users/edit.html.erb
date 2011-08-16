@@ -23,17 +23,16 @@
         </div>
     <% end %>
 
-    <%# if current_user.is_admin %>
+    <% if current_user.is_admin %>
         <div class="inputs">
           <h2>Admin</h2>
-          <%= f.input :thumb %>
           <%= f.input :is_admin %>
           <%= f.input :is_teacher %>
           <%= f.input :is_subscriber %>
           <%= f.input :credits_total %>
           <%= f.input :credits_available %>
         </div>
-    <%# end %>
+    <% end %>
 
     <div class="actions">
       <%= f.button :submit %>

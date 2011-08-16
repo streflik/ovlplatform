@@ -1,7 +1,7 @@
 <div class="grid_5">
 
   <div class="intro">
-    <h1><%= t"home.intro.heading" %></h1>
+    <h2><%= raw t"home.intro.heading" %></h2>
     <%= raw t"home.intro.summary" %>
 
    <div class="clear"></div>
@@ -14,8 +14,8 @@
 
     <div class="wanna teach">
       <h3><%= t"home.intro.wanna_teach" %></h3>
-      <%= link_to "#{t"home.intro.contact_us"}", "", :class=>"button about" %>
-      <p><%= t"home.intro.or" %> <%= link_to "#{t"home.intro.how_it_works"}", "" %></p>
+      <%= link_to "#{t"home.intro.contact_us"}", about_path + "#contact", :class=>"button about" %>
+      <p><%= t"home.intro.or" %> <%= link_to "#{t"home.intro.how_it_works"}", about_path %></p>
     </div>
 
   </div>
@@ -37,7 +37,7 @@
 
 </div>
 
-<div class="grid_4 mini">
+<div class="grid_4 newest">
 
   <h3><%= t"home.newest" %> | <%= link_to "#{t("videos.all")}", videos_path %></h3>
 
@@ -50,18 +50,4 @@
 
   <% end %>
 
-</div>
-
-<div class="spacer"></div>
-
-<div class="grid_4">
-  <%= link_to image_tag("feature.png") %>
-</div>
-
-<div class="grid_4">
-  <%= link_to image_tag("feature.png") %>
-</div>
-
-<div class="grid_4">
-  <%= link_to image_tag("feature.png") %>
 </div>

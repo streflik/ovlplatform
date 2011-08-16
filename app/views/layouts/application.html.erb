@@ -7,7 +7,7 @@
   <% if @home %>
       <title><%= t("title") %></title>
   <% else %>
-      <title><%= yield :title %> - <%= t("short") %></title>
+      <title><%= t("short") %> - <%= yield :title %></title>
   <% end %>
 
   <!-- meta -->
@@ -52,7 +52,11 @@
   <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" %>
   <%= javascript_include_tag "rails.js" %>
   <script script src="http://connect.facebook.net/en_US/all.js#appId=122215534533466&amp;xfbml=1"></script>
-  <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+  <!-- rss -->
+
+  <%= auto_discovery_link_tag :atom, "/feed" %>
+  <%= auto_discovery_link_tag :rss, "/feed.rss" %>
 
   <!-- custom styles, js and others for pages  -->
 
@@ -75,7 +79,7 @@
 
 <div class="wider header">
   <div>
-    <%= link_to image_tag("logo.png", :class=>"logo", :alt=>"OVL Open Video Learning logo"), root_url %>
+    <%= link_to image_tag("logo.png", :class=>"logo left", :alt=>"OVL Open Video Learning logo"), root_url %>
     <ul class="left">
       <li><%= link_to_with_highlight "#{t"videos.model_name"}", videos_path %></li>
       <li><%= link_to_with_highlight "#{t"channels.model_name"}", channels_path %></li>
@@ -107,21 +111,75 @@
 
   <%= content_for?(:content) ? yield(:content) : yield %>
 
-<div class="grid_12">
 <div class="footer">
+
+<div class="spacer first"></div>
+
+<div class="grid_2">
+
+<h3><%= t("footer.explore") %></h3>
+
 <ul>
-<li><%= link_to t("footer.facebook"), "http://facebook.com/ovl" %></li>
-<li><%= link_to t("footer.rss"), "" %></li>
-<li><%= link_to t("footer.code"), "https://github.com/bartekrycharski/ovlplatform" %></li>
-<li><%= link_to t("about.link_to"), about_path %></li>
-<li><%= link_to "Blog", "http://ovlplatform.com/blog" %></li>
-<li><%= link_to t("policy.link_to"), policy_path %></li>
+      <li><%= link_to "#{t"videos.model_name"}", videos_path %></li>
+      <li><%= link_to "#{t"channels.model_name"}", channels_path %></li>
+      <li><%= link_to "#{t"teachers.model_name"}", users_path %></li>
 </ul>
-<p class="copy">&copy; <%= t("footer.copy") %></p>
+
 </div>
+
+<div class="grid_2">
+
+<h3><%= t("footer.about") %></h3>
+
+<ul>
+  <li><%= link_to "#{t"about.link_to"}", about_path %></li>
+  <li><%= link_to t("footer.work"), about_path + "#work" %></li>
+  <li><%= link_to "#{t"terms.link_to"}", terms_path %></li>
+  <li><%= link_to "#{t"footer.policy"}", terms_path + "#policy" %></li>
+  <li><%= link_to "#{t"footer.contact"}", about_path + "#contact" %></li>
+</ul>
+
+</div>
+
+<div class="grid_5">
+
+<h3><%= t("footer.newsletter.title") %></h3>
+
+<form action="http://edu20.createsend.com/t/r/s/pmvu/" method="post" id="newsletter">
+  <input type="text" name="cm-pmvu-pmvu" class="email" id="pmvu-pmvu" value="Email" /><input class="button" type="submit" value="<%= t('footer.newsletter.button') %>" />
+</form>
+
+<h3><%= t("footer.facebook") %></h3>
+
+<fb:like href="http://www.facebook.com/pages/Open-Video-Learning-OVL/167175996653709" send="false" width="380" show_faces="true" font=""></fb:like>
+
+</div>
+
+<div class="grid_3">
+
+<h3><%= t("footer.connect.title") %></h3>
+
+<ul class="connect">
+<li class="facebook"><%= link_to t("footer.connect.facebook"), "http://facebook.com/ovl" %></li>
+<li class="twitter"><%= link_to t("footer.connect.twitter"),"http://twitter.com/" %></li>
+<li class="youtube"><%= link_to t("footer.connect.youtube"), "http://youtube.com/" %></li>
+<li class="github"><%= link_to t("footer.connect.github"), "https://github.com/bartekrycharski/ovlplatform" %></li>
+</ul>
+
+</div>
+
+<div class="spacer"></div>
+
+<div class="grid_12">
+
+<p class="copy">&copy; <%= t("footer.copy") %></p>
+
 </div>
 
 </div>
+
+</div>
+
 
 <div id="fb-root"></div>
  <%= yield :footer %>

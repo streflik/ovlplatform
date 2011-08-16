@@ -39,21 +39,21 @@ class ApplicationController < ActionController::Base
 
   def verify_admin
     unless is_admin?
-      flash[:alert]= "Access denied"
+      flash[:alert]= t("denied")
       redirect_to root_url
     end
   end
 
   def verify_user
     unless is_user?
-      flash[:alert]= "Access denied"
+      flash[:alert]= t("denied")
       redirect_to root_url
     end
   end
 
   def verify_teacher
     unless @user.is_teacher
-      flash[:alert]= "This user is not a teacher."
+      flash[:alert]= t("denied")
       redirect_to root_url
     end
   end

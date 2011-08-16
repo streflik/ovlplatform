@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110703112855) do
+ActiveRecord::Schema.define(:version => 20110728112854) do
 
   create_table "channels", :force => true do |t|
     t.string   "name_en"
@@ -33,6 +33,20 @@ ActiveRecord::Schema.define(:version => 20110703112855) do
     t.integer  "user_id"
     t.integer  "video_id"
     t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "country_id"
+    t.string   "invoice_first_name"
+    t.string   "invoice_last_name"
+    t.string   "invoice_street"
+    t.string   "invoice_postal_code"
+    t.string   "invoice_city"
+    t.integer  "credits"
+    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -120,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20110703112855) do
     t.string   "thumb_content_type"
     t.integer  "thumb_file_size"
     t.datetime "thumb_updated_at"
+    t.text     "chapters_pl"
+    t.text     "chapters_en"
   end
 
 end

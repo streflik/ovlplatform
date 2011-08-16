@@ -15,10 +15,9 @@
       <tr>
         <td><%= link_to v.name, video_path(v) %></td>
         <td><%= link_to v.user.name, user_path(v.user) %></td>
-        <td>999</td>
-        <td>999</td>
-        <td><%= link_to "Edit", edit_video_path(v) %></td>
-        <td><%= link_to "Delete", video_path(v), :confirm=>"Delete this video?", :method=>:delete %></td>
+        <td><%= v.unlocks.count %></td>
+        <td><%= v.comments.count %></td>
+        <td><%= link_to "Edit", edit_video_path(v) %> | <%= link_to "Delete", video_path(v), :confirm=>"Delete this video?", :method=>:delete %></td>
       </tr>
   <% end %>
 </table>
@@ -31,9 +30,8 @@
   </tr>
   <% @channels.each do |ch| %>
       <tr>
-        <td><%= link_to ch.t_name, channel_path(ch) %></td>
-        <td><%= link_to "Edit", edit_channel_path(ch) %></td>
-        <td><%= link_to "Delete", channel_path(ch), :confirm=>"Delete this video?", :method=>:delete %></td>
+        <td><%= link_to ch.name, channel_path(ch) %></td>
+        <td><%= link_to "Edit", edit_channel_path(ch) %> | <%= link_to "Delete", channel_path(ch), :confirm=>"Delete this video?", :method=>:delete %></td>
       </tr>
   <% end %>
 </table>
@@ -76,7 +74,7 @@
         <td><%= u.is_admin %></td>
         <td><%= u.is_teacher %></td>
         <td><%= u.is_subscriber %></td>
-        <td>999</td>
+        <td><%= u.comments.count %></td>
         <td><%= u.credits_available %></td>
         <td><%= u.credits_total %></td>
         <td><%= link_to "Edit", edit_user_path(u) %></td>
@@ -97,26 +95,50 @@
       <tr>
         <td><%= l(c.created_at) %></td>
         <td><%= link_to c.user.name, hub_user_path(c.user) %></td>
-        <td><%= link_to c.video.name, video_path(c.video)+"#comments" %></td>
-        <td><%= truncate(c.body, :length => 50) %></td>
+        <td><%= link_to truncate(c.video.name, :length => 25), video_path(c.video)+"#comments" %></td>
+        <td><%= truncate(c.body, :length => 25) %></td>
       </tr>
   <% end %>
 </table>
 
 <h2>Payments</h2>
 
-<table>
-  <tr>
-    <th>Date</th>
-    <th>User</th>
-    <th>Credits</th>
-  </tr>
-</table>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>User</th>
+<th>I_first_name</th>
+<th>I_last_name</th>
+      <th>I_street</th>
+      <th>I_city</th>
+      <th>I_postal</th>
+      <th>I_country</th>
+      <th>Credtis</th>
+      <th>Price</th>
+    </tr>
+   <% @user.payments.each do |p| %>
+     <tr>
+       <td><%= p.id %></td>
+       <td><%= l(p.created_at, :format=>:long) %></td>
+       <td><%= p.user.name %></td>
+<td><%= p.invoice_first_name %></td>
+<td><%= p.invoice_last_name %></td>
+<td><%= p.invoice_street %></td>
+<td><%= p.invoice_postal_code %></td>
+<td><%= p.invoice_city %></td>
+<td><%= "todo" %></td>
+       <td><%= p.credits %></td>
+       <td><%= p.price %>$</td>
+     </tr>
+   <% end %>
+   </table>
 
 <h2>Unlocks</h2>
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Date</th>
     <th>Date exp</th>
     <th>User</th>
@@ -126,12 +148,13 @@
   </tr>
   <% @unlocks.each do |u| %>
   <tr>
-    <th><%= l(u.created_at, :format=>:long) %></th>
-    <th><%= l(u.expires_at, :format=>:long) %></th>
-    <th><%= u.user.name %></th>
-    <th><%= u.video.name %></th>
-    <th><%= u.teacher.name %></th>
-    <th><%= u.credits %></th>
+ <td><%= u.id %></td>
+    <td><%= l(u.created_at, :format=>:long) %></td>
+    <td><%= l(u.expires_at, :format=>:long) %></td>
+    <td><%= u.user.name %></td>
+    <td><%= link_to truncate(u.video.name, :length => 25), u.video %></td>
+    <td><%= u.teacher.name %></td>
+    <td><%= u.credits %></td>
   </tr>
   <% end %>
 </table>

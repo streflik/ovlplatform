@@ -8,8 +8,7 @@
   </ul>
 </div>
 
-<%= render :partial => 'channels/banner' %>
-
   <div class="grid_12">
+<h1><%= yield(:title) %></h1>
     <%= render :partial => @videos %>
   </div>

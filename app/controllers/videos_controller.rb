@@ -1,10 +1,10 @@
 class VideosController < ApplicationController
 
-  before_filter :find_video, :except => [:index,:new,:create,:unlock]
-  before_filter :authenticate_user!, :except => [:show, :index]
-  before_filter :verify_admin, :except => [:show, :index, :unlock]
-  before_filter :find_teachers, :except => [:show, :index]
-  before_filter :find_channels, :except => [:show, :index]
+  before_filter :find_video, :except => [:index, :feed, :new, :create, :unlock]
+  before_filter :authenticate_user!, :except => [:show, :index, :feed]
+  before_filter :verify_admin, :except => [:show, :index, :feed, :unlock]
+  before_filter :find_teachers, :except => [:show, :index, :feed]
+  before_filter :find_channels, :except => [:show, :index, :feed]
 
   def index
     @videos = Video.all
@@ -71,13 +71,13 @@ class VideosController < ApplicationController
         
         if current_user.update_attribute :credits_available, current_user.credits_available-@video.price
           unlock.save
-          flash[:notice] = t("videos.notice.unlock.success")
+          flash[:notice] = t("unlocked")
         else
-          flash[:alert] = t("videos.notice.unlock.fail")
+          flash[:alert] = t("fail")
         end
 
       else
-        flash[:alert] = t("v/en/users/1ideos.notice.unlock.not_enough_credits")
+        flash[:alert] = t("not_enough_credits")
       end
 
     else
@@ -87,6 +87,24 @@ class VideosController < ApplicationController
     redirect_to @video
 
   end
+
+def feed
+  # this will be the name of the feed displayed on the feed reader
+  @title = "OVL FEED"
+
+  # the news items
+  @news_items = Video.order("updated_at desc")
+
+  # this will be our Feed's update timestamp
+  @updated = @news_items.first.updated_at unless @news_items.empty?
+
+  respond_to do |format|
+    format.atom { render :layout => false }
+
+    # we want the RSS feed to redirect permanently to the ATOM feed
+    format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
+  end
+end
 
   private
 

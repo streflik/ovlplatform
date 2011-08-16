@@ -1,6 +1,8 @@
 <div class="box video">
 
-  <%= share(video) unless @home %>
+  <div class="fblike">
+  <fb:like href='<%= video_url(video) %>' send='true' layout='box_count' width='60' show_faces='false' font='arial'></fb:like>
+  </div>
 
   <%= link_to image_tag(video.thumb.url(:normal), :alt=>video.name), video %>
 

@@ -1,3 +1,6 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
 en:
 
 # header
@@ -6,7 +9,7 @@ en:
   short: "OVL"
 
   meta:
-    description: "lorem"
+    description: "OVL is a source of knowledge that helps you become who you want to be. Learn from the best teachers, today!"
 
   header:
     sign_in: "Sign in"
@@ -14,9 +17,14 @@ en:
 
 # flash
 
-  updated: "Updated"
-  created: "Created"
-  deleted: "Deleted"
+  updated: "Updated successfully."
+  created: "Created successfully."
+  deleted: "Deleted successfully."
+  denied: "Access denied."
+  bought: "New OVL Credits bought successfully."
+  fail: "Oops, something went wrong. Try again."
+  unlocked: "Unlocked successfullty!"
+  not_enough_credits: "You haven't got enough OVL Credits. Buy some to unlock."
 
 # confirm
 
@@ -30,12 +38,10 @@ en:
   home:
     link_to: "Home"
     intro:
-      heading: "Become who you want to be."
+      heading: "OVL is a source of knowledge that helps you<br /> <span class='vision'>become who you want to be.</span>"
       summary: "
-        <p>OVL is a global marketplace for educational videos.</p>
-        <p>Best teachers record <strong>amazing videolessons</strong><br />
-        on specific topics that you can buy from 2$.<p>
-	<p>We are open to anything from math to music.</p>
+        <p>We create <strong>high-quality videolessons</strong> on variety of specific topics from basic to professional knowledge.<p>
+        <p>Learn from the best teachers, today!</p>
         <p>Available in 
           <span class='en'><a href='/en'>English</a></span> and 
           <span class='pl'><a href='/pl'>Polish</a></span>.</p>"
@@ -44,16 +50,16 @@ en:
       contact_us: "Contact us"
       sign_up: "Sign up"
       or: "or"
-      all_videos: "Browse all videolessons"
-      how_it_works: "See how it works"
+      all_videos: "browse all videolessons"
+      how_it_works: "see how it works"
     featured: "Videolesson of the day"
     newest: "Newest"
   about:
     link_to: "How it works"
     title: "How it works"
-  policy:
-    link_to: "Policy"
-    title: "Policy"   
+  terms:
+    link_to: "Terms of Use"
+    title: "Terms of Use"   
 
 # videos
 
@@ -72,7 +78,7 @@ en:
       pro: "Advanced"
     access:
       price: "%{price} Credits"
-      days: "for %{days} days access" 
+      days: "for %{days} days" 
       free: "This videolesson is free!"
     unlock:
       is_subscriber: "Wooha! You have free and unlimited access to all videolessons."
@@ -81,28 +87,20 @@ en:
       free: "Learn and share with friends."
       sign_in: "Sign in to unlock this lesson."
       unlocked: "Lesson unlocked!<br />Access till %{date}"
-      credit_price: "1 Credit = 1$"
-    notice:
-      unlock:
-        success: "Unlocked successfullty! Happy learning!"
-        fail: "Something goes wrong. Try again."
-        not_enough_credits: "You haven't got enough OVL Credits. Buy some to unlock."
-    player:
-      trailer: "Trailer"
-      full_version: "Full Version"
-      do_you_like: "Do tou like a trailer?"
-      see_full_version: "See full version now."
+      credit_price: "1 OVL Credit = 1$"
     language:
       native: "Native:"
       captions: "Captions:"
     description: "Description & Extras"
     locked:
-      video: "Unlock this lesson to see full video (%{duration} long)."
       description: "Unlock this lesson to see the rest of the materials (%{characters} characters)."
+    chapters: 
+      title: "Chapters"
+      info: "Video must be unlocked and buffered."
     teacher: "Your teacher"
     related:
       title: "What to learn next?"
-      all: "See all from channel %{channel}"
+      all: "See all lessons from this channel."
 
 # comments
 
@@ -122,7 +120,7 @@ en:
 
   teachers:
     model_name: "Teachers"
-    all: "All teaches"
+    all: "All teachers"
     all_counted: "All teachers (%{number})"
     sign_in_to_see_email: "Sign in to see an email."
     write_to: "How can I help you?"
@@ -149,7 +147,7 @@ en:
         sign_up: "Don't have an account? Sign up."
     sign_up:
       title: "Sign up"
-      heading: "Join OVL - It's fast and easy."
+      heading: "Join OVL - it's easy."
       link:
         sign_in: "Already on OVL? Sign in."
       benefits:
@@ -161,7 +159,7 @@ en:
       title: "Buy OVL Credits"
       package: "%{amount} Credits for %{price}$"
       first_step: "How many OVL Credits do you want to buy?"
-      second_step: "Complete information about you for payment."
+      second_step: "Complete information about your for invoice."
       third_step: "Make a secure payment using PayPal or credit card."
     hub:
       title: "Your Hub"
@@ -181,6 +179,8 @@ en:
         credits: "Credits"
         buyer: "Buyer"
         commission: "Commission"
+        price: "Price"
+        date: "Date"
     edit: 
       title: "Edit Profile"
       teacher: "Teacher" 
@@ -200,15 +200,26 @@ en:
 
   buttons:
     watch: "Learn Now!" 
-    buy: "Buy Now on PayPal!"
     unlock: "Unlock Full Version Now!"
 
 # footer
 
   footer:
-    facebook: "Join us on Facebook"
-    rss: "Subscribe RSS"
-    code: "Contribute to code on GitHub"
+    explore: "Explore"
+    about: "About"
+    policy: "Privacy Policy"
+    contact: "Contact"
+    work: "Careers at OVL"
+    newsletter:
+      title: "OVL Newsletter"
+      button: "Subscribe"
+    facebook: "OVL on Facebook"
+    connect:
+      title: "Connect with OVL"
+      facebook: "Like on Facebook"
+      twitter: "Follow on Twitter"
+      youtube: "Subscribe on YouTube"
+      github: "Contribute to GitHub"
     copy: "Edu 2.0 Bartlomiej Rycharski"
 
 # simple form
@@ -222,12 +233,22 @@ en:
       comment:
         body: "Text:"
       user:
+        current_password: "Current password"
+        password: "Password"
         password_confirmation: "Confirm password"
         avatar: "Picture of you"
         tagline_en: "Tagline in English"
         tagline_pl: "Tagline in Polish"
+        first_name: "First name"
+        last_name: "Last name"
       video:
         user: "Teacher"
+      payment:
+        invoice_first_name: "First name"
+        invoice_last_name: "Last name"
+        invoice_street: "Street"
+        invoice_city: "City"
+        invoice_postal_code: "Postal code"
 
   helpers:
     submit:
@@ -235,7 +256,9 @@ en:
         create: "Sign up"
         update: "Save Changes"
       comment:
-        create: "ss"
+        create: "Add comment"
+      payment:
+        create: "Buy now on PayPal"
 
 # date and time
 
@@ -246,32 +269,43 @@ en:
 
 # active errors
 
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "is not included in the list"
+      exclusion: "is reserved"
+      invalid: "is invalid"
+      confirmation: "doesn't match confirmation"
+      accepted: "must be accepted"
+      empty: "can't be empty"
+      blank: "can't be blank"
+      too_long: "is too long (maximum is %{count} characters)"
+      too_short: "is too short (minimum is %{count} characters)"
+      wrong_length: "is the wrong length (should be %{count} characters)"
+      not_a_number: "is not a number"
+      not_an_integer: "must be an integer"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be greater than or equal to %{count}"
+      equal_to: "must be equal to %{count}"
+      less_than: "must be less than %{count}"
+      less_than_or_equal_to: "must be less than or equal to %{count}"
+      odd: "must be odd"
+      even: "must be even"
+
   activerecord:
     errors:
       template:
         header:
-          one: "Obiekt nie został zachowany z powodu jednego błędu"
-          other: "Obiekt nie został zachowany z powodu %{count} błędów"
-        body: "Błędy dotyczą następujących pól:"
+          one: "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body: "There were problems with the following fields:"
+
       messages:
-        inclusion: "nie znajduje się na liście dopuszczalnych wartości"
-        exclusion: "znajduje się na liście zabronionych wartości"
-        invalid: "pole jest nieprawidłowe"
-        confirmation: "nie zgadza się z potwierdzeniem"
-        accepted: "pole musi być zaakceptowane"
-        empty: "pole nie może być puste"
-        blank: "pole nie może być puste"
-        too_long: "wartość jest za długa (maksymalnie %{count} znaków)"
-        too_short: "wartość jest za krótka (minimalnie %{count} znaków)"
-        wrong_length: "wartość jest nieprawidłowej długości (powinna wynosić %{count} znaków)"
-        taken: "zostało już zajęte"
-        not_a_number: "wartość nie jest liczbą"
-        not_an_integer: "wartość nie jest liczbą całkowitą"
-        greater_than: "wartość musi być większa niż %{count}"
-        equal_to: "wartość musi być równa %{count}"
-        less_than: "wartość musi być mniejsza niż %{count}"
-        record_invalid: "Negatywne sprawdzenie poprawności: %{errors}"
-        greater_than_or_equal_to: "wartość musi być równa lub większa od %{count}"
+        taken: "has already been taken"
+        record_invalid: "Validation failed: %{errors}"
+        <<: *errors_messages
+
       full_messages:
         format: "%{attribute} %{message}"
 
@@ -279,17 +313,17 @@ en:
 
   devise:
     failure:
-      unauthenticated: 'Zaloguj się, aby kontynuować.'
-      invalid: 'Niepoprawny email lub hasło.'
+      unauthenticated: 'Please, sign in to continue.'
+      invalid: 'Invalid login or password.'
       invalid_token: 'Invalid authentication token.'
     sessions:
-      link: 'Zaloguj się'
-      signed_in: 'Zalogowano'
-      signed_out: 'Wylogowano'
-      unauthenticated: 'Zaloguj się, aby kontynuować.'
-      invalid_token: 'Błąd systemu: niepoprawny token. Spróbuj jeszcze raz.'
+      link: 'Sign in'
+      signed_in: 'Signed in.'
+      signed_out: 'Signed out,'
+      unauthenticated: 'Please, sign in to continue.'
+      invalid_token: 'Please, try again.'
     registrations:
-      signed_up: 'Witaj w OVL! Mamy nadzieję, że spodobają Ci się wideolekcje, które dla Ciebie 
+      signed_up: "Welcome to OVL! Happy learning! :-)"
 
 
 

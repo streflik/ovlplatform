@@ -22,10 +22,14 @@ Ovlplatform::Application.routes.draw do
        resources :comments
     end
 
+   resources :payments
+
     match '/about' => 'company#about'
-    match '/policy' => 'company#policy'
+    match '/terms' => 'company#terms'
 
     match '/sitemap.xml' => 'sitemap#sitemap'
+
+    match '/feed' => 'videos#feed', :as => :feed, :defaults => { :format => 'atom' }
 
     match '/change_language/:locale' => 'company#change_language', :as=>:change_language
     root :to => "company#home"

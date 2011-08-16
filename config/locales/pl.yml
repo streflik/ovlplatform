@@ -3,192 +3,328 @@
 
 pl:
 
-  site:
-    title: "OVL - Najlepsze Wideolekcje Światowej Klasy Ekspertów"
-    description: "Jakiś napis dla google."
+# header
 
-  #coomons
+  title: "OVL - Wideolekcje - Zostań kim chcesz."
+  short: "OVL"
 
-  hi: "Cześć"
-  home: "Główna"
-  contact_us: "Skontaktuj się"
-  created: "Utworzono pomyślnie"
-  updated: "Zaktualizowano pomyślnie"
-  deleted: "Usunięto pomyślnie"
-  denied: "Dostęp zabroniony"
-
-  # header
+  meta:
+    description: "OVL jest źródłem wiedzy, która pomaga zostać kim chcesz. Ucz się od najlepszych nauczycieli już dzisiaj!"
 
   header:
-    what_to_learn: "Czego się nauczyć?"
-    search: "Szukaj"
-    about: "Idea"
-    blog: "Blog"
-    join: "Dołącz"
+    sign_in: "Zaloguj się"
+    sign_up: "Dołącz do OVL"
 
-  # home
+# flash
+
+  updated: "Zaktualizowano pomyślnie."
+  created: "Utworzono pomyślnie."
+  deleted: "Usunięto pomyślnie."
+  denied: "Dostęp zablokowany."
+  bought: "Nowe OVL Kredyty zakupiono pomyślnie."
+  fail: "Ups, coś poszło nie tak. Spróbuj ponownie."
+  unlocked: "Odblokowano pomyślnie!"
+  not_enough_credits: "Nie masz wystarczająco OVL Punktów."
+
+# confirm
+
+  confirm:
+    delete: 
+      comment: "Czy na pewno usunąć ten komentarz?"
+    unlock: "Czy na pewno odblokować tę lekcję?"
+
+# company
 
   home:
-    welcome: "Witaj w OVL!"
-    intro: "
-    <p>OVL to miejsce gdzie kupisz doskonałej jakości filmy edukacyjne.</p>
-   <p>Ucz się od światowej klasy ekspertów różnych tematów, od przedmiotów szkolnych do wiedzy profesjonalnej,
-   języków obcych a nawet muzyki.</p>
-   <p>OVL oznacza Open Video Learning, ponieważ nie zamykamy się na żaden ciekawy temat.</p>
-    <p>Wiesz co? Jesteśmy gotów Cię zachwycić!!</p>"
-    wanna_learn: "Szukasz wiedzy?"
-    wanna_teach: "Chcesz nauczać?"
-    or: "lub"
-    browse_all_videos: "Zobacz wideolekcje"
-    see_how_it_works: "Sprawdź jak to działa"
-    video_of_the_day: "Wideolekcja dnia"
+    link_to: "Home"
+    intro:
+      heading: "OVL jest źródłem wiedzy, która pomaga <br /> <span class='vision'>zostać kim chcesz.</span>"
+      summary: "
+        <p>Tworzymy <strong>wysokiej jakości wideolekcje</strong> na konkretne tematy dotyczące różnych dziedzin<br /> wiedzy podstawowej i zawodowej.<p>
+        <p>Ucz się od najlepszych nauczycieli już dzisiaj!</p>
+        <p>W językach 
+          <span class='en'><a href='/en'>angielskim</a></span> oraz  
+          <span class='pl'><a href='/pl'>polskim</a></span>.</p>"
+      wanna_learn: "Chcesz się uczyć?"
+      wanna_teach: "Chcesz nauczać?"
+      contact_us: "Aplikuj"
+      sign_up: "Dołącz"
+      or: "lub"
+      all_videos: "przeglądaj wideolekcje"
+      how_it_works: "zobacz jak to działa"
+    featured: "Wideolekcja dnia"
     newest: "Najnowsze"
+  about:
+    link_to: "Jak to działa"
+    title: "Jak to działa"
+  terms:
+    link_to: "Regulamin"
+    title: "Regulamin"   
 
-  # users
-
-  teachers:
-    model_name: "Nauczyciele"
-    all: "Wszyscy %{number} nauczyciele"
-    all_raw: "Wszyscy nauczyciele"
-    sign_in_to_see_email: " aby zobaczyć email."
-    write_to: "Can I help you?"
-  users:
-    sign_up: "Zarejestruj się"
-    sign_in: "Zaloguj się"
-    sign_out: "Wyloguj"
-    credits:
-      name: "Kup OVL Punkty"
-      available: "%{number} dostępnych OVL Punktów"
-      welcome: "Kup OVL Punkty i odblokuj nimi dostęp do wybranych lekcji"
-    hub:
-      name: "Twoje wideolekcje"
-      welcome: "Witaj ponownie %{name}!"
-      heading: "Twoje odblokowane wideolekcje:"
-      lets_browse: "Sprawdź wideolekcje, które oferujemy!"
-    profile:
-      name: "Edytuj profil"
-      basics: "Podstawowe"
-      teacher: "Nauczyciel"
-    password:
-      name: "Zmień hasło"
-
-  # empty
-
-  empty:
-    unlocks: "Nie odblokowano jeszcze żadnej wideolekcji."
-    comments: "Jeszcze nie ma komentarzy. Dodaj pierwszy!"
-
-  # videos
+# videos
 
   videos:
     model_name: "Wideolekcje"
-    all: "Wszystkie %{number} wideolekcje"
-    all_raw: "Wszystkie videolessons"
+    all: "Wszystkie wideolekcje"
+    all_counted: "Wszystkie wideolekcje (%{number})"
     count: "%{number} wideolekcje"
-    free:
-      price: "Ta lekcja jest bezpłatna!"
-      info: "Oglądaj do woli i nie zapomnij podzielić się ze swoimi przyjaciółmi na Facebooku."
-      subscriber: "Yupii, masz bezpłatny dostęp do wszystkich lekcji!"
-    paid:
-      price: "%{price} Punktów na %{days} Dni."
-      info: "Zobacz trailer poniżej i odblokuj %{duration} minutową pełną wersję."
-      unlocks:
-        all: "%{number} odlokowań"
-        info: "Odblokowano %{start} do %{end}."
-        sign_in: "Zaloguj się, aby odblokować tę i inne wideolekcje."
-    description: "Opis & Materiały Dodatkowe"
-    teacher: "Twój Nauczyciel"
-    level:
-      beginner: "Podstawowy"
-      advanced: "Zaawansowany"
     meta:
-      title:
-        date: "Data dodania wideolekcji"
-        duration: "Czas trwania wideolekcji"
-        level: "Poziom wideoelkcji"
-        comments: "Liczba komentarzy"
-        unlocks: "Liczba odblokowań"
-    button:
-      learn: "Oglądaj Teraz"
-      unlock: "Odblokuj Pełną Wersję"
+      for: "dla"
+      comments_number: "%{number} komentarzy"
+      unlocks_number: "%{number} odblokowań" 
+      duration: "%{number} minut"
+    level:
+      basic: "Podstawowe"
+      pro: "Zaawansowane"
+    access:
+      price: "%{price} Punktów"
+      days: "na %{days} dni" 
+      free: "Ta wideolekcja jest bezpłatna!"
+    unlock:
+      is_subscriber: "Jupi! Masz nielimitowany dostęp do wszystkich lekcji."
+      enough_credits: "Masz wystarczająco Punktów."
+      not_enough_credits: "Kup OVL Punkty, aby odblokować."
+      free: "Ucz się i dziel z przyjaciółmi."
+      sign_in: "Zaloguj się, aby odblokować."
+      unlocked: "Lekcja odblokowana!<br />Dostęp do %{date}"
+      credit_price: "1 OVL Punkt = 1$ (ok. 3 zł)"
+    language:
+      native: "Oryginalnie:"
+      captions: "Napisy:"
+    description: "Opis & Materiały Dodatkowe"
+    locked:
+      description: "Odblokuj tę lekcję, aby zobaczyć pozostałe materiały (%{characters} znaków)."
+    chapters: 
+      title: "Rozdziały"
+      info: "Działa z odblokowanym wideo."
+    teacher: "Twój nauczyciel"
+    related:
+      title: "Czego uczyć się potem?"
+      all: "Zobacz wszystkie powiązane lekcje."
 
-  #comments
+# comments
 
   comments:
-    all: "%{number} komentarze"
-    all_alt: "Komentarze (%{number})"
-    info: "%{teacher} czeka na Twoje pytania.Pomyśl też o dodaniu własnych materiałów."
-    to_add: " aby dodawać komenatrze."
+    all: "Komentarze (%{number})"
+    info: "Miejsce na interakcje. Zadaj pytanie lub dodaj własne materiały."  
+    sign_in: "Zaloguj się, aby dodawać komentarze."
 
-  # channels
+# channels
 
   channels:
-    model_name: "Kanały"
-    all: "Wszystkie  %{number} kanały"
-    all_raw: "Wszystkie kanały"
-    teachers: "Nauczyciele tej serii"
-    join_teachers: "Chcesz do nich dołączyć? Zobacz jak!"
+    model_name: "Serie"
+    all: "Wszystkie serie"
+    all_counted: "Wszystkie serie (%{number})"
 
-  # about
+# teachers
 
-  # policy
+  teachers:
+    model_name: "Nauczyciele"
+    all: "Wszyscy nauczyciele"
+    all_counted: "Wszyscy nauczyciele (%{number})"
+    sign_in_to_see_email: "Zaloguj się, aby zobaczyć email."
+    write_to: "Jak mogę Tobię pomóc?"
 
-  # date formats
+# users
 
-  time:
-    formats:
-      default: "%d/%m/%Y"
+  users:
+    nav:
+      hello: "%{name}, witaj!"
+      credits_available: "<span>%{number}</span> Punktów"
+      credits: "Kup OVL Punkty"
+      hub: "Twój Hub"
+      edit: "Edytuj Profil"
+      password: "Zmień Hasło" 
+      show: "Profil Nauczyciela"
+      sign_out: "Wyloguj"
+      help: "Potrzebna pomoc?"
+      contact_us: "Skontaktuj się"
+    sign_in:
+      title: "Zaloguj się"
+      heading: "Dobrze znów Cię widzieć!"
+      link:
+        remind_password: "Zapomniałeś hasło? Utwórz nowe."
+        sign_up: "Nie masz jeszcze konta? Zarejestruj się."
+    sign_up:
+      title: "Zarejestruj się"
+      heading: "Dołącz do OVL - to łatwe!"
+      link:
+        sign_in: "Masz już konto w OVL? Zaloguj się."
+      benefits:
+        heading: "Dlaczego warto?"
+        first: "Odblokujesz dostęp do wybranych wideolekcji." 
+        second: "Dodasz komentarze i zadasz pytania nauczycielom."
+        third: "Zobacz adresy email do naszych nauczycieli."
+    credits:
+      title: "Kup OVL Punkty"
+      package: "%{amount} Punktów za %{price}$"
+      first_step: "Ile OVL Punktów chcesz kupić?"
+      second_step: "Uzupełnj dane o sobie do faktury."
+      third_step: "Dokonaj płatności PayPalem lub kartą kredytową."
+    hub:
+      title: "Twój Hub"
+      heading:
+        unlocks: "Twoje odblokowania"
+        payments: "Twoje płatności"
+        earnings: "Twoje zarobki"
+      lets:
+        browse: "Zobacz wszystkie wideolekcje!"
+        buy: "Kup pierwsze OVL Punkty!"
+      is_subscriber: "Jupi! Masz nielimitowany dostęp do wszystkich lekcji."
+      table:
+        id: "ID"
+        video: "Wideolekcja"
+        start: "Start"
+        end: "Koniec"
+        credits: "Punkty"
+        buyer: "Użytkownik"
+        commission: "Prowizja"
+        price: "Cena"
+        date: "Data"
+    edit: 
+      title: "Edytuj Profil"
+      teacher: "Nauczyciel" 
+      description_en: "Bio po angielsku"
+      description_pl: "Bio po polsku" 
+    password:
+      title: "Zmień Hasło"
 
-  # simple form
+# empty
+
+  empty:
+    unlocks: "Brak odblokowań."
+    payments: "Brak płatności."  
+    earnings: "Brak zarobków."
+
+# buttons
+
+  buttons:
+    watch: "Ucz się teraz!" 
+    unlock: "Odblokuj pełną wersję teraz!"
+
+# footer
+
+  footer:
+    explore: "Przeglądaj"
+    about: "Firma"
+    policy: "Polityka Prywatności"
+    contact: "Kontakt"
+    work: "Kariera w OVL"
+    newsletter:
+      title: "OVL Newsletter"
+      button: "Zapisz się"
+    facebook: "OVL na Facebooku"
+    connect:
+      title: "Obserwuj OVL"
+      facebook: "Polub na Facebooku"
+      twitter: "Śledź na Twitterze"
+      youtube: "Subskrybuj na YouTube"
+      github: "Współpracuj na GitHub"
+    copy: "Edu 2.0 Bartlomiej Rycharski"
+
+# simple form
 
   simple_form:
-    "yes": 'Tak'
-    "no": 'Nie'
-    required:
-      text: 'wymagane'
-      mark: '*'
-    error_notification:
-      default_message: "Popraw błędy:"
     hints:
-      password: 'Minimum 6 znaków. Tylko litery i cyfry.'
-
+      users:
+        password: "Co najmniej 6 znaków."
+        avatar: "Maximum 1 MB . Tylko formaty .jpg, .jpeg lub .png."
     labels:
-      video:
-        embed: "Full version embed"
-        youtube: 'YouTube trailer ID'
+      comment:
+        body: "Treść:"
       user:
-        first_name: "Imię"
-        last_name: "Nazwisko"
-        description: "Notka biograficzna (po angielsku)"
-        description_pl: "Notka biograficzna (po polsku)"
         current_password: "Aktualne hasło"
         password: "Hasło"
-        password_confirmation: "Hasło ponownie"
+        password_confirmation: "Potwierdź hasło"
+        avatar: "Twoje zdjęcie"
+        tagline_en: "Tagline"
+        tagline_pl: "Tagline"
+        first_name: "Imię"
+        last_name: "Nazwisko"
+      video:
+        user: "Nauczyciel"
+      payment:
+        invoice_first_name: "Imię"
+        invoice_last_name: "Nazwisko"
+        invoice_street: "Ulica"
+        invoice_city: "Miasto"
+        invoice_postal_code: "Kod pocztowy"
 
   helpers:
     submit:
       user:
-        create: "Utwórz"
-        update: "Aktualizuj"
-        submit: "Zapisz"
+        create: "Zarejestruj się"
+        update: "Zapisz zmiany"
+      comment:
+        create: "Dodaj komentarz"
+      payment:
+        create: "Kup teraz"
 
-  # devise
+# date and time
+
+  time:
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d/%m/%Y %H:%M"
+
+# active errors
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "nie jest na liście"
+      exclusion: "jest zarezerwowane"
+      invalid: "jest niewłaściwe"
+      confirmation: "nie pasuje"
+      accepted: "musi zostać zaakceptowane"
+      empty: "nie może być puste"
+      blank: "nie może być puste"
+      too_long: "jest za długie (maximum %{count} znaków)"
+      too_short: "jest za krótkie (minimum %{count} znaków)"
+      wrong_length: "ma niewłaściwą długość (powinno mieć %{count} znaków)"
+      not_a_number: "nie jest liczbą"
+      not_an_integer: "musi być liczbą"
+      greater_than: "musi być większe niż %{count}"
+      greater_than_or_equal_to: "musi być większe lub równe %{count}"
+      equal_to: "musi być równe %{count}"
+      less_than: "musi być mniejsze niż %{count}"
+      less_than_or_equal_to: "musi być mniejsze lub równe %{count}"
+      odd: "musi być parzyste"
+      even: "musi byc nieparzyste"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "1 błąd zablokował zapis %{model}"
+          other: "%{count} błędów zablokowało %{model} przed zapisem"
+        body: "Są problemy z następującymi polami:"
+
+      messages:
+        taken: "już został wykorzystany"
+        record_invalid: "Walidacja: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+
+# devise
 
   devise:
     failure:
-      already_authenticated: 'Jesteś już zalogowany.'
-      unauthenticated: 'Musisz się zalogować, aby to wykonać.'
-      invalid: 'Niewłaściwy email lub hasło.'
-      invalid_token: 'Niewłaściwy token.'
+      unauthenticated: 'Zaloguj się, aby kontynuować.'
+      invalid: 'Niepoprawny email lub hasło.'
+      invalid_token: 'Niepoprawny token.'
     sessions:
-      signed_in: 'Zalogowano pomyślnie.'
-      signed_out: 'Wylogowano pomyślnie.'
-    passwords:
-      send_instructions: 'Właśnie został wysłany do Ciebie mail z instrukcją jak zresetować hasło.'
-      updated: 'Twoje hasło zostało zmienione pomyślnie.'
-      send_paranoid_instructions: "Właśnie został wysłany do Ciebie mail z instrukcją jak zresetować hasło."
+      link: 'Zaloguj się'
+      signed_in: 'Zalogowano.'
+      signed_out: 'Wylogowano.'
+      unauthenticated: 'Zaloguj się, aby kontynuować.'
+      invalid_token: 'Błąd systemu: niepoprawny token. Spróbuj jeszcze raz.'
     registrations:
-      signed_up: 'Witaj! Zarejestrowano pomyślnie.'
-    mailer:
-      reset_password_instructions:
-        subject: 'Instrukcje zmiany hasła'
+      signed_up: 'Witaj w OVL! Owocnej nauki :-)
+
+
+
+

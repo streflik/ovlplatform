@@ -5,7 +5,7 @@ class ChannelsController < ApplicationController
   before_filter :verify_admin, :except => [:show, :index]
 
   def index
-    @channels = Channel.all*4
+    @channels = Channel.all
   end
 
   def show

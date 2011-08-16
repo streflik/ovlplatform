@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @users = User.all
     @teachers = User.teachers
     @comments = Comment.all
+    @payments = Payment.all
     @unlocks = Unlock.all
   end
 
@@ -29,9 +30,11 @@ class UsersController < ApplicationController
   end
 
   def hub
+    
   end
 
   def credits
+    @payment = Payment.new
   end
 
   def edit
