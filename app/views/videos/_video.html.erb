@@ -1,10 +1,10 @@
 <div class="box video">
 
   <div class="fblike">
-  <fb:like href='<%= video_url(video) %>' send='true' layout='box_count' width='60' show_faces='false' font='arial'></fb:like>
+    <fb:like href='<%= video_url(video) %>' send='true' layout='box_count' width='60' show_faces='false' font='arial'></fb:like>
   </div>
 
-  <%= link_to image_tag(video.thumb.url(:normal), :alt=>video.name), video %>
+  <%= link_to image_tag(video.thumb.url(:normal), :alt => video.name), video %>
 
   <ul>
     <li><%= link_to video.user.name, video.user %></li>

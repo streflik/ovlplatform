@@ -1,26 +1,38 @@
 module ApplicationHelper
 
+  # page <title>
+
   def title(page_title)
     content_for(:title) { page_title }
     page_title
   end
+
+  # highlight current link is main menu
 
   def link_to_with_highlight(name, options = {}, html_options = {}) # same sig as #link_to
     html_options.merge!({ :class => 'current' }) if current_page?(options)
     link_to(name, options, html_options)
   end
 
+  # is home?
+
   def is_home
     @home
   end
+
+  # link to home in breadcrumbs
 
   def home
     content_tag(:li, (link_to "#{t"home.link_to"}", root_path))
   end
 
+  # link to sign_in
+
   def sign_in
     link_to t("users.sign_in.title"), new_user_session_path	
   end
+
+  # basic identity protections
 
   def is_admin?
     current_user && current_user.is_admin == true
@@ -30,7 +42,7 @@ module ApplicationHelper
     is_admin? || object.user == current_user
   end
 
-  # users
+  # users nav menu
 
   def nav(user)
   content_tag(:ul,
@@ -46,12 +58,12 @@ module ApplicationHelper
       content_tag(:li, link_to(t("users.nav.show"), user_path(user)))
     end +
     if user.is_admin
-      content_tag(:li, link_to("Admin", admin_user_path(user)))
+      content_tag(:li, link_to_unless_current("Admin", admin_user_path(user)))
     end +
     content_tag(:li, link_to(t("users.nav.sign_out"), destroy_user_session_path)))
   end
 
-  # description of video, channel or user
+  # description of user or video
  
   def description(object)
     content_tag(:div, raw(auto_link(object.description)), :class=>"description")	
@@ -84,11 +96,11 @@ module ApplicationHelper
   end
 
   def unlocks_number(video)
-    t("videos.meta.unlocks_number", :number=>video.unlocks.count) 
+    t("videos.meta.unlocks_number", :number => video.unlocks.count) 
   end
 
   def duration(video)
-   t("videos.meta.duration", :number=>(video.duration / 60))
+   t("videos.meta.duration", :number => (video.duration / 60)) # in (full) minutues
   end
 
   def native(video)

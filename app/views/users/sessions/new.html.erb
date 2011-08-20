@@ -6,23 +6,18 @@
 
   <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-      <div class="inputs">
-        <%= f.input :email %>
-        <%= f.input :password %>
-        <!--
-        <% if devise_mapping.rememberable? -%>
-            <%= f.input :remember_me %>
-        <% end -%>
-        -->
-      </div>
+  <div class="inputs">
+    <%= f.input :email %>
+    <%= f.input :password %>
+  </div>
 
-      <div class="actions">
-        <%= f.button :submit %>
-      </div>
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
 
   <% end %>
 
-  <p><%= link_to t("users.sign_in.link.remind_password"), "" %></p>
+  <p><%= link_to t("users.sign_in.link.remind_password"), "" %></p> <!-- TODO -->
   <p><%= link_to t("users.sign_in.link.sign_up"), new_user_registration_path %></p>
 
 </div>

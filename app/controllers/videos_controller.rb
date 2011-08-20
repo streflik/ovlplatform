@@ -11,11 +11,9 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video_page = true
-    @teacher = @video.user
     @channel = @video.channel
     @comments = @video.comments
-    @user = @video.user
+    @teacher = @video.user
     @is_locked = is_locked
     @related = @channel.videos.where("id != ?", @video.id).limit(3)
   end
@@ -56,6 +54,7 @@ class VideosController < ApplicationController
 
   def unlock
     @video = Video.find(params[:video_id])
+
     if is_locked
 
       if current_user.credits_available >= @video.price
@@ -67,9 +66,8 @@ class VideosController < ApplicationController
           u.commission = @video.commission
           u.expires_at = Time.now + @video.days.days
         end
-
-        
-        if current_user.update_attribute :credits_available, current_user.credits_available-@video.price
+ 
+        if current_user.update_attribute :credits_available, current_user.credits_available - @video.price
           unlock.save
           flash[:notice] = t("unlocked")
         else
@@ -109,8 +107,7 @@ end
   private
 
   def is_locked
-      if (current_user && (current_user.is_subscriber || 
-@unlock = Unlock.where(["video_id = ? and user_id = ? and expires_at >= ?", @video.id, current_user.id, Time.now]).first))
+      if (current_user && (current_user.is_subscriber || @unlock = Unlock.where(["video_id = ? and user_id = ? and expires_at >= ?", @video.id, current_user.id, Time.now]).first))
         false
       else
         true
@@ -123,6 +120,10 @@ end
 
   def find_channels
     @channels = Channel.all
+  end
+
+  def find_teachers
+    @teachers = User.teachers
   end
 
 end

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   before_filter :find_user, :except => [:index]
-  before_filter :find_teachers, :only => [:index]
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :verify_user, :only => [:hub, :credits, :edit, :update, :password]
   before_filter :verify_teacher, :only => [:show]
@@ -21,6 +20,7 @@ class UsersController < ApplicationController
   # users views
 
   def index
+    @teachers = User.teachers
     render :layout => "application"
   end
 

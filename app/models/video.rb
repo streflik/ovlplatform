@@ -5,19 +5,6 @@ class Video < ActiveRecord::Base
   :native, :has_pl_captions, :has_en_captions, :thumb_file_name, :thumb_content_type, :thumb_file_size, :thumb_updated_at, 
   :summary_pl, :summary_en, :chapters_pl, :chapters_en
      
-  validates :name_en, :name_pl, :level, :duration, :youtube_video,  :description_en, :description_pl, 
-  :summary_pl, :summary_en, :channel_id, :user_id, :native, :chapters_pl, :chapters_en, :presence  => true
-
-  validates :summary_en, :length => {:maximum => 150}
-  validates :summary_pl, :length => {:maximum => 150}
-
-  LEVEL = {"Beginner" => 0, "Advanced" => 1}
-  CAPTIONS = {"Polish" => "pl", "English" => "en"}
-
-  default_scope :order => "created_at DESC"
-
-  scope :featured, where(:is_featured => true)
-
   has_many :comments
   belongs_to :channel
   belongs_to :user
@@ -27,10 +14,22 @@ class Video < ActiveRecord::Base
   :default_url => '/images/default-thumb.jpeg',
   :url => "/system/videos/:attachment/:id/:style/:basename.:extension",  
   :path => ":rails_root/public/system/videos/:attachment/:id/:style/:basename.:extension"
- 
-validates_attachment_presence :thumb
-validates_attachment_size :thumb, :less_than => 1.megabytes  
-validates_attachment_content_type :thumb, :content_type => ['image/jpeg', 'image/png'] 
+
+  validates :name_en, :name_pl, :level, :duration, :youtube_video,  :description_en, :description_pl, 
+  :summary_pl, :summary_en, :channel_id, :user_id, :native, :chapters_pl, :chapters_en, :presence  => true
+  validates :summary_en, :length => {:maximum => 150}
+  validates :summary_pl, :length => {:maximum => 150}
+
+  validates_attachment_presence :thumb
+  validates_attachment_size :thumb, :less_than => 1.megabytes  
+  validates_attachment_content_type :thumb, :content_type => ['image/jpeg', 'image/png'] 
+
+  LEVEL = {"Beginner" => 0, "Advanced" => 1}
+  CAPTIONS = {"Polish" => "pl", "English" => "en"}
+
+  default_scope :order => "created_at DESC"
+
+  scope :featured, where(:is_featured => true)
 
   # translation
 

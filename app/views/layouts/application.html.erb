@@ -51,7 +51,7 @@
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" %>
   <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" %>
   <%= javascript_include_tag "rails.js" %>
-  <script script src="http://connect.facebook.net/en_US/all.js#appId=122215534533466&amp;xfbml=1"></script>
+  <script src="http://connect.facebook.net/en_US/all.js#appId=122215534533466&amp;xfbml=1"></script>
 
   <!-- rss -->
 
@@ -133,7 +133,6 @@
 
 <ul>
   <li><%= link_to "#{t"about.link_to"}", about_path %></li>
-  <li><%= link_to t("footer.work"), about_path + "#work" %></li>
   <li><%= link_to "#{t"terms.link_to"}", terms_path %></li>
   <li><%= link_to "#{t"footer.policy"}", terms_path + "#policy" %></li>
   <li><%= link_to "#{t"footer.contact"}", about_path + "#contact" %></li>
@@ -161,7 +160,6 @@
 
 <ul class="connect">
 <li class="facebook"><%= link_to t("footer.connect.facebook"), "http://facebook.com/ovl" %></li>
-<li class="twitter"><%= link_to t("footer.connect.twitter"),"http://twitter.com/" %></li>
 <li class="youtube"><%= link_to t("footer.connect.youtube"), "http://youtube.com/" %></li>
 <li class="github"><%= link_to t("footer.connect.github"), "https://github.com/bartekrycharski/ovlplatform" %></li>
 </ul>

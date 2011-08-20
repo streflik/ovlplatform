@@ -32,8 +32,6 @@
   <p><%= t("users.hub.is_subscriber") %></p>
 <% end %>
 
-
-
 <h2><%= t("users.hub.heading.payments") %></h2>
 
 <% unless @user.payments.blank? %>
@@ -80,10 +78,10 @@
       <td><%= "#" + e.id.to_s %></td>
       <td><%= link_to truncate(e.video.name, :length => 25), e.video %></td>
       <td><%= e.user.name %></td>
-      <td><%= l(e.created_at, :format=>:long) %></td>
-      <td><%= l(e.expires_at, :format=>:long) %></td>
+      <td><%= l(e.created_at, :format => :long) %></td>
+      <td><%= l(e.expires_at, :format => :long) %></td>
       <td><%= e.credits %></td>
-      <td><%= e.credits*e.commission/100 %>$ (<%= e.commission %>%)</td>
+      <td><%= e.credits*e.commission/100 %>$ (<%= e.commission %>%)</td> <!-- TODO: musi pokazywać 2 po przecinku -->
     </tr>  
   <% end %>
   </table>

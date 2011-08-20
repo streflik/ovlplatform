@@ -10,7 +10,7 @@
 </div>
 
 <div class="grid_1">
-  <%= link_to image_tag(@user.avatar.url(:mini), :alt=>@user.name), @user %>
+  <%= link_to image_tag(@teacher.avatar.url(:mini), :alt=>@teacher.name), @teacher %>
 </div>
 
 <div class="grid_11">
@@ -23,160 +23,154 @@
 <div class="grid_9">
 
   <div class="player">
-      <% if @video.is_paid %>
-        <% if @is_locked %>
-          <%= youtube(@video.youtube_video) %>
-        <% else %>
-          <div id="container"><%= image_tag("loader.gif") %></div>
-        <% end %>
-      <% else %>
+    <% if @video.is_paid %>
+      <% if @is_locked %>
         <%= youtube(@video.youtube_video) %>
+      <% else %>
+        <div id="container"><%= image_tag("loader.gif") %></div>
       <% end %>
+   <% else %>
+     <%= youtube(@video.youtube_video) %>
+   <% end %>
   </div>
 
-<div class="spacer inside"></div>
+  <div class="spacer inside"></div>
 
-<div class="share">
+  <div class="share">
 
-  <div class="fblike">
-    <fb:like href="<%= video_url(@video) %>" send="true" width="500" show_faces="true" font=""></fb:like>
+    <div class="fblike">
+      <fb:like href="<%= video_url(@video) %>" send="true" width="500" show_faces="true" font=""></fb:like>
+    </div>
+
+    <div class="gplus">
+      <g:plusone></g:plusone>
+    </div>
+
+    <div class="twit">
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= video_url(@video) %>" data-count="horizontal" data-via="ovl">Tweet</a>
+    </div>
+
   </div>
 
-  <div class="gplus">
-    <g:plusone></g:plusone>
-  </div>
+  <div class="spacer inside"></div>
 
-  <div class="twit">
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= video_url(@video) %>" data-count="horizontal" data-via="ovl">Tweet</a>
+  <h2><%= t("videos.description") %></h2>
+  <%= description(@video) %>
+ 
+  <% if @video.is_paid %>
+    <% if @is_locked %>
+      <div class="clear"></div>
+      <p class="unlock_to_see"><%= t("videos.locked.description", :characters => @video.description_en_paid.size) %><p>
+    <% else %>
+      <div class="clear"></div>
+      <%= content_tag(:div, raw(auto_link(@video.description_paid)), :class=>"description") %>
+    <% end %>
+  <% end %>
+
+  <div class="spacer inside"></div>
+
+  <div class="comments">
+
+  <h2><a name="comments"></a><%= t("comments.all", :number => @comments.count) %></h2>
+  <p class="info">
+    <%= t("comments.info", :teacher => @teacher.first_name) %> 
+    <%= link_to(t("comments.sign_in"), new_user_session_path) unless user_signed_in? %>
+  </p>
+
+  <%= render :partial => @comments, :locals => {:list => true} %>
+
+  <% if user_signed_in? %>
+    <%= simple_form_for([@video, Comment.new]) do |f| %>
+      <div class="inputs">
+        <%= f.input :body %>
+      </div>
+      <div class="actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+  <% end %>
+
   </div>
 
 </div>
 
-<div class="clear"></div>
-
-<div class="spacer inside"></div>
-
-    <h2><%= t("videos.description") %></h2>
-    <%= description(@video) %>
- 
-    <% if @video.is_paid %>
-      <% if @is_locked %>
-          <div class="clear"></div>
-        <p class="unlock_to_see"><%= t("videos.locked.description", :characters => @video.description_en_paid.size) %><p>
-      <% else %>
-        <div class="clear"></div>
-        <%= content_tag(:div, raw(auto_link(@video.description_paid)), :class=>"description") %>
-      <% end %>
-    <% end %>
-
-    <div class="spacer inside"></div>
-
-    <div class="comments">
-
-    <h2><a name="comments"></a><%= t("comments.all", :number => @comments.count) %></h2>
-    <p class="info"><%= t("comments.info", :teacher => @video.user.first_name) %> 
-                    <%= link_to(t("comments.sign_in"), new_user_session_path) unless user_signed_in? %></p>
-
-    <%= render :partial => @comments, :locals => {:list => true} %>
-
-    <% if user_signed_in? %>
-      <%= simple_form_for([@video, Comment.new]) do |f| %>
-        <div class="inputs">
-           <%= f.input :body %>
-        </div>
-        <div class="actions">
-          <%= f.button :submit %>
-        </div>
-      <% end %>
-    <% end %>
-
-   </div>
-
-  </div>
-
-  <div class="grid_3">
+<div class="grid_3">
     
-    <div class="unlock">
-      <% if @video.is_paid %>
-          <p><%= price(@video) %></p>
-          <p><%= days(@video) %></p>
-        <% if user_signed_in? %>
-          <% if current_user.is_subscriber %>
-            <p><%= t("videos.unlock.is_subscriber") %></p>  
-          <% else %>
-            <% if @is_locked %>
-              <p><%= link_to t("buttons.unlock"), video_unlock_path(@video), :confirm=>t("confirm.unlock"), :class=>"button unlock" %></p>
-              <p><strong><%= unlocks_number(@video) %></strong></p>
-              <% if current_user.credits_available >= @video.price %>
-                <p><%= t("videos.unlock.enough_credits", :duration=>duration(@video)) %></p>
-              <% else %>        
-                <p><%= link_to((t("videos.unlock.not_enough_credits", :duration=>duration(@video))), credits_user_path(current_user)) %></p>
-              <% end %>
-              <p><%= t("videos.unlock.credit_price") %></p>
-            <% else %>
-              <p class="unlocked"><%= raw(t("videos.unlock.unlocked", 
-:date=>l(current_user.unlocks.where('video_id = ?', @video.id).order('expires_at DESC').first.expires_at, :format=>:long))) %></p>   
-            <% end %>  
-          <% end %>
+  <div class="unlock">
+    <% if @video.is_paid %>
+      <p><%= price(@video) %></p>
+      <p><%= days(@video) %></p>
+      <% if user_signed_in? %>
+        <% if current_user.is_subscriber %>
+          <p><%= t("videos.unlock.is_subscriber") %></p>  
         <% else %>
-          <p><strong><%= unlocks_number(@video) %></strong></p>
-          <p><%= link_to(t("videos.unlock.sign_in"), new_user_session_path) %></p>
-          <p><%= t("videos.unlock.credit_price") %></p> 
+          <% if @is_locked %>
+            <p><%= link_to t("buttons.unlock"), video_unlock_path(@video), :confirm => t("confirm.unlock"), :class => "button unlock" %></p>
+            <p><strong><%= unlocks_number(@video) %></strong></p>
+            <% if current_user.credits_available >= @video.price %>
+              <p><%= t("videos.unlock.enough_credits", :duration => duration(@video)) %></p>
+            <% else %>        
+              <p><%= link_to((t("videos.unlock.not_enough_credits", :duration => duration(@video))), credits_user_path(current_user)) %></p>
+            <% end %>
+            <p><%= t("videos.unlock.credit_price") %></p>
+          <% else %>
+            <p class="unlocked"><%= raw(t("videos.unlock.unlocked", 
+:date=>l(current_user.unlocks.where('video_id = ?', @video.id).order('expires_at DESC').first.expires_at, :format => :long))) %></p>   
+          <% end %>  
         <% end %>
       <% else %>
-        <p><%= free %></p>
-        <p><%= t("videos.unlock.free") %></p>
-      <% end %>      
-      <div class="like_mini">
-        <fb:like href="<%= video_url(@video)%>" send="false" layout="button_count" width="198" show_faces="false"></fb:like>
-      </div>
-    </div>
-
-    <div class="chapters">
-      <h2><%= t("videos.chapters.title") %></h2>
-      <% if @video.is_paid %>
-        <p class="info"><%= t("videos.chapters.info") %></p>
+        <p><strong><%= unlocks_number(@video) %></strong></p>
+        <p><%= link_to(t("videos.unlock.sign_in"), new_user_session_path) %></p>
+        <p><%= t("videos.unlock.credit_price") %></p> 
       <% end %>
-	<%= raw @video.chapters  %>
-
+    <% else %>
+      <p><%= free %></p>
+      <p><%= t("videos.unlock.free") %></p>
+    <% end %>      
+    <div class="like_mini">
+      <fb:like href="<%= video_url(@video)%>" send="false" layout="button_count" width="198" show_faces="false"></fb:like>
     </div>
-
-    <div class="teacher"> 
-      <h2><%= t("videos.teacher") %></h2>
-      <%= link_to image_tag(@teacher.avatar.url(:thumb), :alt=>@teacher.name), @teacher %>
-      <h3><%= link_to @teacher.name, @teacher %></h3>
-      <%= tagline(@teacher) %> 
-    </div>
-
-    <div class="related">
-      <h2><%= t("videos.related.title") %></h2>
-<p class="info"><%= link_to t("videos.related.all"), @channel %></p>
-      <% @related.each do |video| %>
-        <%= link_to image_tag(video.thumb.url(:normal), :alt=>video.name), video %>
-        <h3><%= link_to video.name, video %></h3>
-      <% end %>
-      
-    </div>
-
   </div>
 
+  <div class="chapters">
+    <h2><%= t("videos.chapters.title") %></h2>
+    <% if @video.is_paid %>
+      <p class="info"><%= t("videos.chapters.info") %></p>
+    <% end %>
+    <%= raw @video.chapters  %>
+  </div>
 
-        
+  <div class="teacher"> 
+    <h2><%= t("videos.teacher") %></h2>
+    <%= link_to image_tag(@teacher.avatar.url(:thumb), :alt=>@teacher.name), @teacher %>
+    <h3><%= link_to @teacher.name, @teacher %></h3>
+    <%= tagline(@teacher) %> 
+  </div>
 
+  <div class="related">
+    <h2><%= t("videos.related.title") %></h2>
+    <p class="info"><%= link_to t("videos.related.all"), @channel %></p>
+    <% @related.each do |video| %>
+      <%= link_to image_tag(video.thumb.url(:normal), :alt=>video.name), video %>
+      <h3><%= link_to video.name, video %></h3>
+    <% end %>
+  </div>
+
+</div>
 
 <% content_for :footer do %>
 
 <script type="text/javascript">
-jwplayer("container").setup({
-width: 640,
-height: 360,
-skin: "/javascripts/jwplayer/skins/modieus.zip",
-image: "<%= @video.thumb.url(:sd) %>",
-provider: "http",
-file: "http://d28q1112rgpawm.cloudfront.net/<%= @video.paid_video_sd %>", // todo:protect
-buffering: 2,
-duration: <%= @video.duration %>,
-plugins: {
+  jwplayer("container").setup({
+  width: 640,
+  height: 360,
+  skin: "/javascripts/jwplayer/skins/modieus.zip",
+  image: "<%= @video.thumb.url(:sd) %>",
+  provider: "http",
+  file: "http://d28q1112rgpawm.cloudfront.net/<%= @video.paid_video_sd %>", // todo:protect
+  buffering: 2,
+  duration: <%= @video.duration %>,
+  plugins: {
 	'hd-1': {
           'file': 'http://d28q1112rgpawm.cloudfront.net/<%= @video.paid_video_hd %>', // todo: protect
           'fullscreen': 'false'
@@ -192,7 +186,7 @@ plugins: {
 	}
 	},
 
-modes: [
+  modes: [
         {type: 'flash', src: '/javascripts/jwplayer/player.swf'},
         {
           type: 'html5',
@@ -203,7 +197,7 @@ modes: [
         }
     ]
 
-});
+  });
 </script>
 
 <% end %>
@@ -235,11 +229,11 @@ modes: [
 
 <!-- facebook meta tags -->
 
-    <meta property="og:title" content="<%= @video.name + ' - ' + t('short') %>"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:image" content="http://ovlplatform.com<%= @video.thumb.url(:normal) %>"/>
-    <meta property="og:url" content="<%= video_url(@video) %>"/>
-    <meta property="og:site_name" content="<%= t('short') %>"/>
-    <meta property="og:description" content="<%= @video.summary %>"/>
+<meta property="og:title" content="<%= @video.name + ' - ' + t('short') %>"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="http://ovlplatform.com<%= @video.thumb.url(:normal) %>"/>
+<meta property="og:url" content="<%= video_url(@video) %>"/>
+<meta property="og:site_name" content="<%= t('short') %>"/>
+<meta property="og:description" content="<%= @video.summary %>"/>
 
 <% end %>

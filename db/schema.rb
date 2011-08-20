@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20110728112854) do
     t.string   "invoice_city"
     t.integer  "credits"
     t.integer  "price"
+    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

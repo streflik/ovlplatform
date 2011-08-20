@@ -130,7 +130,7 @@ en:
   users:
     nav:
       hello: "Hi %{name}!"
-      credits_available: "<span>%{number}</span> Available Credits"
+      credits_available: "<span>%{number}</span> OVL Credits"
       credits: "Buy OVL Credits"
       hub: "Your Hub"
       edit: "Edit Profile"
@@ -199,7 +199,7 @@ en:
 # buttons
 
   buttons:
-    watch: "Learn Now!" 
+    watch: "Learn now!" 
     unlock: "Unlock Full Version Now!"
 
 # footer
@@ -209,7 +209,6 @@ en:
     about: "About"
     policy: "Privacy Policy"
     contact: "Contact"
-    work: "Careers at OVL"
     newsletter:
       title: "OVL Newsletter"
       button: "Subscribe"
@@ -249,7 +248,7 @@ en:
         invoice_street: "Street"
         invoice_city: "City"
         invoice_postal_code: "Postal code"
-
+        country: "Country"
   helpers:
     submit:
       user:
@@ -318,7 +317,7 @@ en:
       invalid_token: 'Invalid authentication token.'
     sessions:
       link: 'Sign in'
-      signed_in: 'Signed in.'
+      signed_in: 'Welcome back!'
       signed_out: 'Signed out,'
       unauthenticated: 'Please, sign in to continue.'
       invalid_token: 'Please, try again.'

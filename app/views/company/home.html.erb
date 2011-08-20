@@ -8,13 +8,13 @@
 
     <div class="wanna learn">
       <h3><%= t"home.intro.wanna_learn" %></h3>
-      <%= link_to "#{t"home.intro.sign_up"}", new_user_registration_path, :class=>"button signup" %>
+      <%= link_to "#{t"home.intro.sign_up"}", new_user_registration_path, :class => "button signup" %>
       <p><%= t"home.intro.or" %> <%=link_to "#{t"home.intro.all_videos"}", videos_path  %></p>
     </div>
 
     <div class="wanna teach">
       <h3><%= t"home.intro.wanna_teach" %></h3>
-      <%= link_to "#{t"home.intro.contact_us"}", about_path + "#contact", :class=>"button about" %>
+      <%= link_to "#{t"home.intro.contact_us"}", about_path + "#contact", :class => "button about" %>
       <p><%= t"home.intro.or" %> <%= link_to "#{t"home.intro.how_it_works"}", about_path %></p>
     </div>
 
@@ -30,11 +30,8 @@
 <div class="spacer"></div>
 
 <div class="grid_8 featured">
-
   <h3><%= t"home.featured" %></h3>
-
   <%= render :partial => @featured %>
-
 </div>
 
 <div class="grid_4 newest">
@@ -43,10 +40,10 @@
 
   <% @videos.each do |video| %>
 
-      <div class="box video">
-        <%= link_to image_tag(video.thumb.url(:mini), :alt=>video.name), video %>
-        <h2><%= link_to video.name, video %></h2>
-      </div>
+    <div class="box video">
+      <%= link_to image_tag(video.thumb.url(:mini), :alt=>video.name), video %>
+      <h2><%= link_to video.name, video %></h2>
+    </div>
 
   <% end %>
 

@@ -1,30 +1,30 @@
 <%= simple_form_for(@channel, :html=>{:multipart=>true}) do |f| %>
 
-    <%= f.error_notification %>
+  <%= f.error_notification %>
 
-    <div class="inputs">
-      <h2>English</h2>
-      <%= f.input :name_en %>
-      <%= f.input :tagline_en %>
-    </div>
+  <div class="inputs">
+    <h2>English</h2>
+    <%= f.input :name_en %>
+    <%= f.input :tagline_en %>
+  </div>
 
-    <div class="inputs">
-      <h2>Polish</h2>
-      <%= f.input :name_pl %>
-      <%= f.input :tagline_pl %>
-    </div>
+  <div class="inputs">
+    <h2>Polish</h2>
+    <%= f.input :name_pl %>
+    <%= f.input :tagline_pl %>
+  </div>
 
-   <div class="inputs">
-     <h2>Images</h2>
-     <%= f.input :thumb %>
-   </div>
+  <div class="inputs">
+    <h2>Images</h2>
+    <%= f.input :thumb %>
+  </div>
 
-    <div class="actions">
-      <%= f.button :submit %>
-    </div>
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
 
 <% end %>
 
 <% content_for :head do %>
-<%= javascript_include_tag :ckeditor %>
+  <%= javascript_include_tag :ckeditor %>
 <% end %>

@@ -22,7 +22,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean :is_teacher, :default => false
       t.boolean :is_subscriber, :default => false
       t.integer :credits_available, :default => "0"
-      t.integer :credits_total, :default => "0"
 
       t.timestamps
     end

@@ -1,25 +1,36 @@
 <%= div_for comment, :class=>"comment" do %>
 
-    <div class="grid_1 alpha">
-      <% if comment.user.is_teacher %>
-        <%= link_to image_tag(comment.user.avatar.url(:mini), :alt=>"#{comment.user.name}"), comment.user %>
-      <% else %>
-        <%= image_tag(comment.user.avatar.url(:mini, :alt=>"#{comment.user.name}")) %>
-      <% end %>
-    </div>
+<div class="grid_1 alpha">
+  <% if comment.user.is_teacher %>
+    <%= link_to image_tag(comment.user.avatar.url(:mini), :alt=>"#{comment.user.name}"), comment.user %>
+  <% else %>
+    <%= image_tag(comment.user.avatar.url(:mini, :alt=>"#{comment.user.name}")) %>
+  <% end %>
+</div>
 
-    <div class="grid_8 omega">
-      <p class="author">
-       <strong><% if comment.user.is_teacher %><%= link_to comment.user.name, comment.user %><% else %><%= comment.user.name %><% end %></strong> &middot;  
-        <%= l(comment.created_at, :format=>:long) %>
-        <% if is_owner?(comment) %>
-          <%= link_to t("delete"), [@video, comment], :confirm=>t("confirm.delete.comment"), :method=>:delete %>
-        <% end%>
-        <% if comment.user.is_teacher %>
-          <span class="right">OVL Teacher</span>
-        <% end %>
-      </ul>
-      <%= raw auto_link simple_format comment.body %>
-    </div>
+<div class="grid_8 omega">
+
+  <p class="author">
+    <strong>
+      <% if comment.user.is_teacher %>
+        <%= link_to comment.user.name, comment.user %>
+      <% else %>
+        <%= comment.user.name %>
+      <% end %>
+    </strong> &middot;
+  
+    <%= l(comment.created_at, :format=>:long) %>
+
+    <% if is_owner?(comment) %>
+      <%= link_to t("delete"), [@video, comment], :confirm=>t("confirm.delete.comment"), :method=>:delete %>
+    <% end %>
+      <% if comment.user.is_teacher %>
+      <span class="right">OVL Teacher</span>
+    <% end %>
+  </p>
+
+  <%= raw auto_link simple_format comment.body %>
+
+</div>
 
 <% end %>

@@ -10,6 +10,7 @@ class CreatePayments < ActiveRecord::Migration
       t.string :invoice_city
       t.integer :credits
       t.integer :price
+      t.string :country
 
       t.timestamps
     end

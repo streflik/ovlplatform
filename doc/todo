@@ -1,53 +1,26 @@
-- translation about
-- credoits country
+KRZYCHU:
 
-//
+- users/hub - obliczanie prowizji z dolcami po przecinku (dwa miejsca po pzrecinku) (teraz podaje całkowite liczby)
+- users/admin - sumowanie earnings teachersa
+- kupowanie creditsow paypalem
+- amazon tokens - zabezpieczenie streamów video przed ściąganiem i embedeowaniem na innych sajtach
+- maszyneria forget password 
+- skonfigurowanie capistrano czy czegos do latwych deployow po scomitowaniu
+- wrzutka na serwer
 
 
+BARTEK:
 
-- kupowanie paypalem
-- amazon tokens
-- forget password maszynieria
-- earnings commission fix
-
-//
-
-- newsletter z cm poprzez api
-	- apka wysyla maile zarejestrowanych do bazy
-
-//
-
-- team photos
-- content policy
+- biznesplan
 - promo video
-	http://www.youtube.com/watch?v=yMuuc_pqx2s&feature=youtu.be
-- konto fejs
-- kontro twit
-- d0mena
+- content policy
 
 
-//
 
-- faq help (http://www.kickstarter.com/help)
-	- what is OVL Credits?
-	- how to buy OVL Credits?
-	- tut dla ticzersow
-- ksiegowanie faktur z usa
-- biz model /plan
-- roadmap
-	/ ficzery z podzialem na dzialy
-	- design
-	- ux
-	- accessibility
-	- community
-	- tests
-	- content
-	- sales
-	- (events)
-	- (branding)
-	- team
-	- finance
-	- promotion
-	- sales
 
-//
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :is_owner, :only=>[:destroy]
+  before_filter :is_owner, :only => [:destroy]
 
   def create
     @comment = Comment.create(params[:comment]) do |c|
@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
       c.user = current_user
     end
     if @comment.save
-      @video = @comment.video
       redirect_to video_path(@comment.video) + "#comments", :notice => t("created")
     else
       redirect_to video_path(@comment.video) + t("created")
@@ -24,7 +23,7 @@ class CommentsController < ApplicationController
 
   def is_owner
     @comment = Comment.find(params[:id])
-    is_owner?(@comment) ? true : render(:nothing=>true)
+    is_owner?(@comment) ? true : render(:nothing => true)
   end
 
 end

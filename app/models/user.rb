@@ -8,24 +8,24 @@ class User < ActiveRecord::Base
   :description_pl, :accept_policy, :tagline_en, :tagline_pl, :avatar_file_name, :avatar_content_type, :avatar_file_size, 
   :avatar_updated_at
 
-  validates :first_name, :last_name, :email, :presence => true
-  validates_acceptance_of :accept_policy, :accept => true
-
-  scope :teachers, where(:is_teacher => true)
-
   has_many :comments
   has_many :videos
   has_many :unlocks
-  has_many :earnings, :class_name=>"Unlock",:foreign_key=>"teacher_id"
+  has_many :earnings, :class_name => "Unlock", :foreign_key => "teacher_id"
   has_many :payments
 
   has_attached_file :avatar, :styles => { :thumb => "220x135#", :normal => "130x130#", :mini => "60x60#" }, 
-  :default_url => '/images/default-avatar.png',
+  :default_url => '/images/avatar.png',
   :url => "/system/users/:attachment/:id/:style/:basename.:extension",  
   :path => ":rails_root/public/system/users/:attachment/:id/:style/:basename.:extension"
 
-validates_attachment_size :avatar, :less_than => 1.megabytes  
-validates_attachment_content_type :avatar, :content_type => ['image/jpg', 'image/jpeg', 'image/png'] 
+  validates :first_name, :last_name, :email, :presence => true
+  validates_acceptance_of :accept_policy, :accept => true
+
+  validates_attachment_size :avatar, :less_than => 1.megabytes  
+  validates_attachment_content_type :avatar, :content_type => ['image/jpg', 'image/jpeg', 'image/png'] 
+
+  scope :teachers, where(:is_teacher => true)
 
   default_scope :order => "last_name ASC"
 

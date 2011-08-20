@@ -9,22 +9,24 @@
 </div>
 
 <div class="grid_3">
-  <%= image_tag(@user.avatar.url(:thumb), :alt=>@user.name)  %>
+  <%= image_tag(@user.avatar.url(:thumb), :alt => @user.name)  %>
 </div>
 
 <div class="grid_8">
+  
   <h1><%= yield(:title) %></h1>
+  <%= tagline(@user) %>
 
-<%= tagline(@user) %>
-
-<p class="email">
-  <% if user_signed_in? %>
+  <p class="email">
+    <% if user_signed_in? %>
       <%= t("teachers.write_to") %> &raquo; <%= link_to @user.email, "mailto:#{@user.email}" %>
-  <% else %>
+    <% else %>
       <%= t("teachers.write_to") %> &raquo; <%= link_to t("teachers.sign_in_to_see_email"), new_user_session_path %>
-  <% end %>
-</p>
+    <% end %>
+  </p>
+
   <%= description(@user) %>
+
 </div>
 
 <div class="spacer"></div>

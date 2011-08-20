@@ -4,34 +4,32 @@
 
 <%= simple_form_for(@payment) do |f| %>
 
- <%= f.error_notification %>
+  <%= f.error_notification %>
 
-<h2><span>1</span> <%= t("users.credits.first_step") %></h2>
+  <h2><span>1</span> <%= t("users.credits.first_step") %></h2>
 
-<%= f.collection_radio :credits, 
+  <%= f.collection_radio :credits, 
 	[[10, t("users.credits.package", :amount=>"10", :price=>"10")], 
 	[50, t("users.credits.package", :amount=>"50", :price=>"50")],
         [100, t("users.credits.package", :amount=>"100", :price=>"100")]],
 	:first, :last,:checked => 50 %>
 
-<%#= f.input :credits %>
+  <h2><span>2</span> <%= t("users.credits.second_step") %></h2>
 
-<h2><span>2</span> <%= t("users.credits.second_step") %></h2>
+  <%= f.input :invoice_first_name, :input_html => {:value => @user.first_name} %>
+  <%= f.input :invoice_last_name, :input_html => {:value => @user.last_name} %>
+  <%= f.input :invoice_street %>
+  <%= f.input :invoice_postal_code %>
+  <%= f.input :invoice_city %>
+  <%= f.input :country, :prompt => false, :priority => [ "Poland" ] %>
 
-<%= f.input :invoice_first_name, :input_html => {:value => @user.first_name} %>
-<%= f.input :invoice_last_name, :input_html => {:value => @user.last_name} %>
-<%= f.input :invoice_street %>
-<%= f.input :invoice_postal_code %>
-<%= f.input :invoice_city %>
-#country
+  <h2><span>3</span> <%= t("users.credits.third_step") %></h2>
 
-<h2><span>3</span> <%= t("users.credits.third_step") %></h2>
+  <%= image_tag("http://audiojungle.net/images/common/payment/paypal.png") %>
 
-<%= image_tag("http://audiojungle.net/images/common/payment/paypal.png") %>
-
-<div class="actions">
-  <%= f.button :submit, :class=> "button buy" %>
-</div>
+  <div class="actions">
+    <%= f.button :submit, :class=> "button buy" %>
+  </div>
 
 <% end %>
 
