@@ -114,8 +114,9 @@ margin-left:980px
 /* wider - flash*/
 
 .wider.flash {
+  border-top:1px solid #222;
   font-size:12px;
-  line-height:2.2em;
+  line-height:2.5em;
 }
 
 .wider.flash#notice {
@@ -129,13 +130,14 @@ margin-left:980px
 /* wider - nav */
 
 .wider.nav {
-  background:#381414;
+  background:#fff;
   font-size:12px;
   line-height:2.5em;
+  border-top:1px solid #222
 }
 
 .wider.nav li {
-  border-right:1px dotted #fff;
+  border-right:1px dotted #3E3E3E;
   margin:0 9px 0 0;
   padding:0 10px 0 0;
 }
@@ -146,13 +148,19 @@ margin-left:980px
   padding:0
 }
 
+.wider.nav, .wider.nav a {
+  color:#3E3E3E;
+}
+
 /* header */
 
 .wider.header {
   background:#4C1B1B;
-  -moz-box-shadow: 0 6px 5px 0 #ddd
-  -webkit-box-shadow: 0 6px 5px 0 #ddd;
-  box-shadow: 0 6px 5px 0 #ddd;
+  border-bottom:1px solid #222;
+  border-top:1px solid #222;
+  -moz-box-shadow: 0 4px 5px 0 #ddd
+  -webkit-box-shadow: 0 4px 5px 0 #ddd;
+  box-shadow: 0 4px 5px 0 #ddd;
   height:40px;
   margin-bottom:50px;
 }
@@ -951,7 +959,8 @@ tr {
 .company.about .insider .steps li {
   display:block;
   float:left;
-  list-style:none; 
+  list-style:none;
+  margin:15px 0; 
   width:340px;
 }
 
@@ -961,7 +970,7 @@ tr {
 
 .company.about .insider .steps li h4 {
   font-size:16px;
-  margin:10px 0 5px 0;
+  margin:0 0 5px 0;
 }
 
 .company.about .insider .steps li h4 span {
@@ -979,7 +988,7 @@ tr {
 .company.about .insider .founder {
   float:left;
   width:210px;
-  margin: 10px 0
+  margin: 15px 0
 }
 
 .company.about .insider .founder.center {

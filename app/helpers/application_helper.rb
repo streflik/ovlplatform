@@ -49,7 +49,7 @@ module ApplicationHelper
     content_tag(:li, t("users.nav.hello", :name => user.first_name)) +
     unless user.is_subscriber
     content_tag(:li, raw(t("users.nav.credits_available", :number => user.credits_available)), :class=>"stat") +
-    content_tag(:li, link_to_unless_current(t("users.nav.credits"), credits_user_path(user)))
+    content_tag(:li, link_to_unless_current(t("users.nav.credits"), credits_user_path(user)), :class=>"strong")
     end +
     content_tag(:li, link_to_unless_current(t("users.nav.hub"), hub_user_path(user))) +
     content_tag(:li, link_to_unless_current(t("users.nav.edit"), edit_user_path(user))) +
