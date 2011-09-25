@@ -3,8 +3,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   before_filter :instantiate_controller_and_action_names
+  before_filter :basic_authenticate
 
   private
+
+  def basic_authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "OVL" && password == "Ford T"
+    end
+  end
 
   # setting  language
 
