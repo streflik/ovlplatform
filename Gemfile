@@ -8,6 +8,7 @@ gem 'rails', '3.0.9'
 gem 'mysql2', '~> 0.2.11'
 gem "simple_form"
 gem 'devise', "= 1.4.2"
+gem 'mongrel', '>= 1.2.0.pre2'
 
 gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
 

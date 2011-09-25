@@ -53,5 +53,14 @@ namespace :bundler do
 
 end
 
+#namespace :db do
+#  desc "Run migrations"
+#  task :migrate, :roles => :app do
+#    run "cd #{release_path} && rake db:migrate RAILS_ENV=production"
+#  end
+#end
+
 after 'deploy:update_code', 'bundler:symlink_bundled_gems'
 after 'deploy:update_code', 'bundler:install'
+#after 'bundler:install', "db:migrate"
+before  "deploy:symlink", "deploy:migrate"
