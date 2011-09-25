@@ -30,7 +30,7 @@
   <meta property="og:title" content="<%= t('title') %>"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="<% if params[:locale] == 'pl' %>http://ovlplatform.com/pl<% else %>http://ovlplatform.com/en<% end %>"/>
-  <meta property="og:image" content="http://ovlplatform.com<%= image_path('ovl-logo-facebook.png') %>"/>
+  <meta property="og:image" content="http://ovlplatform.com<%= image_path('ovl_logo_fb.png') %>"/>
   <meta property="og:site_name" content="<%= t('short') %>"/>
   <meta property="og:description" content="<%= t('meta.description') %>"/>
 
@@ -79,7 +79,7 @@
 
 <div class="wider header">
   <div>
-    <%= link_to image_tag("logo.png", :class=>"logo left", :alt=>"OVL Open Video Learning logo"), root_url %>
+    <%= link_to image_tag("ovl_logo.png", :class=>"logo left", :alt=>"OVL Open Video Learning logo"), root_url %>
     <ul class="left">
       <li><%= link_to_with_highlight "#{t"videos.model_name"}", videos_path %></li>
       <li><%= link_to_with_highlight "#{t"channels.model_name"}", channels_path %></li>
@@ -95,7 +95,6 @@
       <% end %>
     </ul>
   </div>
-
 </div>
 
 <div class="clear"></div>
@@ -107,6 +106,13 @@
       <li class="en"><%= link_to "English",  change_language_url(:locale=>:en)  %></li>
       <li class="pl"><%= link_to "Polski", change_language_url(:locale=>:pl) %></li>
     </ul>
+  </div>
+
+  <div class="grid_12">
+    <div class="beta">
+      <%= t("beta") %> 
+      <%= link_to "Facebook", "http://www.facebook.com/pages/Open-Video-Learning-OVL/167175996653709" %>.
+    </div>
   </div>
 
   <%= content_for?(:content) ? yield(:content) : yield %>
@@ -133,8 +139,8 @@
 
 <ul>
   <li><%= link_to "#{t"about.link_to"}", about_path %></li>
+  <!-- <li><%= link_to "#{t"guide.link_to"}", guide_path %></li> -->
   <li><%= link_to "#{t"terms.link_to"}", terms_path %></li>
-  <li><%= link_to "#{t"footer.policy"}", terms_path + "#policy" %></li>
   <li><%= link_to "#{t"footer.contact"}", about_path + "#contact" %></li>
 </ul>
 
@@ -160,7 +166,7 @@
 
 <ul class="connect">
 <li class="facebook"><%= link_to t("footer.connect.facebook"), "http://www.facebook.com/pages/Open-Video-Learning-OVL/167175996653709" %></li>
-<li class="youtube"><%= link_to t("footer.connect.youtube"), "http://youtube.com/" %></li>
+<li class="youtube"><%= link_to t("footer.connect.youtube"), "http://youtube.com/ovlplatform" %></li>
 <li class="github"><%= link_to t("footer.connect.github"), "https://github.com/bartekrycharski/ovlplatform" %></li>
 </ul>
 

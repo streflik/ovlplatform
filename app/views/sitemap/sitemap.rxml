@@ -50,7 +50,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
                       :action => 'show', 
                       :id => channel.id,
                       :only_path => false,
-                      :locale => 'en')
+                      :locale => 'pl')
       xml.lastmod channel.updated_at.to_date
       xml.changefreq "weekly"
       xml.priority "0.8"
@@ -125,7 +125,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
     xml.url do
       xml.loc url_for(:controller => 'company', 
-                      :action => 'policy',
+                      :action => 'terms',
                       :only_path => false,
                       :locale => 'en')
       xml.changefreq "monthly"
@@ -134,7 +134,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
     xml.url do
       xml.loc url_for(:controller => 'company', 
-                      :action => 'policy',
+                      :action => 'terms',
                       :only_path => false,
                       :locale => 'pl')
       xml.changefreq "monthly"

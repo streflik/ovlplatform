@@ -5,6 +5,7 @@ class VideosController < ApplicationController
   before_filter :verify_admin, :except => [:show, :index, :feed, :unlock]
   before_filter :find_teachers, :except => [:show, :index, :feed]
   before_filter :find_channels, :except => [:show, :index, :feed]
+  before_filter :verify_admin, :only => [:unlock]
 
   def index
     @videos = Video.all

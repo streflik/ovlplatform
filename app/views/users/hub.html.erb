@@ -18,7 +18,13 @@
   <% @user.unlocks.each do |u| %>
     <tr>
       <td><%= "#" + u.id.to_s %></td>
-      <td><%= link_to truncate(u.video.name, :length => 50), u.video %></td>
+      <td>
+        <% unless u.video.blank? %>
+          <%= link_to truncate(u.video.name, :length => 50), u.video %>
+        <% else %>
+          VIDEO DELETED - ID:<%= u.video_id %>
+        <% end %>
+      </td>
       <td><%= l(u.created_at, :format=>:long) %></td>
       <td><%= l(u.expires_at, :format=>:long) %></td>
       <td><%= u.credits %></td>
@@ -76,12 +82,18 @@
   <% @user.earnings.each do |e| %>
     <tr>
       <td><%= "#" + e.id.to_s %></td>
-      <td><%= link_to truncate(e.video.name, :length => 25), e.video %></td>
+      <td>
+        <% unless e.video.blank? %>
+          <%= link_to truncate(e.video.name, :length => 50), e.video %>
+        <% else %>
+          VIDEO DELETED - ID:<%= e.video_id %>
+        <% end %>
+      </td>
       <td><%= e.user.name %></td>
       <td><%= l(e.created_at, :format => :long) %></td>
       <td><%= l(e.expires_at, :format => :long) %></td>
       <td><%= e.credits %></td>
-      <td><%= e.credits*e.commission/100 %>$ (<%= e.commission %>%)</td> <!-- TODO: musi pokazywać 2 po przecinku -->
+      <td><%= (e.credits.to_f*e.commission/100) %>$ (<%= e.commission %>%)</td>
     </tr>  
   <% end %>
   </table>

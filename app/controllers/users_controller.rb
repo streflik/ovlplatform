@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :verify_user, :only => [:hub, :credits, :edit, :update, :password]
   before_filter :verify_teacher, :only => [:show]
+  before_filter :verify_admin, :only => [:admin]
 
   # admin views
 

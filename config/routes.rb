@@ -25,6 +25,7 @@ Ovlplatform::Application.routes.draw do
    resources :payments
 
     match '/about' => 'company#about'
+    match '/guide' => 'company#guide'
     match '/terms' => 'company#terms'
 
     match '/sitemap.xml' => 'sitemap#sitemap'

@@ -98,7 +98,7 @@
     <tr>
       <td><%= l(c.created_at) %></td>
       <td><%= link_to c.user.name, hub_user_path(c.user) %></td>
-      <td><%= link_to truncate(c.video.name, :length => 25), video_path(c.video)+"#comments" %></td>
+      <td><%= link_to truncate(c.video.name, :length => 25), video_path(c.video)+"#comments" unless c.video.blank? %></td>
       <td><%= truncate(c.body, :length => 25) %></td>
     </tr>
   <% end %>
@@ -155,7 +155,13 @@
       <td><%= l(u.created_at, :format=>:long) %></td>
       <td><%= l(u.expires_at, :format=>:long) %></td>
       <td><%= u.user.name %></td>
-      <td><%= link_to truncate(u.video.name, :length => 25), u.video %></td>
+      <td>
+        <% unless u.video.blank? %>
+          <%= link_to truncate(u.video.name, :length => 50), u.video %>
+        <% else %>
+          VIDEO DELETED - ID:<%= u.video_id %>
+        <% end %>
+      </td>
       <td><%= u.teacher.name %></td>
       <td><%= u.credits %></td>
     </tr>

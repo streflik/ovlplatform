@@ -9,6 +9,6 @@
 </div>
 
 <div class="grid_12">
-  <h1><%= yield(:title) %></h1>
+  <h1><%= yield(:title) %> <span><%= @channel.tagline %></span></h1>
   <%= render :partial => @videos %>
 </div>

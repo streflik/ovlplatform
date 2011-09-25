@@ -1,0 +1,259 @@
+<% title t("guide.title") %>
+
+<div class="grid_12">
+  <h1><%= yield(:title) %></h1>
+</div>
+
+<div class="spacer"></div>
+
+<%  if I18n.locale == :en %>
+
+<div class="grid_12">
+  <p>Sorry, but currently our guide is available only in Polish.<br />
+  Subscribe for newsletter below for info when English version will be ready.</p>
+</div>
+
+<% else %>
+
+<div class="grid_1">
+  <fb:like href="<% guide_url %>" send="true" layout="box_count" width="300" show_faces="true"></fb:like>
+</div>
+
+<div class="grid_8">
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Jak tworzyć świetne wideolekcje? - Przewodnik dla Nauczycieli OVL</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://ovlplatform.com/pl/guide" property="cc:attributionName" rel="cc:attributionURL">Bartłomiej Rycharski</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+</div>
+
+<div class="grid_3">
+  <p>Autor: <%= link_to "Bartłomiej Rycharski", user_path(1) %><br />
+     Aktualizacja: 27.09.2011</p>
+</div>
+
+<div class="spacer"></div>
+
+<div class="grid_12">
+
+Ciągle aktualizowany przewodnik dla Nauczycieli, którzy chcą doskonale przygotować się do tworzenia wideolekcji wspólnie z nami.
+
+<div class="spacer inside"></div>
+
+<h2>Wskazówki dla Nauczycieli</h2>
+
+<h3>Jakie są najskuteczniejsze szablony wideolekcji?</h3>
+<p>Wideolekcje występują w różnych formach. Dla OVL wybraliśmy <strong>nagrania studyjne na białym tle z dwóch kamer</strong> połączone z 
+nakładaniem różnych grafik. Spotykane są także nagrania na czarnym tle, na greenboxie, ze scenografią. nagrania terenowe oraz screencasty.</p>
+
+<h4>Wideolekcja OVL to:</h4>
+<ul>
+  <li>film edukacyjny w formie nagrania studyjnego na białym tle z dwóch kamer:
+  <ul>
+    <li>kilkusekundowa czołówka z charakterystycznym podkładem muzycznym,</li>
+    <li>przedstawienie się w kilku zdaniach &ndash; jak się nazywasz, o czym opowiesz i jakie masz doświadczenie,</li>
+    <li>15 - 30 minutowe omówienie tematu podzielone na kilka rozdziałów i uzupełnione różnymi grafikami ulepszajacymi przekaz,</li>
+    <li>krótkie podsumowanie najważniejszych rzeczy,</li>
+    <li>podziękowanie i zaproszenie do odblokowania kolejnych wideolekcji oraz do rekomendacji znajomym.</li>
+  </ul></li>
+  <li>materiały dodatkowe w formie dodatkowych tekstów, grafik, zdjęć, linków itp.,</li>
+  <li>komentarze,</li>
+  <li>testy.</li>
+</ul>
+
+<p><strong>WAŻNA UWAGA:</strong> wideolekacjami nie są nagrania wykładów i wywiadów podczas konferencji, szkoleń i innych wydarzeń.
+Dlaczego? W naszej definicji wideolekcja jest formą przekazywania wiedzy na wideo gdzie Nauczyciel przekazuje
+ją <strong>bezpośrednio dla Internaty</strong> i <strong>bardzo starannie przygotowuje scenariusz wypowiedzi</strong>, żeby jak najlepiej wykorzystać dosłownie każdą minutę. Wideolekcje są przygotowywane specjalnie z myślą o oglądających je zdalnie na swoich komputerach,
+urządzeniach mobilnych i telewizorach. Jak wiemy, zdecydowanie łatwiej (lub bez wyboru) można wytrzymać 60 minut nudnego gadania na sali wykładowej niż 60 minut nudnego gadania oglądając wideo online &ndash; tolerancja użytkowników jest milion razy niższa i milion razy
+bardziej musimy się postarać, żeby utrzymać ich uwagę przez całe nagranie trwające najczęściej od 10 do 30 minut :-)
+
+<p>Warto podjąć ten wysiłek, ponieważ w przypadku dobrej roboty możemy liczyć na więcej niż oklaski &ndash; zadowoleni Internauci chętnie dzielą się linkiem do ciekawej wideolekacji ze wszystkimi swoimi znajomymi np. na Facebooku i Twitterze. Nasza wiedza może w ciągu kilku dni dotrzeć do tysięcy zainteresowanych.</p>
+
+<h4>Plusy nagrań wideolekcji na białym tle:</h4>
+
+<ul>
+  <li>koncetrują 100% uwagi oglądającego na Nauczycielu &ndash; tło nie rozprasza przekazu,</li>
+  <li>wyglądają bardzo profesjonalnie i nowocześnie,</li>
+  <li>umożliwiają bardzo łatwe i elastyczne nakładanie na obraz różnych grafik i animacji,</li>
+  <li>nie przejmujemy się designem tła i oszcędzamy sporo czasu i pieniędzy,</li>
+  <li>tradycyjne kartonowe białe tło jest niedrogie i łatwo dostępne.</li>
+</ul>
+
+<h4>Minusy nagrań wideolekcji na białym tle:</h4>
+
+<ul>
+  <li>wymagają mocnego i równomiernego oświetlenia,</li>
+  <li>profesjonalne oświetlenie jest dość kosztowne (nasz zestaw 5 lamp świetlówkowych to wydatek rzędu 10 000 zł),</li>
+  <li>w przypadku chęci filmowania całej sylwetki będącej w ruchu konieczne są bardzo szerokie i kosztowne tła.</li>
+</ul>
+
+<p><strong>WAŻNA UWAGA:</strong> jeśli interesują Cię szczegóły techniczne to filmowanie na czarnym tle jest łatwiejsze, ponieważ nie wymaga oświetlenia tła, ale filmowanie na zielonym tle (green-box) jest znacznie trudniejsze, ponieważ wymaga jeszcze lepszego oświetlenia,
+droższego tła oraz znacznie trudniejszej postprodukcji. Pod względem produkcyjnym, można powiedzieć, że białe tło jest 
+złotym środkiem.</p>
+
+<h3>Jak przygotować bardzo dobre scenariusze?</h3>
+<p>Stare jak Internet powiedzonko mówi, że "<strong>content jest królem</strong>" (content is the king). To 100% prawda, którą każdy
+Nauczyciel powinien wyryć na czole :-) Często spotykamy się z nagraniami edukacyjnymi mającymi
+wiele tysięcy wyświetleń pomimo amatorskiej formy i odwrotnie &ndash; z super-profesjonalnymi nagraniami mającymi ich
+zaledwie garstkę. Sędzią jest zawsze jakość treści i to czy jest ona na tyle dobra, że użytkownicy polecają
+ją dalej tworząc efekt kuli śniegowej. Forma jest tylko uzupełnieniem &ndash; <strong>najważniejsza jest treść</strong>.</p>
+
+<p><strong>WAŻNA UWAGA:</strong> nie musisz przejmować się formą bo to nasza robota :-) Twoim zadaniem jest pełna koncetracja na treści.</p>
+
+<h4>Co czyni content świetnym?</h4>
+<ul>
+  <li><strong>Konkretny temat</strong> &ndash; ludzie w Interencie szukają odpowiedzi na konkretne problemy. Dlatego nie mają sensu wideolekcje o tematach "II Wojna Światowa", czy "Filmowanie lustrzanką cyfrową", ponieważ w ciągu 30 minut będziesz w stanie jedynie "liznąć temmat" i tak naprawdę nie powiesz nic odkrywczego. Koncept OVL to wykorzystanie tych 30 minut na bardzo specficzny temat, np. "Rola polskich piltów podczas Bitwy o Anglię" lub "Budowa lustrzanki Canon 5D Mark II".</li>
+  <li><strong>Doświadczenie = wiarygoność = sukces komercyjny</strong> &ndash; udowodnij praktyczne doświadczenie w temacie, który nauczasz, opowiedz o swoich sukcesach zawodowych, uwiarygodnij się jako osobę, której warto nie tylko wysłuchać, ale także której warto zapłacić za otrzymaną wiedzę.</li>
+  <li><strong>Aktualizacje</strong> &ndash; wideolekcje internetowe mają olbrzymią przewagę nad innymi źródłami wiedzy dzięki możliwości
+aktualizacji treści co w ciągle zmieniającym świecie ma kluczowe znaczenie. Aktualizuj przede wszystkim swoje materiały dodatkowe.</li>
+  <li><strong>Cieżka praca</strong> &ndash; nie ma co ukrywać, opracowanie bardzo dobrego scenariusza 15-30 minutowej lekcji oraz
+  materiałów dodatkowych zajmuje wiele godzin pracy i musisz być na to gotowy, ale jeśli temat jest Twoją pasją to będzie to z pewnością
+  genialną intelektualną przygodą,</li>
+  <li><strong>Komentowalność</strong> &ndash; wykorzystaj komentarze do Twojej wideolekcji do pozyskiwania nowej wiedzy
+  pomocnej w aktualizacjach oraz&hellip; do zwiększania sprzedaży, ponieważ użytkownicy zadowoleni z Twojego zaangażowania w   
+  odpowiadanie na ich pytania z pewnością odwdzięczą się rekomendacjami. Pamiętaj także, że ilość i jakość   
+  komentarzy ma ogromne znaczenie dla pozycjonowania w Google.</li>
+  <li><strong>Sharowalność</strong> &ndash; OVL jest budowany tak, żeby użytkownicy łatwo rekomendowali ulubiony content np. na Facebooku.</li>
+  <li><strong>Dostępność</strong> &ndash; oraz doskonale dostępny dzięki tłumaczeniom, obsłudze urządzeń mobilnych i przyjaznym designie.</li>
+</ul>
+
+<h4>Co powinien zawierać scenariusz wideolekcji?</h4>
+<p>Scenariusz to po prostu słowo w słowo to, co chcesz powiedzieć przed kamerą + szkice wszystkich grafik i plansz, które powinny
+zostać wmontowane. Nawet jeśli masz ogromne doświadczenie i potrafisz improwizować, to musisz napisać
+szczegółowy scenariusz. Pozwoli Ci on zastanowić się nad każdą minutą. Nie chodzi o to, żeby powiedzieć wszystko, ale to, co najbardziej istotne, a całą resztę załączyć w materiałach dodatkowych. </p>
+
+<h4>Jak zabrać się do napisania scenariusza?</h4>
+<ol>
+  <li>Zarezerwuj co najmniej 2 dni pracy na opracowanie scenariusza i materiałów dodatkowych każdej wideolekcji.</li>
+  <li>Nie sięgaj tylko do swojej pamięci &ndash; wykorzystaj jak najwięcej zewnętrznych, wiarygodnych źródeł.</li>
+  <li>Pomysł o elementach humorystycznych &ndash; najlepsi Nauczyciele potrafią rozbawić anegdotą i dystansem do siebie :-)</li>
+  <li>Nie przejmuj się kamerami &ndash; jeśli temat jest Twoją pasją z pewnością sobie poradzisz!</li>
+  <li>Zapytaj nas zawsze gdy pojawi się jakiś problem.</li>
+</ol>
+
+<h3>Jak wygląda proces produkcji?</h3>
+
+<p>Po pozytywnym rozpatrzeniu Twojej aplikacji, dostajesz dostęp do naszego wewnętrznego forum gdzie rozmawiamy o rozwoju OVL
+i opracowujemy wszystkie scenariusze. Gdy podpiszemy umowę o wspólpracy i Twoje scenariusze będą już gotowe, umówimy się na termin filmowania w naszym studiu. Czas całej realizacji zależy głównie od Twojego zaangażowania w opracowanie scenariuszy, ale trwa
+od 7 do 21 dni.</p>
+
+  <ol class="production_process">
+    <li>Preprodukcja<br />
+        <span>burza mózgów</span><br />
+        <span>podpisanie umowy</span><br />
+        <span>opracowanie scenariuszy</span></li>
+    <li>Produkcja<br />
+        <span>przygotowanie studia</span><br />
+        <span>nagranie wideolekcji w studiu</span><br />
+        <span>nagranie backstage w studiu</span></li>
+    <li>Postprodukcja<br />
+        <span>zaprojektowanie grafik</span><br />
+        <span>montaż wideolekcji</span><br />
+        <span>montaż backstage</span></li>
+    <li>Promocja<br />
+        <span>kampania Google AdWords</span><br />
+        <span>mailingi do użytkowników OVL</span><br />
+        <span>posty na Facebooku</span></li>
+  </ol>
+
+<div class="clear"></div>
+
+<h3>Jakie są modele zarabiania na wideolekcjach?</h3>
+<ul>
+
+  <li><strong>Płacisz kiedy chcesz (pay-as-you-go)</strong> &ndash; model stosowany przez OVL, użytkownicy płacą tylko za te lekcje,
+  które potrzebują. Plusem jest brak stałych opłat miesięcznych i ponoszenia dużych kwot
+  abonamentowych gdy potrzebują np. tylko kilku lekcji. Poza tym umożliwia przejrzyste i uczciwie wynagradzanie Nauczycieli
+  &ndash; zarabiają procent od każdego zakupu jego lekcji a wysokość zarobków zależy od popularności, więc jest
+  bardzo zaangażowany w aktualizacje, interakcje ze społecznością i promocję. Minus to wyższe koszty niż w modelu abonamentowym dla super-
+  aktywnych użytkowników, którzy chcą cały czas korzystać z całej biblioteki. Można to porównać do telefonów komórkowych na kartę vs 
+  telefonów komórkowych na abonament.</li>
+
+  <li><strong>Abonament (subsription)</strong> najpoularniejszy model stosowany m.in. przez <a href="http://lynda.com">Lynda.com</a>, <a href="http://rouxbe.com">Rouxbe.com</a>, <a href="http://mepi.pl">Mepi.pl</a>. Użytkownicy
+  płacą stałą miesięczną opłatę w zamian za dowolny dostęp co całej biblioteki. Plusy dla użytkowników to prostota i wolnosć korzystania
+  z całych zasobów. Minusy to spora bariera cenowa, ponieważ abonamnety kosztują zwykle od 10-50$ miesięcznie. Poza tym Nauczyciele są w tym modelu wynagradzani jednorazowo i raczej nie korzystają finansowo na wzrastającej popularności swoich lekcji
+  co w praktyce oznacza, że nie bardzo angażują się w aktualizacje i interakcje ze społecznością.</li>
+
+  <li><strong>Za darmo (free)</strong> &ndash; wielu twórców stara się tworzyć darmowe wideolekcje z przekonania, że wiedza
+  powinna być dostępna dla wszystkich za darmo i w nadziei, że uda im się pozyskać pieniądze od reklamodawców lub programów
+  dotujących projekty non-profit. Przykład udanego wdrożenia to <a href="http://khanacademy.org">Khan Academy</a> dotowane wielomilionowymi kwotami m.in. z Fundacji Google
+  i Fundacji Billa Gatesa. Plus dla użytkowników to brak kosztów. Minusy
+  to niższa jakość tego typu materiałów, nieregularne tworzenie nowych lekcji, niestabilność finansowa ich twórców.
+  Pewnego rodzaju rozwiązaniem jest łączenie idei darmowej biblioteki wideolekcji z różnymi płatnymi usługami dodatkowymi &ndash;
+  np. <a href="http://brightstorm.com">Brighstorm</a> oferuje pokaźną bibliotekę darmowych materiałów, ale równolegle oferuje płatne kursy przygotowujące
+  do amerykańskich egzaminów. Ciekawym przykładem jest także <a href="http://videocopilot.net">Video Copilot</a>, który tworzy świetnej jakości darmowe tutoriale  
+  wykorzystując je do promocji swojego oprogramowania.</li>
+
+  <li><strong>Płyty DVD</strong> &ndash; cały czas całkiem popularna jest dystrybucja wideolekcji na płytach DVD, które można kupić
+  zarówno w Internecie jak również w sklepach stacjonarnych. Plusy to możliwość korzystania bez połączenia z Internetem np. na terenach   
+  wiejskich i salach lekcyjnych oraz możliwość korzystania w dowolnym zakresie bez ponoszenia dodatkowych kosztów. Minusy to   
+  wyższa cena płyt DVD niż wersji online, brak możliwości aktualizacji, brak możliwości korzystania na telefonach i tabletach, brak   
+  interakcji. Poza tym z punktu widzenia wydawcy, płyty DVD to więcej pracy, ponieważ płyty trzeba   
+  przygotować, zamówić, magazynować, wysyłać itd.</li>
+
+</ul>
+
+<h3>Jakie są metody promocji wideolekcji?</h3>
+
+<p>OK, zrobilśmy nasze wideolekcje. Mają świetną treść i atrakcyjną formę. Wrzuciliśmy je na OVLplatform.com. Ale co dalej?</p>
+
+<ul>
+
+  <li><strong>Marketing szeptany</strong> &ndash; w dzisiejszym Internecie ponad 700 mln ludzi posiada konta na Facebooku i 100 mln na Twitterze, więc informacje o ciekawych treściach rozchodzą się w błyskawicznym tempie. Przede wszystkim w branżach, które są silnie
+  zintegrowane wspólnymi forami dyskusyjnymi, vortalami i eventami. Strona z wideoelkekcjami musi mieć poprawnie zaimplementowane
+  mechanizmy ułatwiające sharing takie jak przyciski Facebook Like, Twitter Share, Google +1. Wrzuć informacje o swoich wideolekcjach
+  na swoje profile i zaproś znajomych do sharowania &ndash; to pierwszy etap promocji.</li>
+
+  <li><strong>Marketing wiralowy</strong> &ndash; sprawdzonym pomysłem jest udostępnianie niektórych wideolekcji za darmo, ale takich, które zostały
+  stworzone z myślą o kontrowersji, humorze czy wstrzeleniu się w panującą modę. Najlepszym przykładem jest humorystyczna wideolekcja <a href="http://www.youtube.com/watch?v=RtxO5bDE-AA">Learn FX Secrets From Exorcist and "From Hell"</a>, która przyniosła podcastowi <a href="http://revision3.com/filmriot">Film Riot</a> ponad 25 000 000 wyświetleń!!</li>
+
+  <li><strong>Marketing w wyszukiwarkach</strong> &ndash; prostą metodą na pozyskiwanie użytkowników jest kupowanie reklam Google AdWords, 
+  YouTube Ads i Facebook Ads. Wydawca musi się jednak liczyć się z kosztami za kliknięcie (od kilkunastu groszy do nawet kilku złotych). Sens tego typu metody promocji trzeba przetestować badając konwersję tzn. stosunek użytkowników, którzy kliknęli w reklamę do użytkowników, którzy dokonali zakupu. Taki współczynnik może wahać się od 1-20% w zależnośc od tego jak dobry jest content, cena oraz grupa docelowa, dla której targetowana jest reklama. Zespół OVL zajmuje się tym profesjonalnie i ponosi wszystkie koszty.</li>
+
+  <li><strong>Pozycjonowanie w wyszukiwarkach (SEO)</strong> &ndash; czy wiesz, że główną przyczyną sukcesu Wikipeidii jest świetne 
+  pozycjonowanie, czyli osiąganie pierwszych miejsc w wynikach wyszukiwania Google? Twoja wideolekcja może być najlepsza we Wszechświecie, ale jeśli użytkownicy nie będą jej w stanie łatwo znaleźć w popularnych wyszukiwarkach, to jest bezużyteczna. W przypadku OVL nasza już głowa w tym, aby pozycjonowanie było absolutnie top-class. Pamiętaj, że głównym czynnikiem wypychającym dane strony wyżej niż inne jest ilość linkowań do tej strony z innych stron o powiązanej tematyce, więc bardzo ważne jest, żebyś także dodał linki do swoich wideolekcji na zaprzyjaźnionych stronach &ndash; np.fora dyskusyjne, vortale, blogi.</li>
+
+  <li><strong>Pozycjonowanie w YouTube</strong> &ndash; YouTube jest drugą największą wyszukiwarką świata. Miliony ludzi codziennie szuka także filmików edukacyjnych. W OVL wykorzystujemy ten potencjał umieszczając tam wszystkie trailery, czyli 1-minutowe zajawki pełnych wersji.</li>
+
+  <li><strong>Marketing partyzancki</strong> &ndash; nietypowe narzędzia promocji mające często formę odważnych akcji ulicznych.</li>
+
+</ul>
+
+
+<h3>Jakie są zastosowania wideolekcji w codziennym życiu?</h3>
+<ul>
+  <li>samodzielne zdobywanie wiedzy w celu zdobycia danego stanowiska lub po prostu rozwoju swoich kompetencji,</li>
+  <li>szeroko pojęty rozwój zainteresowań, chęć sprawdzenia na czym polega dana dziedzina i czy warto w inwestować w nią swój czas,</li>
+  <li>wykorzystanie ich podczas tradycyjnych szkoleń i zajęć lekcyjnych jako materiał pomocniczy,</li>
+</ul>
+
+<h3>Jakie są inne inspirujące przykłady wideolekcji?</h3>
+<ul>
+  <li><a href="ttp://www.youtube.com/watch?v=uwi1HkBVm4k">Michio Kaku o multiversum dla Floating University</a> (bezpośrednia inspiracja dla formy OVL)</li>
+  <li><a href="http://www.lynda.com/Digital-Photography-tutorials/foundations-of-photography-exposure/71923-2.html">Ben Long o podstawach fotografii dla Lynda</a> (wielomilionowy biznes prosperujący od ponad 10 lat)</li>
+  <li><a href="http://www.brightstorm.com/ap/ap-us-history">Bill Johnson o historii USA dla Brightstorm</a></li>
+  <li><a href="http://www.engineerguy.com/videos/video-transistor-point-contact.htm">Bill Hamack o tranzystorach dla Engineer Guy</a></li>
+  <li><a href="http://revision3.com/filmriot/bloodandsmoke">Film Riot o tworzeniu efektów specjalnych domowymi metodami</a></li>
+  <li><a href="http://www.izzyvideo.com/how-to-create-a-white-background-in-your-video/">Israel Hayman o filmowaniu na białym tle dla Izzy Video</a></li>
+  <li><a href="http://www.khanacademy.org/video/simple-equations?playlist=Algebra">Sal Khan o rozwiązywaniu prostych równań dla Khan Academy</a></li>
+  <li><a href="http://www.videocopilot.net/tutorials/the_portal/">Andrew Kramer o tworzeniu portali w Adobe After Effects dla Video Copilot</a></li>
+  <li><a href="http://www.mepi.pl/flash/kurs-flash.html">Bartek Barłowski o Flash CS5 dla Mepi.pl</a></li>
+  <li><a href="http://www.codeschool.com/courses/functional-html5-css3">Jason Vanlue o kodowaniu w HTML5 i CSS3 dla Code School</a></li>
+  <li><a href="http://railscasts.com/episodes/218-making-generators-in-rails-3">Ryan Butes o programwoaniu w Rails 3 dla Railscasts</a></li>
+  <li><a href="http://www.ivideosongs.com/song/rb/acoustic-guitar/change-the-world/eric-clapton/3990.aspx">Dany Grady o graniu "Change the World" Erica Claptona dla ivideosongs</a></li>
+  <li><a href="http://rouxbe.com/">Wideolekcje z gotowania dla Roxbe.com</a></li>
+</ul>
+
+</div>
+
+<% end %>
+
+
+<% content_for :head do %>
+
+<!-- facebook meta tags -->
+
+<meta property="og:title" content="<%= yield(:title) %>"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="http://ovlplatform.com/images/ovl_logo_fb.png"/>
+<meta property="og:url" content="<%= guide_path %>"/>
+<meta property="og:site_name" content="<%= t('short') %>"/>
+<meta property="og:description" content="Ciągle aktualizowany przewodnik dla Nauczycieli, którzy chcą doskonale przygotować się do tworzenia wideolekcji wspólnie z nami."/>
+
+<% end %>

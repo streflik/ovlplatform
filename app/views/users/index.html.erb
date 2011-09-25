@@ -10,4 +10,11 @@
 <div class="grid_12">
   <h1><%= t("teachers.all_counted", :number => @teachers.count) %></h1>
   <%= render :partial => @teachers %>
+
+  <div class="box user join">
+    <%= link_to image_tag("icons/join.png", :alt => t("join.link")), about_path+"#teachers" %>
+    <h2><%= link_to t("join.link"), "" %></h2>
+    <p class="tagline"><%= t("join.tagline") %></p>
+  </div>
+
 </div>

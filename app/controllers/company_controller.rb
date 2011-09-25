@@ -1,5 +1,8 @@
 class CompanyController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:guide]
+  before_filter :verify_admin, :only => [:guide]
+
   def home
     @home = true
     @featured = Video.featured.limit(1)
@@ -7,6 +10,10 @@ class CompanyController < ApplicationController
   end
 
   def about
+
+  end
+
+  def guide
 
   end
 

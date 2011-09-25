@@ -15,6 +15,9 @@ pl:
     sign_in: "Zaloguj się"
     sign_up: "Dołącz do OVL"
 
+  beta: "Wystartowaliśmy 27.09.2011 i jesteśmy w fazie BETA. Przygotowujemy się do oficjalnego startu. Śledź nasze postępy na"
+  all_free: "Jesteśmy teraz w fazie BETA i póki co pierwsze wideolekcje są BEZPŁATNE! :-)"
+
 # flash
 
   updated: "Zaktualizowano pomyślnie."
@@ -38,10 +41,10 @@ pl:
   home:
     link_to: "Home"
     intro:
-      heading: "OVL jest źródłem wiedzy, która pomaga <br /> <span class='vision'>zostać kim chcesz.</span>"
+      heading: "<span class='vision'>Zostań kim chcesz.</span>"
       summary: "
-        <p>Tworzymy <strong>wysokiej jakości wideolekcje</strong> na konkretne tematy dotyczące różnych dziedzin<br /> wiedzy podstawowej i zawodowej.<p>
-        <p>Ucz się od najlepszych nauczycieli już dzisiaj!</p>
+        <p>OVL tworzy <strong>wysokiej jakości wideolekcje</strong>, które pomagają rozwijać Twoje kompetencje zawodowe.<p>
+        <p>Ucz się i nauczaj tego, czego kochasz.</p>
         <p>W językach 
           <span class='en'><a href='/en'>angielskim</a></span> oraz  
           <span class='pl'><a href='/pl'>polskim</a></span>.</p>"
@@ -57,6 +60,9 @@ pl:
   about:
     link_to: "Jak to działa"
     title: "Jak to działa"
+  guide:
+    link_to: "Przewodnik"
+    title: "Jak tworzyć świetne wideolekcje? - Przewodnik dla Nauczycieli OVL"  
   terms:
     link_to: "Regulamin"
     title: "Regulamin"   
@@ -79,7 +85,7 @@ pl:
     access:
       price: "%{price} Punktów"
       days: "na %{days} dni" 
-      free: "Ta wideolekcja jest bezpłatna!"
+      free: "Bezpłatna Wideolekcja!"
     unlock:
       is_subscriber: "Jupi! Masz nielimitowany dostęp do wszystkich lekcji."
       enough_credits: "Masz wystarczająco Punktów."
@@ -124,6 +130,10 @@ pl:
     all_counted: "Wszyscy nauczyciele (%{number})"
     sign_in_to_see_email: "Zaloguj się, aby zobaczyć email."
     write_to: "Jak mogę Tobię pomóc?"
+
+  join:
+    link: "Dołącz do Nauczycieli OVL"
+    tagline: "Prowizja, Produkcja Video, Międzynarodowa Promocja"
 
 # users
 

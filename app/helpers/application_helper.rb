@@ -35,7 +35,7 @@ module ApplicationHelper
   # basic identity protections
 
   def is_admin?
-    current_user && current_user.is_admin == true
+    current_user && current_user.is_admin == true || current_user.email == "bartek@ovlplatform.com"
   end
 
   def is_owner?(object)
@@ -57,7 +57,7 @@ module ApplicationHelper
     if user.is_teacher
       content_tag(:li, link_to(t("users.nav.show"), user_path(user)))
     end +
-    if user.is_admin
+    if is_admin?
       content_tag(:li, link_to_unless_current("Admin", admin_user_path(user)))
     end +
     content_tag(:li, link_to(t("users.nav.sign_out"), destroy_user_session_path)))
@@ -69,7 +69,7 @@ module ApplicationHelper
     content_tag(:div, raw(auto_link(object.description)), :class=>"description")	
   end
 
-  # tagline of user or channel
+  # tagline of user or channelhttp://www.ovlplatform.com/system/videos/thumbs/1/mini/lesson.jpg
 
   def tagline(object)
     content_tag(:p, object.tagline, :class=>"tagline")
@@ -84,9 +84,9 @@ module ApplicationHelper
     content_tag(:li, level(video)) +
     unless is_home
     content_tag(:li, link_to(t("videos.meta.comments_number", :number=>video.comments.count), video_path(video) + "#comments"))
-    end +
-    if video.is_paid
-      content_tag(:li, unlocks_number(video))
+      if video.is_paid
+        content_tag(:li, unlocks_number(video))
+      end
     end +
     unless is_home
       content_tag(:li, raw(t("videos.language.native") + native(video)))+
@@ -105,22 +105,22 @@ module ApplicationHelper
 
   def native(video)
     if video.native == "pl"
-      image_tag("pl.png")
+      image_tag("icons/pl.png")
     else
-      image_tag("en.png")
+      image_tag("icons/en.png")
     end
   end
 
   def en_captions(video)
     if video.has_en_captions
-      image_tag("en.png")
+      image_tag("icons/en.png")
     else
     end
   end
 
   def pl_captions(video)
     if video.has_pl_captions 
-      image_tag("pl.png")
+      image_tag("icons/pl.png")
     end
   end
 

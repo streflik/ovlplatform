@@ -1,484 +1,488 @@
 <% title t("about.title") %>
 
+<%  if I18n.locale == :en %>
+
+<div class="grid_12">
+  <h1>What is OVL?</h1>
+</div>
+
+<div class="grid_6">
+  <div class="intro">
+    <p>OVL creates <strong><%= link_to "high-quality videolessons", videos_path %></strong> that help you develop your professional competence. 
+    All videolessons are carefully prepared by <strong><%= link_to "experts in their fields", users_path %></strong> in our studio in Poznan.</p>
+    <p>Learn. Grow. <strong class="vision">Become who you want to be</strong>.</p>
+    <p>OVL means "Open Video Learning" because it's international project opened for every interesting field of knowledge.</p>
+  </div>
+</div>
+
+<div class="grid_6">
+  <div class="player">
+    <iframe width="440" height="277" src="http://www.youtube.com/embed/SaOFuW011G8" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="grid_4">
+  <div class="value content">
+    <h3>Great Content</h3>
+    <ul>
+      <li>reliable knowledge from the experts</li>
+      <li>answers to the specific problems</li>
+      <li>updates and the most actual knowledge</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid_4">
+  <div class="value form">
+    <h3>Attractive Form</h3>
+    <ul>
+      <li>professional 15 to 30 minutes videos</li>
+      <li>graphics for better understanding</li>
+      <li>extra materials, comments and tests</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid_4">
+  <div class="value availability">
+    <h3>Huge Availability</h3>
+    <ul>
+      <li>low price in pay-as-you-go model</li>
+      <li>translations to English and Polish</li>
+      <li>interactive discussions in comments</li>
+    </ul>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="grid_6">
+  <h2>What problem do OVL solve?</h2>
+  <p>We want to solve a problem of lack of reliable, structured<br /> and affordable professional knowledge.</p>
+</div>
+
+<div class="grid_6">
+  <h2>Who is using OVL?</h2>
+  <p>Our users are self-learners aged 16-65 years who work<br/> in professions that require specialized knowledge.</p>
+</div>
+
+<div class="hide">
+
+<div class="spacer"></div>
+
+<div class="grid_12">
+  <h2>How to unlock videolessons?</h2>
+</div>
+
+<div class="grid_6">
+
+<h3>1. Buy some OVL Credits</h3>
+<p>OVL Credits are virtual currency for super-easy lessons unlocking.<br /> 
+Buy some OVL Credits and use it on what and when you want.<br />
+1 OVL Credit costs 1 $.</p>
+
+<h3>2. Unlock desired videolessons</h3>
+<p>Click on big red button "Unlock Full Version Now".</p>
+
+<h3>3. Start learning!</h3>
+<p>Watch full video, read all extra materials, ask questions in comments.</p>
+
+</div>
+
+<div class="grid_6">
+  <%= image_tag("icons/sscissor.png") %>
+</div>
+
+</div>
+
+<div class="spacer"></div>
+
+<div class="grid_12">
+  <p class="start learning">
+  <% if user_signed_in? %>
+    <%= link_to "Explore first videolessons and start learning!", videos_path %>
+  <% else %>
+    <%= link_to "Explore first videolessons and start learning!", videos_path %>
+  <% end %>
+  </p>
+</div>
+
+<div class="spacer"></div>
+
+<div class="grid_12">
+  <h2><a name="teachers">How to join OVL Teachers?</a></h2>
+</div>
+
 <div class="grid_12">
 
-<div class="player">
-<iframe width="853" height="510" src="http://www.youtube.com/embed/Ekdq1jbZLFU?hd=1" frameborder="0" allowfullscreen></iframe>
-</div>
+  <div class="quote">
+    <p>&quot;I always wanted to share my knowledge to thousands and earn some money from it but I didn't
+    find platforms that meet my expectation. That's why I invented OVL and felt in love in it.&quot;</p>
+    <p class="author">&ndash; Bartek Rycharski, Founder and Teacher of OVL</p>
+  </div>
 
-<div class="insider">
+  <p>We offer you unique chance to teach thousands of people topics that you love.<br />
+     You create content, we produce and promote it internationally.</p>
 
-<%  if I18n.locale == :pl %>
+  <h3>What do we offer?</h3>
+  <ul>
+    <li>20% commision from selling unlocks of your videolessons,</li>
+    <li>international promotion of you and your knowledge,</li>
+    <li>professional and fast video production in our studio in Poznan, Poland,</li>
+    <li>full assistance in every step of the process,</li>
+    <li>free access to all videolessons on ovlplatform.com,</li>
+    <li>refund of all the costs of travel to our studio.</li>
+  </ul> 
 
-<!-- POLISH -->
+  <h3>What do we require?</h3>
+  <ul> 
+    <li>useful and actual knowledge supported by practical experience,</li>
+    <li>passion to the idea of sharing your knowledge internationally in form of videolessons,</li>
+    <li>specific topics &ndash; each videolesson is an answer to the specific problem,</li>
+    <li>well-prepared scripts &ndash; you can have from 2 to 10 30-minutes long videolessons,</li>
+    <li>taking care of updating extra materials and responding to comments,</li>
+    <li>ready or travel to our studio in Poznan for video recordings,</li>
+    <li>agreement to use your image in promotional purposes of OVL,</li>
+    <li>agreement to preserve copyrights to videos by us.</li>
+  </ul>
 
-<div class="summary">
+  <h3>What series do interest us the most?</h3>
+ 
+  <p>Video Production, Music Production, Building, Medicine, Computer Science, Cooking, Car Mechanics, Management,
+     Marketing, Finance, Accountancy, Law, Mathematics, Physics, Biology, Chemistry, Genetics, Statistics, History,
+     Computer Skills, Foreign Languages.</p>
 
-<h2>OVL jest źródłem wiedzy, które pomaga<br />
-<span class="vision">zostać kim chcesz.</span></h2>
-<p>Tworzymy <strong><%= link_to "wysokiej jakości wideolekcje", videos_path %></strong> na konkretne tematy dotyczące wiedzy podstawowej i zawodowej. Każde wideo jest doskonale przygotowane przez nasze studio i trwa od 15 do 30 minut dla efektywności oraz przyjemności uczenia się.</p>
-<p>Wiemy, że w XXI wieku głównym źródłem wiedzy jest Internet, więc chcemy ułatwić zdobywanie wiarygodnej wiedzy, która pomoże Ci się rozwijać. Dlatego zapraszamy najlepszych nauczycieli i dajemy z siebie wszystko. Możesz kupować dostęp do ulubionych wideolekcji na ovlplatform.com &ndash; kiedy chcesz i gdzie chesz.</p>
-<p>OVL znaczy "Open Video Learning", ponieważ jesteśmy otwarci na wszystkie ciekawe tematy i wszystkie grupe społeczne. Na całym świecie.</p>
-<p>Jesteśmy w fazie beta, ale planujemy co najmniej 600 wideolekcji rocznie.</p>
+  <h3>How many videolessons do we want to create?</h3>
 
-</div>
+  <p>From 10 to 100 videolessons for each series. Every Teacher can have from 2 to 10 videolessons &ndash; only topics in which has 
+     the most knowledge and experience. For example, if you want to teach about the Ancient Rome in History series, you don't have to
+     teach also about Industrial Revolution or World War II &ndash; OVL is an un-school and an un-book ;-)</p>
 
-<div class="spacer inside"></div>
+  <h3>What the pricess look like?</h3>
 
-<div class="benefit">
-
-<%= image_tag("http://jezykpolski.istockphoto.com/file_thumbview_approve/3943432/2/istockphoto_3943432-students-having-fun.jpg") %>
-<!-- http://jezykpolski.istockphoto.com/stock-photo-3943432-students-having-fun.php?st=835b904 -->
-
-<h4>Uczniowie i Studenci</h4>
-<p>Zdobycie wymarzonej pracy.</p>
-
-</div>
-
-<div class="benefit center">
-
-<%= image_tag("http://jezykpolski.istockphoto.com/file_thumbview_approve/7384989/2/istockphoto_7384989-mid-thirties-female-professional.jpg") %>
-<!-- http://jezykpolski.istockphoto.com/stock-photo-7384989-mid-thirties-female-professional.php?st=3bc574c -->
-
-<h4>Firmy i Pracownicy</h4>
-<p>Lepsze kwalifikacje.</p>
-
-</div>
-
-<div class="benefit">
-
-<%= image_tag ("http://jezykpolski.istockphoto.com/file_thumbview_approve/9129801/2/istockphoto_9129801-senior-couple.jpg") %>
-<!-- http://jezykpolski.istockphoto.com/stock-photo-9129801-senior-couple.php?st=6bb421f -->
-
-<h4>Seniorzy (50+)</h4>
-<p>Więcej pasji w życiu.</p>
-
-</div>
-
-<div class="spacer inside"></div>
-
-<ul class="loves">
-
-  <li class="content">
-    <h4>Świetna treść merytoryczna</h4>
-    <p>Opieramy się na wiarygodnej<br /> i aktualnej wiedzy naszych<br /> 
-       <%= link_to "światowej klasy nauczycieli", users_path %>.</p>
-  </li>
-
-  <li class="quality">
-    <h4>Zachwycająca jakość video</h4>
-    <p>Nasze studio pracuje 24/7. Zachwycisz się jakością naszych<br />
-       <%= link_to "doskonałych wideolekcji", videos_path %>.</p>
-  </li>
-
-  <li class="lowprice">
-    <h4>Korzystna cena</h4>
-    <p>Od 3$ (ok. 9 zł) za 30-dniowy dostęp do danej lekcji. W modelu &quot;płacisz kiedy chcesz&quot;.</p>
-  </li>
-
-  <li class="translations">
-    <h4>Tłumaczenia na inne języki</h4>
-    <p>Wszystko przetłumaczone na polski i angielski (więcej wkrótce).</p>
-  </li>
-
-  <li class="topics">
-    <h4>Różne konkretne tematy</h4>
-    <p>Otwórz się na ciągłe odkrywanie nowych rzeczy.</p>
-  </li>
-
-  <li class="disqussions">
-    <h4>Międzynarodowa społeczność</h4>
-    <p>Rozmawiaj z nauczycielami<br /> i uczniami z całego świata.</p>
-  </li>
-
-</ul>
-
-<div class="spacer inside"></div>
-
-<h3>Jak to działa? To bardzo proste.</h3>
-
-<ul class="steps">
-
-  <li>
-    <%#= image_tag("about/steps/learners/1_signup.jpg") %>
-    <h4><span>1</span> Kup OVL Punkty</h4>
-    <p>10/50/100 Punkty za 10/50/100$. <a href="#credits">Więcej info &raquo;</a></p>
-  </li>
-
-  <li>
-    <%#= image_tag("about/steps/learners/1_signup.jpg") %>
-    <h4><span>2</span> Oblokuj wybrane wideolekcje!</h4>
-    <p>Oglądaj wideo, czytaj materiały dodatkowe,<br /> dyskutuj w komenatarzach i dziel się z przyjaciółmi!</p>
-  </li>
-
-</ul>
-
-<div class="spacer inside"></div>
-
-<h3><a name="credits">Czym są &quot;OVL Punkty&quot; i jak ich używać?</a></h3>
-
-<p> OVL Punkty to wirtualna waluta używana do super-prostego odblokowywania wideolekcji. Działa tak samo jak
-telefony na kartę &ndash; po prostu kup wybraną liczbę Punktów i korzystaj z nich kiedy chcesz i na co chcesz. Punkty nie wygasają w czasie
-i nie ma żadnych miesięcznych kosztów.  
-<% if user_signed_in? %>
-Wszystkie płatności są listowane w widoku <%= link_to (t("users.nav.hub"), hub_user_path(current_user))%>. <strong><%= link_to(t("users.nav.credits"), credits_user_path(current_user)) %></strong>
-<% else %>
-Wszystkie płatności i odblokowana są widoczne w Twoim Hubie.
-<strong><%= link_to "Zarejestruj się", new_user_registration_path %></strong>, aby kupić pierwsze Punkty
-<% end %>
-i zacznij naukę już dzisiaj!
-</p>
-
-<p>Jeśli masz jakiekolwiek pytania &ndash; <a href="#contact">skontaktuj się z nami</a>.</p>
-
-<div class="spacer inside"></div>
-
-<h2>Dla Nauczycieli</h2>
-
-<p>Szukamy doświadczonych nauczycieli z pasją, którzy chcą zarabiać na dzieleniu się swoją wiedzą.<br/>
-Oferujemy <strong>produkcję video</strong>, <strong>międzynarodową promocję</strong> oraz <strong>20% prowizję ze sprzedaży</strong>.</p>
-
-<p>OVL posiada innowacyjny model biznesowy gdzie <strong>koncentrujesz się tylko na scenariuszach swoich lekcji i interakcji z uczniami</strong>. My ponosimy wszystkie koszty, aby zagwarantować jak najlepszą jakość oraz dotarcie do milionów zainteresowanych na całym świecie.</p>
-
-<p>Jesteśmy otwarci na każdy ciekawy i konkretny temat &ndash; od przedmiotów szkolnych jak matematyka i historia po wiedzę zawodową jak programowanie i budownictwo. Po prostu pokaż nam, że jesteś w tym naprawdę dobry! :-) Ale pamiętaj, każda lekcja musi być bardzo konkretna i bogata w treść, czyli "Bitwa o Anglię" lub nawet "Rola polskich pilotów podczas Bitwy o Anglię" zamiast "II Wojna Światowa".</p>
-
-<p>Jeśli masz pomysł na własne wideolekcje &ndash; <a href="#contact">skontaktuj się z nami wypełniając formularz apliakcyjny</a>.</p>
-
-<div class="spacer inside"></div>
-
-<h2>Zespół</h2>
-
-<div class="founder">
-<%= image_tag("bartek.png", :alt => "Bartek Rycharski") %>
-<h3>Bartek Rycharski</h3>
-<p class="tagline">CEO / Content Manager</p>
-</div>
-
-<div class="founder center">
-<%= image_tag("wojtek.png", :alt => "Wojtek Hołysz") %>
-<h3>Wojtek Holysz</h3>
-<p class="tagline">Production Manager</p>
-</div>
-
-<div class="founder">
-<%= image_tag("tomek.png", :alt => "Tomek Gęstwicki") %>
-<h3>Tomek Gestwicki</h3>
-<p class="tagline">Post Production Manager</p>
-</div>
-
-<div class="founder">
-<%= image_tag("avatar.png") %>
-<h3>Pracuj z nami!</h3>
-<p class="tagline">Promotion Manager</p>
-</div>
-
-<div class="founder center">
-<%= image_tag("avatar.png") %>
-<h3>Pracuj z nami!</h3>
-<p class="tagline">Platform Developer</p>
-</div>
-
-<div class="founder">
-<%= image_tag("avatar.png") %>
-<h3>Pracuj z nami!</h3>
-<p class="tagline">Polish-English Translator</p>
-</div>
-
-<!--
-
-<h3>Nasze studio w Poznaniu</h3>
-
-<div class="studio">
-<%= link_to image_tag("about/steps/learners/1_signup.jpg"), "/images/about/steps/learners/1_signup_big.jpg" %>
-<%= link_to image_tag("about/steps/learners/1_signup.jpg", :class=>"center"), "/images/about/steps/learners/1_signup_big.jpg" %>
-<%= link_to image_tag("about/steps/learners/1_signup.jpg"), "/images/about/steps/learners/1_signup_big.jpg" %>
-</div>
-
--->
-
-<div class="spacer inside"></div>
-
-<h2><a name="contact">Skontaktuj się</a></h2>
-
-<div class="left">
-
-<h3>Pomoc &amp; Współpraca</h3>
-
-<p>
-Bartek Rycharski &ndash; CEO<br />
-<a href="mailto:bartek@ovlplatform.com">bartek@ovlplatform.com</a><br />
-tel. + 48 604 099 886 (Poland) 
-</p>
-
-<h3>Firma</h3>
-
-<p>
-Edu 2.0 Bartlomiej Rycharski<br>
-ul. Dąbrowskiego 188/1<br>
-60-594 Poznań<br>
-NIP: 782-246-15-41<br>
-</p>
+  <ol class="production_process">
+    <li>Preproduction<br />
+        <span>preparing scripts</span></li>
+    <li>Production<br />
+       <span>filming in our studio in Poznan</span></li>
+    <li>Postproduction<br />
+       <span>montage and translations</span></li>
+    <li>Promotion<br />
+      <span>executing promotion plan</span></li>
+  </ol>
 
 </div>
 
-<div class="right">
-<h3>Zapraszamy na filiżankę kawy :-)</h3>
+<div class="spacer"></div>
 
-<iframe width="400" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=d%C4%85browskiego+188%2F1.+pozna%C5%84&amp;aq=&amp;sll=52.025459,19.204102&amp;sspn=9.184941,23.269043&amp;ie=UTF8&amp;hq=&amp;hnear=Jana+Henryka+D%C4%85browskiego+188,+Pozna%C5%84,+Wielkopolskie&amp;ll=52.05249,12.128906&amp;spn=35.983123,57.832031&amp;z=3&amp;output=embed"></iframe>
+<div class="grid_12">
+  <p class="start teaching">
+    <%= link_to "Apply now and start teaching!", "http://ovlplatform.wufoo.eu/forms/ovl-teacher-application/" %>
+  </p>
 </div>
 
-<div class="spacer inside"></div>
+<div class="spacer"></div>
 
-<script type="text/javascript">var host = (("https:" == document.location.protocol) ? "https://secure." : "http://");document.write(unescape("%3Cscript src='" + host + "wufoo.com/scripts/embed/form.js' type='text/javascript'%3E%3C/script%3E"));</script>
-
-<script type="text/javascript">
-var s7x2p7 = new WufooForm();
-s7x2p7.initialize({
-'userName':'filmpoint', 
-'formHash':'s7x2p7', 
-'autoResize':true,
-'height':'1021',
-'header':'show'});
-s7x2p7.display();
-</script>
-
-<% else %>
-
-<!-- ENGLISH -->
-
-<div class="summary">
-
-<h2>OVL is a source of knowledge that helps you<br />
-<span class="vision">become who you want to be.</span></h2>
-<p>We create <strong><%= link_to "high-quality videolessons", videos_path %></strong> on specific topics from basic
-to proffessional knowledge. Each video is well-prepared by our studio and runs from  
-15 to 30 minutes for effectiveness and enjoyment of learning.</p>
-<p>We know that in the XXI century the main source of knowledge is the Internet so we want to give you access to reliable knowledge that helps you grow. That's why we invite the best teachers and we so much care. You can buy access to favourite videolessons on ovlplatform.com &ndash; anytime and anywhere.</p>
-<p>OVL means "Open Video Learning" because we are open to every interesting topic and to every person who needs our knowledge.
-In global scale.</p>
-<p>We are in beta now but the plan is to produce at least 600 videolessons per year.</p>
-
+<div class="grid_12">
+  <h2>Who are we?</h2>
 </div>
 
-<div class="spacer inside"></div>
-
-<div class="benefit">
-
-<%= image_tag("http://jezykpolski.istockphoto.com/file_thumbview_approve/3943432/2/istockphoto_3943432-students-having-fun.jpg") %>
-<!-- http://jezykpolski.istockphoto.com/stock-photo-3943432-students-having-fun.php?st=835b904 -->
-
-<h4>Kids and Students</h4>
-<p>Getting the dream job.</p>
-
+<div class="grid_3">
+  <%= link_to image_tag("http://localhost:3000/system/users/avatars/1/thumb/teacher.jpg"), "" %>
+  <h3><%= link_to "Bartek Rycharski", "" %></h3>
+  <p class="tagline">CEO / Content Production</p>
 </div>
 
-<div class="benefit center">
-
-<%= image_tag("http://jezykpolski.istockphoto.com/file_thumbview_approve/7384989/2/istockphoto_7384989-mid-thirties-female-professional.jpg") %>
-<!-- http://jezykpolski.istockphoto.com/stock-photo-7384989-mid-thirties-female-professional.php?st=3bc574c -->
-
-<h4>Companies and Employees</h4>
-<p>Better qualifications.</p>
-
+<div class="grid_3">
+  <%= link_to image_tag("http://localhost:3000/system/users/avatars/1/thumb/teacher.jpg"), "" %>
+  <h3><%= link_to "Name name", "" %></h3>
+  <p class="tagline">Studio Production</p>
 </div>
 
-<div class="benefit">
+<div class="grid_3">
+  <%= link_to image_tag("http://localhost:3000/system/users/avatars/1/thumb/teacher.jpg"), "" %>
+  <h3>Name Name</h3>
+  <p class="tagline">Postproduction</p>
+</div>
 
-<%= image_tag ("http://jezykpolski.istockphoto.com/file_thumbview_approve/9129801/2/istockphoto_9129801-senior-couple.jpg") %>
-<!-- http://jezykpolski.istockphoto.com/stock-photo-9129801-senior-couple.php?st=6bb421f -->
+<div class="grid_3">
+  <%= link_to image_tag("http://localhost:3000/system/users/avatars/1/thumb/teacher.jpg"), "" %>
+  <h3>Krzysiek Streflik</h3>
+  <p class="tagline">Programming</p>
+</div>
 
-<h4>Seniors (50+)</h4>
-<p>More passion in life.</p>
+<div class="spacer"></div>
+
+<div class="grid_4">
+  <h2><a name="contact">Contact us</a></h2>
+  <p>
+  Bartek Rycharski<br />
+  <a href="mailto:bartek@ovlplatform.com">bartek@ovlplatform.com</a><br />
+  tel. + 48 604 099 886 
+  </p>
+</div>
+
+<div class="grid_4">
+  <h2>Company</h2>
+  <p>
+  Edu 2.0 Bartlomiej Rycharski<br>
+  Dabrowskiego 188/1<br>
+  60-594 Poznan, Poland<br>
+  VAT: 782-246-15-41<br>
+  </p>
+</div>
+
+<div class="grid_4">
+  <h2>Our Studio</h2>
+
+<iframe width="300" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=d%C4%85browskiego+188%2F1.+pozna%C5%84&amp;aq=&amp;sll=52.025459,19.204102&amp;sspn=9.184941,23.269043&amp;ie=UTF8&amp;hq=&amp;hnear=Jana+Henryka+D%C4%85browskiego+188,+Pozna%C5%84,+Wielkopolskie&amp;ll=52.417707,16.911736&amp;spn=0.041879,0.102997&amp;t=m&amp;z=12&amp;vpsrc=6&amp;output=embed"></iframe><br /><small><a href="http://maps.google.pl/maps?f=q&amp;source=embed&amp;hl=pl&amp;geocode=&amp;q=d%C4%85browskiego+188%2F1.+pozna%C5%84&amp;aq=&amp;sll=52.025459,19.204102&amp;sspn=9.184941,23.269043&amp;ie=UTF8&amp;hq=&amp;hnear=Jana+Henryka+D%C4%85browskiego+188,+Pozna%C5%84,+Wielkopolskie&amp;ll=52.417707,16.911736&amp;spn=0.041879,0.102997&amp;t=m&amp;z=12&amp;vpsrc=6" style="color:#0000FF;text-align:left">Wyświetl większą mapę</a></small>
 
 </div>
 
-<div class="spacer inside"></div>
+<%  else %>
 
-<ul class="loves">
-
-  <li class="content">
-    <h4>Great content</h4>
-    <p>100% of videos are based on reliable, actual knowledge from<br />
-       <%= link_to "world-class teachers", users_path %>.</p>
-  </li>
-
-  <li class="quality">
-    <h4>Amazing video quality</h4>
-    <p>Our studio works 24/7. You will be amazed what you see on our<br />
-       <%= link_to "well-prepared videos", videos_path %>.</p>
-  </li>
-
-  <li class="lowprice">
-    <h4>Low price</h4>
-    <p>From 3$ for 30 days access to lesson in pay-as-you-go model.</p>
-  </li>
-
-  <li class="translations">
-    <h4>Translations to other languages</h4>
-    <p>Everything is translated to English<br /> and Polish (more soon).</p>
-  </li>
-
-  <li class="topics">
-    <h4>Variety of specific topics</h4>
-    <p>Open your mind for the <br/>discovery of new things.</p>
-  </li>
-
-  <li class="disqussions">
-    <h4>International community</h4>
-    <p>Disqus in comments with teachers and learners from all over the world.</p>
-  </li>
-
-</ul>
-
-<div class="spacer inside"></div>
-
-<h3>How to use it? It's very easy.</h3>
-
-<ul class="steps">
-
-  <li>
-    <%#= image_tag("about/steps/learners/1_signup.jpg") %>
-    <h4><span>1</span> Buy some OVL Credits</h4>
-    <p>10/50/100 Credits for 10/50/100$. <a href="#credits">More info &raquo;</a></p>
-  </li>
-
-  <li>
-    <%#= image_tag("about/steps/learners/1_signup.jpg") %>
-    <h4><span>2</span> Unlock desired videolessons!</h4>
-    <p>Watch videos, read extras materials, disqus in comments and share with your friends!</p>
-  </li>
-
-</ul>
-
-<div class="spacer inside"></div>
-
-<h3><a name="credits">What are the &quot;OVL Credits&quot; and how to use it?</a></h3>
-
-<p>OVL Credits are virtual currency used for super-easy lessons unlocking. It works the same as pre-paid phones &ndash; buy some Credits and then use it on what you need and when you need. 
-It doesn't expire in time and there are no monthly costs.  
-<% if user_signed_in? %>
-All payments and unlocks are listed in <%= link_to (t("users.nav.hub"), hub_user_path(current_user))%>.<br />
-<strong><%= link_to(t("users.nav.credits"), credits_user_path(current_user)) %></strong>
-<% else %>
-All payments and unlocks are listed in Your Hub.<br />
-<strong><%= link_to "Sign up", new_user_registration_path %></strong> to buy some OVL Credits
-<% end %>
-and start learning today!
-</p>
-
-<p>If you have any questions &ndash; please <a href="#contact">contact us</a>.</p>
-
-<div class="spacer inside"></div>
-
-<h2>For Teachers</h2>
-
-<p>We are looking for passionate and experienced experts who want to earn by sharing their knowledge.<br/>
-We offer <strong>video production</strong>, <strong>global promotion</strong> and <strong>20% comision from all forms of distribution</strong>.</p>
-
-<p>OVL has a innovative business model where <strong>you focus only on scenarios of your lessons and interactions with your learners</strong>. We bare all the costs to guarantee the highest quality and to reach millions of people worldwide.</p>
-
-<p>We are open to every interesting topic &ndash; from school subjects like math or history to proffessional knowledge like programming or building. Just show us that you are really good in it! :-) But remember, every lesson has to be very specyfic and informative so "Battle of Britain" or even "Battle of Britain and the Polish Air Force" rather than "World War II".</p>
-
-<p>If you have an idea for your own lessons &ndash; please <a href="#contact">contact us by filling an application</a>.</p>
-
-<div class="spacer inside"></div>
-
-<h2>The Team</h2>
-
-<div class="founder">
-<%= image_tag("bartek.png", :alt => "Bartek Rycharski") %>
-<h3>Bartek Rycharski</h3>
-<p class="tagline">CEO / Content Manager</p>
+<div class="grid_12">
+  <h1>Czym jest OVL?</h1>
 </div>
 
-<div class="founder center">
-<%= image_tag("wojtek.png", :alt => "Wojtek Holysz") %>
-<h3>Wojtek Holysz</h3>
-<p class="tagline">Production Manager</p>
+<div class="grid_6">
+  <div class="intro">
+    <p>OVL tworzy <strong><%= link_to "wysokiej jakości wideolekcje", videos_path %></strong>, które pomagają rozwijać Twoje kompetencje zawodowe.
+    Wszystkie wideolekcje są przygotowywane przez <strong><%= link_to "doświadczonych ekspertów", users_path %></strong> w naszym studiu w Poznaniu.</p>
+    <p>Gdziekolwiek i kiedykolwiek od 3$ za wideolekcję.<br /> 
+    Ucz się. Rozwijaj się. <strong class="vision">Zostań kim chcesz</strong>.</p>
+    <p>OVL znaczy "Open Video Learning", ponieważ jesteśmy międzynarodowym projektem otwartym na wszystkie zawody.</p>
+  </div>
 </div>
 
-<div class="founder">
-<%= image_tag("tomek.png", :alt => "Tomek Gestwicki") %>
-<h3>Tomek Gestwicki</h3>
-<p class="tagline">Post Production Manager</p>
+<div class="grid_6">
+  <div class="player">
+    <iframe width="440" height="277" src="http://www.youtube.com/embed/SaOFuW011G8" frameborder="0" allowfullscreen></iframe>
+  </div>
 </div>
 
-<div class="founder">
-<%= image_tag("avatar.png") %>
-<h3>Work with us!</h3>
-<p class="tagline">Promotion Manager</p>
+<div class="spacer"></div>
+
+<div class="grid_4">
+  <div class="value content">
+    <h3>Świetna Treść</h3>
+    <ul>
+      <li>wiarygodna wiedza od ekspertów</li>
+      <li>odpowiedzi na konkretne problemy</li>
+      <li>ciągłe aktualizacje</li>
+    </ul>
+  </div>
 </div>
 
-<div class="founder center">
-<%= image_tag("avatar.png") %>
-<h3>Work with us!</h3>
-<p class="tagline">Ruby on Rails Developer</p>
+<div class="grid_4">
+  <div class="value form">
+    <h3>Atrakcyjna Forma</h3>
+    <ul>
+      <li>profesjonalne 15-30 minutowe filmy</li>
+      <li>grafiki dla lepszego zrozumienia</li>
+      <li>materiały dodatkowe, komentarze, testy</li>
+    </ul>
+  </div>
 </div>
 
-<div class="founder">
-<%= image_tag("avatar.png") %>
-<h3>Work with us!</h3>
-<p class="tagline">Polish-English Translator</p>
+<div class="grid_4">
+  <div class="value availability">
+    <h3>Duża Dostępność</h3>
+    <ul>
+      <li>niska cena w modelu "płacisz kiedy chcesz"</li>
+      <li>tłumaczenia na jezyk polski i angielski</li>
+      <li>interaktywne dyskusje w komentarzach</li>
+    </ul>
+  </div>
 </div>
 
-<!-- 
-<h3>Our studio in Poznan, Poland</h3>
+<div class="spacer"></div>
 
-<div class="studio">
-<%= link_to image_tag("about/steps/learners/1_signup.jpg"), "/images/about/steps/learners/1_signup_big.jpg" %>
-<%= link_to image_tag("about/steps/learners/1_signup.jpg", :class=>"center"), "/images/about/steps/learners/1_signup_big.jpg" %>
-<%= link_to image_tag("about/steps/learners/1_signup.jpg"), "/images/about/steps/learners/1_signup_big.jpg" %>
+<div class="grid_6">
+  <h2>Jaki problem rozwiązuje OVL?</h2>
+  <p>Chcemy rozwiązać problem braku wiarygodnej, uporządkowanej<br /> i niedrogiej wiedzy zawodowej.</p>
 </div>
 
--->
+<div class="grid_6">
+  <h2>Dla kogo jest OVL?</h2>
+  <p>Nasi użytkownicy to samoucy w wieku 16-65 lat pracujący<br /> w zawodach wymagających specjalistycznej wiedzy.</p>
+</div>
 
-<div class="spacer inside"></div>
+<div class="hide">
 
-<h2><a name="contact">Contact us</a></h2>
+<div class="spacer"></div>
 
-<div class="left">
+<div class="grid_12">
+  <h2>Jak odblokowywać wideolekcje?</h2>
+</div>
 
-<h3>Help &amp; Cooperation</h3>
+<div class="grid_6">
 
-<p>
-Bartek Rycharski &ndash; CEO<br />
-<a href="mailto:bartek@ovlplatform.com">bartek@ovlplatform.com</a><br />
-tel. + 48 604 099 886 (Poland) 
-</p>
+<h3>1. Kup OVL Punkty</h3>
+<p>OVL Punkty to wirtualna waluta dla łatwego odblokowywania lekcji.<br /> 
+Kup trochę OVL Punktów i wykorzystaj je na co chcesz i kiedy chcesz.<br />
+1 OVL Punkt kosztuje 1 $ (ok. 3 zł).</p>
 
-<h3>Company</h3>
+<h3>2. Odblokuj wybrane wideolekcje</h3>
+<p>Kkliknij duży, czerwony przycisk "Odblokuj Pełną Wersję Teraz".</p>
 
-<p>
-Edu 2.0 Bartlomiej Rycharski<br>
-Dabrowskiego 188/1<br>
-60-594 Poznan, Poland<br>
-VAT: 782-246-15-41<br>
-</p>
+<h3>3. Rozpocznij naukę!</h3>
+<p>Oglądaj video, czytaj materiały dodatkowe, dyskutuj w komentarzach.</p>
 
 </div>
 
-<div class="right">
-<h3>Feel invited for a cup of coffee :-)</h3>
-
-<iframe width="400" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=d%C4%85browskiego+188%2F1.+pozna%C5%84&amp;aq=&amp;sll=52.025459,19.204102&amp;sspn=9.184941,23.269043&amp;ie=UTF8&amp;hq=&amp;hnear=Jana+Henryka+D%C4%85browskiego+188,+Pozna%C5%84,+Wielkopolskie&amp;ll=52.05249,12.128906&amp;spn=35.983123,57.832031&amp;z=3&amp;output=embed"></iframe>
+<div class="grid_6">
+  <%= image_tag("icons/sscissor.png") %>
 </div>
 
-<div class="spacer inside"></div>
+</div>
 
-<script type="text/javascript">var host = (("https:" == document.location.protocol) ? "https://secure." : "http://");document.write(unescape("%3Cscript src='" + host + "wufoo.com/scripts/embed/form.js' type='text/javascript'%3E%3C/script%3E"));</script>
+<div class="spacer"></div>
 
-<script type="text/javascript">
-var r7x3a7 = new WufooForm();
-r7x3a7.initialize({
-'userName':'filmpoint', 
-'formHash':'r7x3a7', 
-'autoResize':true,
-'height':'1003',
-'header':'show'});
-r7x3a7.display();
-</script>
+<div class="grid_12">
+  <p class="start learning">
+  <% if user_signed_in? %>
+    <%= link_to "Zobacz pierwsze wideolekcje i rozpocznij naukę!", videos_path %>
+  <% else %>
+    <%= link_to "Zobacz pierwsze wideolekcje i rozpocznij naukę!", videos_path %>
+  <% end %>
+  </p>
+</div>
 
-<% end %>
+<div class="spacer"></div>
+
+<div class="grid_12">
+  <h2><a name="teachers">Jak dołączyć do Nauczycieli OVL?</a></h2>
+</div>
+
+<div class="grid_12">
+
+  <div class="quote">
+    <p>&quot;Zawsze chciałem dzielić się moją wiedzą i zarabić na tym trochę pieniędzy, ale nie mogłem znaleźć platform, 
+       które spełniały moje oczekiwania. Dlatego wymyśliłem OVL i zakochałem się w tym.&quot;</p>
+    <p class="author">&ndash; Bartek Rycharski, Założyciel i Nauczyciel OVL</p>
+  </div>
+
+  <p>Oferujemy Ci unikalną szansę nauczania tysięcy ludzi tematów, które kochasz.<br />
+     Ty tworzysz treść, my zajmujemy się całą produkcją video, tłumaczeniami i promocją.</p>
+
+  <h3>Co oferujemy?</h3>
+  <ul>
+    <li>20% prowizja ze sprzedaży odblokowań do Twoich wideolekcji,</li>
+    <li>międzynardowa promocja Ciebie i Twojej wiedzy,</li>
+    <li>profesjonalna i szybka produkcja wideo w naszym studiu w Poznaniu,</li>
+    <li>pełne wsparcie na wszystkich etapach procesu,</li>
+    <li>bezpłatny dostęp do wszystkich wideolekcji na ovlplatform.com,</li>
+    <li>zwrot wszystkich kosztów poniesionych na dojazd do naszego studia.</li>
+  </ul> 
+
+  <h3>Czego wymagamy?</h3>
+  <ul> 
+    <li>pożyteczna i aktualna wiedza poparta praktycznym doświadczeniem,</li>
+    <li>pasja do idei międzynarodowego dzielenia się wiedzą w formie wideolekcji,</li>
+    <li>konkretne tematy &ndash; każda wideolekcja to odpowiedź na konkretny problem,</li>
+    <li>doskonale przygotowane scenariusze &ndash; możesz prowadzić od 2 do 10 30-minutowych wideolekcji,</li>
+    <li>opiekowanie się swoimi wideolekacjami aktualizując materiały i odpowiadając na komentarze,</li>
+    <li>zgoda na wykorzystywanie przez nas wizerunku w celach promocji OVL,</li>
+    <li>zgoda na zachowanie przez nas pełni autorskich praw majątkowych do wideo.</li>
+  </ul>
+
+  <h3>Jakie serie tematyczne nas najbardziej interesują?</h3>
+
+  <p>Produkcja Video, Produkcja Muzyki, Budownictwo, Medycyna, Informatyka, Gastronomia, Mechanika Samochodowa, Zarządzanie, 
+  Marketing, Finanse, Księgowość, Prawo, Matematyka, Fizyka, Biologia, Chemia, Genetyka, Statystyka, Historia, 
+  Obsługa Komputera, Języki Obce.</p>
+
+  <h3>Ile wideolekcji na serię tematyczną przewidujemy?</h3>
+
+  <p>Od 10 do 100 wideolekcji na serię tematyczną. Każdy Nauczyciel może prowadzić od 2 do 10 wideolekcji -
+  tylko na te tematy, w których ma największą wiedzę i doświadczenie. Przykładowo, jeśli chcesz uczyć o Starożytnym Rzymie w serii Historia, nie musisz
+  uczyć także o Rewolucji Przemysłowej albo II Wojnie Światowej &ndash; OVL to nie-szkoła i nie-podręcznik ;-)</p>
+
+  <h3>Jak wygląda proces tworzenia wideolekcji?</h3>
+
+  <ol class="production_process">
+    <li>Preprodukcja<br />
+        <span>opracowanie scenariuszy</span></li>
+    <li>Produkcja<br />
+       <span>nagranie wideo w naszym studiu</span></li>
+    <li>Postprodukcja<br />
+       <span>montaż i tłumaczenia</span></li>
+    <li>Promocja<br />
+      <span>realizowanie planu promocji</span></li>
+  </ol>
 
 </div>
+
+<div class="spacer"></div>
+
+<div class="grid_12">
+  <p class="start teaching">
+    <%= link_to "Aplikuj teraz i nauczaj!", "http://ovlplatform.wufoo.eu/forms/ovl-teacher-application/" %><br />
+  </p>
+  <!-- <p class="more">Ale najpierw zapoznaj się z <%= link_to "Poradnikiem jak tworzyć świetne wideolekcje", guide_path %>.</p> -->
 </div>
+
+<div class="spacer"></div>
+
+<div class="grid_12">
+  <h2>Kim jesteśmy?</h2>
+</div>
+
+<div class="grid_3">
+  <%= link_to image_tag("http://localhost:3000/system/users/avatars/1/thumb/teacher.jpg"), "" %>
+  <h3><%= link_to "Bartek Rycharski", "" %></h3>
+  <p class="tagline">CEO / Produkcja Contentu</p>
+</div>
+
+<div class="grid_3">
+  <%= link_to image_tag("http://localhost:3000/system/users/avatars/1/thumb/teacher.jpg"), "" %>
+  <h3><%= link_to "Name name", "" %></h3>
+  <p class="tagline">Produkcja Studyjna</p>
+</div>
+
+<div class="grid_3">
+  <%= link_to image_tag("http://localhost:3000/system/users/avatars/1/thumb/teacher.jpg"), "" %>
+  <h3>Name Name</h3>
+  <p class="tagline">Postprodukcja</p>
+</div>
+
+<div class="grid_3">
+  <%= link_to image_tag("http://localhost:3000/system/users/avatars/1/thumb/teacher.jpg"), "" %>
+  <h3>Krzysiek Streflik</h3>
+  <p class="tagline">Programowanie</p>
+</div>
+
+<div class="spacer"></div>
+
+<div class="grid_4">
+  <h2><a name="contact">Skontaktuj się</a></h2>
+  <p>
+  Bartek Rycharski<br />
+  <a href="mailto:bartek@ovlplatform.com">bartek@ovlplatform.com</a><br />
+  tel. + 48 604 099 886 
+  </p>
+</div>
+
+<div class="grid_4">
+  <h2>Firma</h2>
+  <p>
+  Edu 2.0 Bartłomiej Rycharski<br>
+  Dąbrowskiego 188/1<br>
+  60-594 Poznań<br>
+  NIP: 782-246-15-41<br>
+  </p>
+</div>
+
+<div class="grid_4">
+  <h2>Nasze Studio</h2>
+
+<iframe width="300" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=d%C4%85browskiego+188%2F1.+pozna%C5%84&amp;aq=&amp;sll=52.025459,19.204102&amp;sspn=9.184941,23.269043&amp;ie=UTF8&amp;hq=&amp;hnear=Jana+Henryka+D%C4%85browskiego+188,+Pozna%C5%84,+Wielkopolskie&amp;ll=52.417707,16.911736&amp;spn=0.041879,0.102997&amp;t=m&amp;z=12&amp;vpsrc=6&amp;output=embed"></iframe><br /><small><a href="http://maps.google.pl/maps?f=q&amp;source=embed&amp;hl=pl&amp;geocode=&amp;q=d%C4%85browskiego+188%2F1.+pozna%C5%84&amp;aq=&amp;sll=52.025459,19.204102&amp;sspn=9.184941,23.269043&amp;ie=UTF8&amp;hq=&amp;hnear=Jana+Henryka+D%C4%85browskiego+188,+Pozna%C5%84,+Wielkopolskie&amp;ll=52.417707,16.911736&amp;spn=0.041879,0.102997&amp;t=m&amp;z=12&amp;vpsrc=6" style="color:#0000FF;text-align:left">Wyświetl większą mapę</a></small>
+
+</div>
+
+<%  end %>
+
+

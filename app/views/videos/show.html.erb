@@ -47,7 +47,7 @@
     </div>
 
     <div class="twit">
-      <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= video_url(@video) %>" data-count="horizontal" data-via="ovl">Tweet</a>
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= video_url(@video) %>" data-count="horizontal" data-via="ovlplatform">Tweet</a>
     </div>
 
   </div>
@@ -66,6 +66,8 @@
       <%= content_tag(:div, raw(auto_link(@video.description_paid)), :class=>"description") %>
     <% end %>
   <% end %>
+
+  <div class="clear"></div>
 
   <div class="spacer inside"></div>
 
@@ -231,7 +233,7 @@
 
 <meta property="og:title" content="<%= @video.name + ' - ' + t('short') %>"/>
 <meta property="og:type" content="article"/>
-<meta property="og:image" content="http://ovlplatform.com<%= @video.thumb.url(:normal) %>"/>
+<meta property="og:image" content="http://ovlplatform.com<%= image_path(@video.thumb.url(:mini)) %>"/>
 <meta property="og:url" content="<%= video_url(@video) %>"/>
 <meta property="og:site_name" content="<%= t('short') %>"/>
 <meta property="og:description" content="<%= @video.summary %>"/>

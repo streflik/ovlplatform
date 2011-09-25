@@ -2,6 +2,8 @@
 
 <h1><%= yield(:title) %></h1>
 
+<% if is_admin? %>
+
 <%= simple_form_for(@payment) do |f| %>
 
   <%= f.error_notification %>
@@ -30,6 +32,12 @@
   <div class="actions">
     <%= f.button :submit, :class=> "button buy" %>
   </div>
+
+<% end %>
+
+<% else %>
+
+<h2><%= t("all_free") %></h2>
 
 <% end %>
 

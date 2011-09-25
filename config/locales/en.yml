@@ -9,11 +9,14 @@ en:
   short: "OVL"
 
   meta:
-    description: "OVL is a source of knowledge that helps you become who you want to be. Learn from the best teachers, today!"
+    description: "OVL is a source of knowledge that helps you develop your professional competence. Learn from the best teachers, today!"
 
   header:
     sign_in: "Sign in"
     sign_up: "Join OVL"
+
+  beta: "We have started on 27.09.2011 and we are in BETA. We are testing everything for final launch. Follow our progress on"
+  all_free: "We are in BETA right now and all first videolessons are FREE! :-)"
 
 # flash
 
@@ -38,15 +41,15 @@ en:
   home:
     link_to: "Home"
     intro:
-      heading: "OVL is a source of knowledge that helps you<br /> <span class='vision'>become who you want to be.</span>"
+      heading: "<span class='vision'>Become who you want to be.</span>"
       summary: "
-        <p>We create <strong>high-quality videolessons</strong> on variety of specific topics from basic to professional knowledge.<p>
-        <p>Learn from the best teachers, today!</p>
+        <p>OVL creates <strong>high-quality videolessons</strong> that help you develop your professional competence.<p>
+        <p>Learn and teach topics that you love.</p>
         <p>Available in 
           <span class='en'><a href='/en'>English</a></span> and 
           <span class='pl'><a href='/pl'>Polish</a></span>.</p>"
-      wanna_learn: "Wanna learn?"
-      wanna_teach: "Wanna teach?"
+      wanna_learn: "Want to learn?"
+      wanna_teach: "Want to teach?"
       contact_us: "Contact us"
       sign_up: "Sign up"
       or: "or"
@@ -57,6 +60,9 @@ en:
   about:
     link_to: "How it works"
     title: "How it works"
+  guide:
+    link_to: "Guide"
+    title: "How to create great videolessons? - Guide for OVL Teachers"   
   terms:
     link_to: "Terms of Use"
     title: "Terms of Use"   
@@ -79,7 +85,7 @@ en:
     access:
       price: "%{price} Credits"
       days: "for %{days} days" 
-      free: "This videolesson is free!"
+      free: "Free Videolesson!"
     unlock:
       is_subscriber: "Wooha! You have free and unlimited access to all videolessons."
       enough_credits: "You have enough OVL Credits."
@@ -124,6 +130,10 @@ en:
     all_counted: "All teachers (%{number})"
     sign_in_to_see_email: "Sign in to see an email."
     write_to: "How can I help you?"
+
+  join:
+    link: "Join OVL Teachers"
+    tagline: "Commision, Video Production, International Promotion"
 
 # users
 

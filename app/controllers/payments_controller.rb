@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :verify_admin
 
   def create
     @payment = Payment.create(params[:payment]) do |t|
